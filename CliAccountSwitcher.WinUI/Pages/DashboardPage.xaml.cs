@@ -44,6 +44,14 @@ public sealed partial class DashboardPage : Page
             };
             await addOpenCodeGoAccountDialog.ShowAsync();
         }
+        else if (selectedProviderKind == CliProviderKind.Neuralwatt)
+        {
+            var addNeuralwattAccountDialog = new CliAccountSwitcher.WinUI.Dialogs.AddNeuralwattAccountDialog
+            {
+                XamlRoot = XamlRoot
+            };
+            await addNeuralwattAccountDialog.ShowAsync();
+        }
         else
         {
             var addAccountDialog = new CliAccountSwitcher.WinUI.Dialogs.AddAccountDialog

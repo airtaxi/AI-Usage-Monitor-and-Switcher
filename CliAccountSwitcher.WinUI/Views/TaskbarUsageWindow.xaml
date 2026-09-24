@@ -7,7 +7,6 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ex="using:WinUIEx"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    x:Uid="TaskbarUsageWindow"
     Closed="OnTaskbarUsageWindowClosed"
     mc:Ignorable="d">
     <Window.SystemBackdrop>

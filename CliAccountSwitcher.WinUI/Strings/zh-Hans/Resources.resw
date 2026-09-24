@@ -89,7 +89,7 @@
     <value>Howon Lee (airtaxi)</value>
   </data>
   <data name="AboutPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>在 Windows 任务栏查看 AI 编程账号的用量及重置周期内的使用进度，并切换 Codex、Claude Code、Z.ai、OpenCode Go 和 Ollama 账号。</value>
+    <value>在 Windows 任务栏查看 AI 编程账号的用量及重置周期内的使用进度，并切换 Codex、Claude Code、Z.ai、OpenCode Go、Ollama 和 Neuralwatt 账号。</value>
   </data>
   <data name="AboutPage_GitHubRepositoryButtonTextBlock.Text" xml:space="preserve">
     <value>打开仓库</value>
@@ -250,11 +250,17 @@
   <data name="AccountsPage_ImportBackupTextBlock.Text" xml:space="preserve">
     <value>导入备份</value>
   </data>
+  <data name="AccountsPage_NeuralwattBackupFileTypeChoice" xml:space="preserve">
+    <value>Neuralwatt 备份 (.nwb)</value>
+  </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_ClaudeCode.Text" xml:space="preserve">
     <value>点击“添加账号”登录 Claude Code 或加载认证信息。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Codex.Text" xml:space="preserve">
     <value>点击“添加账号”登录 Codex 或加载认证文件。</value>
+  </data>
+  <data name="AccountsPage_NoAccountsDescriptionTextBlock_Neuralwatt.Text" xml:space="preserve">
+    <value>点击“添加账号”添加 Neuralwatt API 密钥。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Ollama.Text" xml:space="preserve">
     <value>使用添加帐户登录 Ollama。</value>
@@ -424,6 +430,45 @@
   <data name="AddAccountDialog_OAuthSelectorBarItem.Text" xml:space="preserve">
     <value>OAuth</value>
   </data>
+  <data name="AddNeuralwattAccountDialog.CloseButtonText" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog.Title" xml:space="preserve">
+    <value>添加 Neuralwatt 账户</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_AddButtonTextBlock.Text" xml:space="preserve">
+    <value>添加</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_AliasHeaderTextBlock.Text" xml:space="preserve">
+    <value>标签（可选）</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_AliasTextBox.PlaceholderText" xml:space="preserve">
+    <value>例如：个人</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ApiKeyHeaderTextBlock.Text" xml:space="preserve">
+    <value>API 密钥</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ApiKeyNoticeTextBlock.Text" xml:space="preserve">
+    <value>Neuralwatt 使用量通过 API 密钥读取。密钥失效时，账户将标记为已过期，您需要重新添加。</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ApiKeyPasswordBox.PlaceholderText" xml:space="preserve">
+    <value>粘贴您的 Neuralwatt API 密钥</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_DescriptionTextBlock.Text" xml:space="preserve">
+    <value>粘贴 API 密钥以添加 Neuralwatt 账户。添加账户时会通过 Neuralwatt 配额 API 验证密钥。</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Message" xml:space="preserve">
+    <value>无法添加账户。请检查 API 密钥和网络连接后重试。</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
+    <value>无法添加账户</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyMessage" xml:space="preserve">
+    <value>Neuralwatt 拒绝了此 API 密钥。请检查密钥后重试。</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyTitle" xml:space="preserve">
+    <value>API 密钥无效</value>
+  </data>
   <data name="AddOllamaAccountDialog.CloseButtonText" xml:space="preserve">
     <value>关闭</value>
   </data>
@@ -455,7 +500,7 @@
     <value>当前账户</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>在 Windows 任务栏查看 AI 编程账号的用量及重置周期内的使用进度，并切换 Codex、Claude Code、Z.ai、OpenCode Go 和 Ollama 账号。</value>
+    <value>在 Windows 任务栏查看 AI 编程账号的用量及重置周期内的使用进度，并切换 Codex、Claude Code、Z.ai、OpenCode Go、Ollama 和 Neuralwatt 账号。</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
     <value>AI Usage Monitor &amp; Switcher</value>
@@ -514,6 +559,9 @@
   <data name="DashboardPage_ActiveAccountSectionTitleTextBlock.Text" xml:space="preserve">
     <value>活跃账号配额</value>
   </data>
+  <data name="DashboardPage_ActiveMonthlyUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>每月剩余</value>
+  </data>
   <data name="DashboardPage_ActiveMonthlyUsdCreditsLabelText" xml:space="preserve">
     <value>每月额度剩余</value>
   </data>
@@ -540,6 +588,12 @@
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>前往账号管理</value>
+  </data>
+  <data name="DashboardPage_MonthlyAverageUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>每月平均配额</value>
+  </data>
+  <data name="DashboardPage_MonthlyLowUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>每月低配额账号</value>
   </data>
   <data name="DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock.Text" xml:space="preserve">
     <value>每月额度平均剩余</value>
@@ -987,6 +1041,12 @@
   </data>
   <data name="Provider_CodexDisplayName" xml:space="preserve">
     <value>Codex</value>
+  </data>
+  <data name="Provider_NeuralwattComboBoxItem.Content" xml:space="preserve">
+    <value>Neuralwatt (只读)</value>
+  </data>
+  <data name="Provider_NeuralwattDisplayName" xml:space="preserve">
+    <value>Neuralwatt</value>
   </data>
   <data name="Provider_OllamaComboBoxItem.Content" xml:space="preserve">
     <value>Ollama (只读)</value>
@@ -1437,6 +1497,12 @@ Microsoft Store 中有 {0} 个可用更新。</value>
   <data name="SkillsPage_ModifiedHeaderTextBlock.Text" xml:space="preserve">
     <value>修改时间</value>
   </data>
+  <data name="SkillsPage_NeuralwattUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Neuralwatt 是只读提供者，不管理本地技能文件。请切换到 Codex、Claude Code 或 OpenCode Go 来管理技能。</value>
+  </data>
+  <data name="SkillsPage_NeuralwattUnsupportedTitleTextBlock.Text" xml:space="preserve">
+    <value>不支持技能管理</value>
+  </data>
   <data name="SkillsPage_NoFilteredSkillsDescriptionTextBlock.Text" xml:space="preserve">
     <value>请调整搜索文本。</value>
   </data>
@@ -1476,9 +1542,6 @@ Microsoft Store 中有 {0} 个可用更新。</value>
   <data name="TaskbarUsageControl_MonthlyCreditAmountFormat" xml:space="preserve">
     <value>{0} / {1}</value>
   </data>
-  <data name="TaskbarUsageControl_MonthlyCreditLabel" xml:space="preserve">
-    <value>每月</value>
-  </data>
   <data name="TaskbarUsageControl_PercentageDifferenceFormat" xml:space="preserve">
     <value>{0:+0;-0;0}%</value>
   </data>
@@ -1490,9 +1553,6 @@ Microsoft Store 中有 {0} 个可用更新。</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>
-  </data>
-  <data name="TaskbarUsageWindow.Title" xml:space="preserve">
-    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="ThirdPartyLicensePackage_WindowsAppSoftwareDevelopmentKitLicense" xml:space="preserve">
     <value>Microsoft Windows App SDK 许可条款</value>

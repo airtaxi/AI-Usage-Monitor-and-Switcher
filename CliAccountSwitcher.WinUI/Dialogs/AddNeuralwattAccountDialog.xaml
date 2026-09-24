@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentDialog
+    x:Class="CliAccountSwitcher.WinUI.Dialogs.AddNeuralwattAccountDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    x:Uid="AddNeuralwattAccountDialog"
+    Closing="OnAddNeuralwattAccountDialogClosing"
+    DefaultButton="Close"
+    Style="{StaticResource DefaultContentDialogStyle}"
+    mc:Ignorable="d">
+    <ContentDialog.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="ContentDialogMaxWidth">720</x:Double>
+        </ResourceDictionary>
+    </ContentDialog.Resources>
+
+    <Grid Width="560" RowSpacing="16">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TextBlock
+            x:Uid="AddNeuralwattAccountDialog_DescriptionTextBlock"
+            Grid.Row="0"
+            Foreground="{ThemeResource TextFillColorSecondaryBrush}"
+            TextWrapping="Wrap" />
+
+        <StackPanel Grid.Row="1" Spacing="6">
+            <TextBlock x:Uid="AddNeuralwattAccountDialog_ApiKeyHeaderTextBlock" FontWeight="SemiBold" />
+            <PasswordBox
+                x:Name="ApiKeyPasswordBox"
+                x:Uid="AddNeuralwattAccountDialog_ApiKeyPasswordBox"
+                MinWidth="480" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Spacing="6">
+            <TextBlock x:Uid="AddNeuralwattAccountDialog_AliasHeaderTextBlock" FontWeight="SemiBold" />
+            <TextBox
+                x:Name="AliasTextBox"
+                x:Uid="AddNeuralwattAccountDialog_AliasTextBox"
+                MinWidth="480" />
+        </StackPanel>
+
+        <StackPanel
+            Grid.Row="3"
+            Orientation="Horizontal"
+            Spacing="8">
+            <Button
+                x:Name="AddAccountButton"
+                Click="OnAddAccountButtonClicked"
+                Style="{StaticResource AccentButtonStyle}">
+                <StackPanel Orientation="Horizontal" Spacing="6">
+                    <FontIcon FontSize="14" Glyph="&#xE710;" />
+                    <TextBlock x:Uid="AddNeuralwattAccountDialog_AddButtonTextBlock" />
+                </StackPanel>
+            </Button>
+            <ProgressRing
+                x:Name="ValidationProgressRing"
+                Width="24"
+                Height="24"
+                IsActive="False"
+                Visibility="Collapsed" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="4" Spacing="8">
+            <TextBlock
+                x:Uid="AddNeuralwattAccountDialog_ApiKeyNoticeTextBlock"
+                FontSize="12"
+                Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                TextWrapping="Wrap" />
+            <InfoBar
+                x:Name="ErrorInfoBar"
+                IsOpen="False"
+                Severity="Error" />
+        </StackPanel>
+    </Grid>
+</ContentDialog>

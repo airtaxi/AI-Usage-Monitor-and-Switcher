@@ -15,6 +15,7 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
 {
     private static readonly TimeSpan s_primaryUsageWindowDuration = TimeSpan.FromHours(5);
     private static readonly TimeSpan s_secondaryUsageWindowDuration = TimeSpan.FromDays(7);
+    private static readonly TimeSpan s_monthlyUsageWindowDuration = TimeSpan.FromDays(30);
 
     private readonly AccountServiceManager _accountServiceManager;
     private readonly ApplicationSettings _applicationSettings;
@@ -43,13 +44,20 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
     public partial bool HasPrimaryUsagePercentage { get; set; }
 
     [ObservableProperty]
+    public partial bool HasPrimaryUsagePacemaker { get; set; }
+
+    [ObservableProperty]
     public partial bool IsMonthlyUsage { get; set; }
 
     public bool IsLegacyUsageVisible => !IsMonthlyUsage;
 
-    public string MonthlyUsageLabelText => _localizationService.GetLocalizedString("TaskbarUsageControl_MonthlyCreditLabel");
+    public bool IsPrimaryUsageVisible => IsLegacyUsageVisible || IsMonthlyUsage;
+
+    public int PrimaryUsageRowSpan => IsMonthlyUsage ? 2 : 1;
 
     public string MonthlyUsageAmountText { get; private set; } = "";
+
+    public string? MonthlyUsageToolTipText => !IsMonthlyUsage ? null : string.IsNullOrWhiteSpace(MonthlyUsageAmountText) ? PrimaryUsageRemainingPercentageText : MonthlyUsageAmountText;
 
     [ObservableProperty]
     public partial bool HasSecondaryUsagePercentage { get; set; }
@@ -84,6 +92,8 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
 
     public bool IsSecondaryUsageBelowPacemaker => SecondaryUsagePacemakerDifferencePercentage < 0;
 
+    public bool IsPrimaryUsagePacemakerVisible => IsLegacyUsageVisible || HasPrimaryUsagePacemaker;
+
     public int PrimaryUsageRemainingProgressBarZIndex => UsagePacemakerHelper.GetRemainingProgressBarZIndex(PrimaryUsageRemainingPercentage, PrimaryUsagePacemakerPercentage, PrimaryUsagePacemakerDifferencePercentage);
 
     public int PrimaryUsagePacemakerProgressBarZIndex => UsagePacemakerHelper.GetPacemakerProgressBarZIndex(PrimaryUsageRemainingPercentage, PrimaryUsagePacemakerPercentage, PrimaryUsagePacemakerDifferencePercentage);
@@ -115,8 +125,8 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
     private void SetUsage(ProviderAccount activeAccount)
     {
         var snapshot = activeAccount?.LastProviderUsageSnapshot;
-        IsMonthlyUsage = activeAccount?.MonthlyUsedAmountUsd.HasValue == true && activeAccount.MonthlyLimitAmountUsd.HasValue && snapshot?.Monthly.RemainingPercentage >= 0 && snapshot.FiveHour.RemainingPercentage < 0 && snapshot.SevenDay.RemainingPercentage < 0;
-        MonthlyUsageAmountText = IsMonthlyUsage && activeAccount.MonthlyUsedAmountUsd is { } usedAmount && activeAccount.MonthlyLimitAmountUsd is { } limitAmount ? _localizationService.GetFormattedString("TaskbarUsageControl_MonthlyCreditAmountFormat", FormattableString.Invariant($"${usedAmount:0.00}"), FormattableString.Invariant($"${limitAmount:0.00}")) : "";
+        IsMonthlyUsage = snapshot?.Monthly.RemainingPercentage >= 0 && snapshot.FiveHour.RemainingPercentage < 0 && snapshot.SevenDay.RemainingPercentage < 0;
+        MonthlyUsageAmountText = IsMonthlyUsage && activeAccount?.MonthlyUsedAmountUsd is { } usedAmount && activeAccount.MonthlyLimitAmountUsd is { } limitAmount ? _localizationService.GetFormattedString("TaskbarUsageControl_MonthlyCreditAmountFormat", FormattableString.Invariant($"${usedAmount:0.00}"), FormattableString.Invariant($"${limitAmount:0.00}")) : "";
         SetPrimaryUsage(IsMonthlyUsage ? snapshot.Monthly : snapshot?.FiveHour);
         SetSecondaryUsage(IsMonthlyUsage ? null : snapshot?.SevenDay);
         RefreshComputedProperties();
@@ -152,13 +162,15 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
         {
             HasPrimaryUsagePercentage = providerUsageWindow?.RemainingPercentage >= 0;
             PrimaryUsageRemainingPercentage = HasPrimaryUsagePercentage ? Math.Clamp(providerUsageWindow.RemainingPercentage, 0, 100) : 0;
-            PrimaryUsagePacemakerPercentage = 0;
-            PrimaryUsagePacemakerDifferencePercentage = 0;
+            HasPrimaryUsagePacemaker = UsagePacemakerHelper.TryGetUsagePercentages(providerUsageWindow, s_monthlyUsageWindowDuration, out _, out var monthlyPacemakerPercentage, out var monthlyPacemakerDifferencePercentage);
+            PrimaryUsagePacemakerPercentage = monthlyPacemakerPercentage;
+            PrimaryUsagePacemakerDifferencePercentage = monthlyPacemakerDifferencePercentage;
             return;
         }
 
         var hasUsagePercentage = UsagePacemakerHelper.TryGetUsagePercentages(providerUsageWindow, s_primaryUsageWindowDuration, out var remainingPercentage, out var pacemakerPercentage, out var pacemakerDifferencePercentage);
         HasPrimaryUsagePercentage = hasUsagePercentage;
+        HasPrimaryUsagePacemaker = hasUsagePercentage;
         PrimaryUsageRemainingPercentage = remainingPercentage;
         PrimaryUsagePacemakerPercentage = pacemakerPercentage;
         PrimaryUsagePacemakerDifferencePercentage = pacemakerDifferencePercentage;
@@ -202,14 +214,17 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
     private void RefreshComputedProperties()
     {
         OnPropertyChanged(nameof(IsLegacyUsageVisible));
-        OnPropertyChanged(nameof(MonthlyUsageLabelText));
+        OnPropertyChanged(nameof(IsPrimaryUsageVisible));
+        OnPropertyChanged(nameof(PrimaryUsageRowSpan));
         OnPropertyChanged(nameof(MonthlyUsageAmountText));
+        OnPropertyChanged(nameof(MonthlyUsageToolTipText));
         OnPropertyChanged(nameof(PrimaryUsageRemainingPercentageText));
         OnPropertyChanged(nameof(PrimaryUsagePacemakerPercentageText));
         OnPropertyChanged(nameof(SecondaryUsageRemainingPercentageText));
         OnPropertyChanged(nameof(SecondaryUsagePacemakerPercentageText));
         OnPropertyChanged(nameof(IsPrimaryUsageBelowPacemaker));
         OnPropertyChanged(nameof(IsSecondaryUsageBelowPacemaker));
+        OnPropertyChanged(nameof(IsPrimaryUsagePacemakerVisible));
         OnPropertyChanged(nameof(PrimaryUsageRemainingProgressBarZIndex));
         OnPropertyChanged(nameof(PrimaryUsagePacemakerProgressBarZIndex));
         OnPropertyChanged(nameof(SecondaryUsageRemainingProgressBarZIndex));

@@ -74,6 +74,12 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
     public partial string MonthlyLowUsageAccountCountText { get; set; } = "";
 
     [ObservableProperty]
+    public partial string MonthlyLowUsageLabelText { get; set; } = "";
+
+    [ObservableProperty]
+    public partial string MonthlyAverageUsageLabelText { get; set; } = "";
+
+    [ObservableProperty]
     public partial bool HasActiveAccount { get; set; }
 
     [ObservableProperty]
@@ -96,6 +102,9 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
 
     [ObservableProperty]
     public partial bool IsActiveAccountMonthlyUsdUsage { get; set; }
+
+    [ObservableProperty]
+    public partial bool IsActiveAccountMonthlyOnlyUsage { get; set; }
 
     [ObservableProperty]
     public partial string ActiveAccountSecondaryUsageRemainingText { get; set; } = "";
@@ -157,7 +166,7 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
     [ObservableProperty]
     public partial bool HasNoLowUsageAccounts { get; set; } = true;
 
-    public bool IsActiveAccountEmailAddressVisible => _applicationSettings.SelectedProviderKind is not (CliProviderKind.Zai or CliProviderKind.OpenCodeGo);
+    public bool IsActiveAccountEmailAddressVisible => _applicationSettings.SelectedProviderKind is not (CliProviderKind.Zai or CliProviderKind.OpenCodeGo or CliProviderKind.Neuralwatt);
 
     public string RefreshAllAccountsLoadingMessage => _localizationService.GetLocalizedString("AccountsPage_RefreshAllAccountsLoadingMessage");
 
@@ -235,10 +244,14 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
 
     private void SetAverageUsageProperties(IReadOnlyList<ProviderAccountViewModel> accountViewModels)
     {
-        var legacyAccountViewModels = accountViewModels.Where(accountViewModel => !accountViewModel.IsMonthlyUsdUsage).ToList();
-        var monthlyAccountViewModels = accountViewModels.Where(accountViewModel => accountViewModel.HasMonthlyUsdCredits).ToList();
+        var legacyAccountViewModels = accountViewModels.Where(accountViewModel => !accountViewModel.IsMonthlyUsdUsage && !accountViewModel.HasMonthlyOnlyUsage).ToList();
+        var monthlyAccountViewModels = accountViewModels.Where(accountViewModel => accountViewModel.HasMonthlyUsdCredits || accountViewModel.HasMonthlyOnlyUsage).ToList();
         IsLegacyUsageSummaryVisible = legacyAccountViewModels.Count > 0 || monthlyAccountViewModels.Count == 0;
         IsMonthlyUsageSummaryVisible = monthlyAccountViewModels.Count > 0;
+
+        var hasMonthlyUsdCredits = monthlyAccountViewModels.Any(accountViewModel => accountViewModel.HasMonthlyUsdCredits);
+        MonthlyLowUsageLabelText = _localizationService.GetLocalizedString(hasMonthlyUsdCredits ? "DashboardPage_MonthlyUsdCreditsLowUsageLabelTextBlock.Text" : "DashboardPage_MonthlyLowUsageLabelTextBlock.Text");
+        MonthlyAverageUsageLabelText = _localizationService.GetLocalizedString(hasMonthlyUsdCredits ? "DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock.Text" : "DashboardPage_MonthlyAverageUsageLabelTextBlock.Text");
 
         var primaryAverageUsageRemainingPercentage = CalculateAverageUsageRemainingPercentage(legacyAccountViewModels, accountViewModel => accountViewModel.ProviderUsageSnapshot.FiveHour.RemainingPercentage);
         var secondaryAverageUsageRemainingPercentage = CalculateAverageUsageRemainingPercentage(legacyAccountViewModels, accountViewModel => accountViewModel.ProviderUsageSnapshot.SevenDay.RemainingPercentage);
@@ -254,9 +267,9 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
 
     private void SetLowUsageSummaryProperties(IReadOnlyList<ProviderAccountViewModel> accountViewModels)
     {
-        var primaryLowUsageAccountCount = accountViewModels.Count(accountViewModel => !accountViewModel.IsMonthlyUsdUsage && accountViewModel.IsPrimaryUsageUnderWarningThreshold);
-        var secondaryLowUsageAccountCount = accountViewModels.Count(accountViewModel => !accountViewModel.IsMonthlyUsdUsage && accountViewModel.IsSecondaryUsageUnderWarningThreshold);
-        var monthlyLowUsageAccountCount = accountViewModels.Count(accountViewModel => accountViewModel.HasMonthlyUsdCredits && accountViewModel.IsMonthlyUsageUnderWarningThreshold);
+        var primaryLowUsageAccountCount = accountViewModels.Count(accountViewModel => !accountViewModel.IsMonthlyUsdUsage && !accountViewModel.HasMonthlyOnlyUsage && accountViewModel.IsPrimaryUsageUnderWarningThreshold);
+        var secondaryLowUsageAccountCount = accountViewModels.Count(accountViewModel => !accountViewModel.IsMonthlyUsdUsage && !accountViewModel.HasMonthlyOnlyUsage && accountViewModel.IsSecondaryUsageUnderWarningThreshold);
+        var monthlyLowUsageAccountCount = accountViewModels.Count(accountViewModel => (accountViewModel.HasMonthlyUsdCredits || accountViewModel.HasMonthlyOnlyUsage) && accountViewModel.IsMonthlyUsageUnderWarningThreshold);
 
         PrimaryLowUsageAccountCountText = FormatLowUsageAccountCount(primaryLowUsageAccountCount);
         SecondaryLowUsageAccountCountText = FormatLowUsageAccountCount(secondaryLowUsageAccountCount);
@@ -272,6 +285,7 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
         ActiveAccountEmailAddressText = activeAccountViewModel?.EmailAddress ?? "";
         ActiveAccountPlanText = activeAccountViewModel?.PlanText ?? "";
         IsActiveAccountMonthlyUsdUsage = activeAccountViewModel?.IsMonthlyUsdUsage == true;
+        IsActiveAccountMonthlyOnlyUsage = activeAccountViewModel?.HasMonthlyOnlyUsage == true;
         ActiveAccountPrimaryUsageDetailText = activeAccountViewModel?.PrimaryUsageResetText ?? "";
         ActiveAccountPrimaryUsageRemainingText = activeAccountViewModel?.PrimaryUsageRemainingText ?? _localizationService.GetLocalizedString("ProviderAccountViewModel_UnknownUsage");
         ActiveAccountSecondaryUsageRemainingText = activeAccountViewModel?.SecondaryUsageRemainingText ?? _localizationService.GetLocalizedString("ProviderAccountViewModel_UnknownUsage");
@@ -329,7 +343,7 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
 
     private static int ClampUsageRemainingPercentage(int usageRemainingPercentage) => usageRemainingPercentage < 0 ? 0 : Math.Clamp(usageRemainingPercentage, 0, 100);
 
-    private string GetProviderDisplayName(CliProviderKind providerKind) => providerKind switch { CliProviderKind.ClaudeCode => _localizationService.GetLocalizedString("Provider_ClaudeCodeDisplayName"), CliProviderKind.Zai => _localizationService.GetLocalizedString("Provider_ZaiDisplayName"), CliProviderKind.OpenCodeGo => _localizationService.GetLocalizedString("Provider_OpenCodeGoDisplayName"), CliProviderKind.Ollama => _localizationService.GetLocalizedString("Provider_OllamaDisplayName"), _ => _localizationService.GetLocalizedString("Provider_CodexDisplayName") };
+    private string GetProviderDisplayName(CliProviderKind providerKind) => providerKind switch { CliProviderKind.ClaudeCode => _localizationService.GetLocalizedString("Provider_ClaudeCodeDisplayName"), CliProviderKind.Zai => _localizationService.GetLocalizedString("Provider_ZaiDisplayName"), CliProviderKind.OpenCodeGo => _localizationService.GetLocalizedString("Provider_OpenCodeGoDisplayName"), CliProviderKind.Ollama => _localizationService.GetLocalizedString("Provider_OllamaDisplayName"), CliProviderKind.Neuralwatt => _localizationService.GetLocalizedString("Provider_NeuralwattDisplayName"), _ => _localizationService.GetLocalizedString("Provider_CodexDisplayName") };
 
     private static DateTimeOffset? GetUsageResetAt(ProviderUsageWindow providerUsageWindow)
     {

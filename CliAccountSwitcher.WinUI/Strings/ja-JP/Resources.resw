@@ -89,7 +89,7 @@
     <value>Howon Lee (airtaxi)</value>
   </data>
   <data name="AboutPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>AI コーディングアカウントの使用量とリセットまでの利用ペースを Windows タスクバーで確認し、Codex、Claude Code、Z.ai、OpenCode Go、Ollama のアカウントを切り替えられます。</value>
+    <value>AI コーディングアカウントの使用量とリセットまでの利用ペースを Windows タスクバーで確認し、Codex、Claude Code、Z.ai、OpenCode Go、Ollama、Neuralwatt のアカウントを切り替えられます。</value>
   </data>
   <data name="AboutPage_GitHubRepositoryButtonTextBlock.Text" xml:space="preserve">
     <value>リポジトリを開く</value>
@@ -250,11 +250,17 @@
   <data name="AccountsPage_ImportBackupTextBlock.Text" xml:space="preserve">
     <value>バックアップをインポート</value>
   </data>
+  <data name="AccountsPage_NeuralwattBackupFileTypeChoice" xml:space="preserve">
+    <value>Neuralwatt バックアップ (.nwb)</value>
+  </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_ClaudeCode.Text" xml:space="preserve">
     <value>アカウント追加ボタンから Claude Code にログインするか、認証情報を読み込んでください。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Codex.Text" xml:space="preserve">
     <value>アカウント追加ボタンから Codex にログインするか、認証ファイルを読み込んでください。</value>
+  </data>
+  <data name="AccountsPage_NoAccountsDescriptionTextBlock_Neuralwatt.Text" xml:space="preserve">
+    <value>アカウント追加から Neuralwatt API キーを追加してください。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Ollama.Text" xml:space="preserve">
     <value>アカウント追加で Ollama にログインします。</value>
@@ -424,6 +430,45 @@
   <data name="AddAccountDialog_OAuthSelectorBarItem.Text" xml:space="preserve">
     <value>OAuth</value>
   </data>
+  <data name="AddNeuralwattAccountDialog.CloseButtonText" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog.Title" xml:space="preserve">
+    <value>Neuralwatt アカウント追加</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_AddButtonTextBlock.Text" xml:space="preserve">
+    <value>追加</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_AliasHeaderTextBlock.Text" xml:space="preserve">
+    <value>ラベル (任意)</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_AliasTextBox.PlaceholderText" xml:space="preserve">
+    <value>例: 個人</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ApiKeyHeaderTextBlock.Text" xml:space="preserve">
+    <value>API キー</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ApiKeyNoticeTextBlock.Text" xml:space="preserve">
+    <value>Neuralwatt の使用量は API キーで読み取られます。キーが無効になるとアカウントは期限切れとして表示され、再度追加する必要があります。</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ApiKeyPasswordBox.PlaceholderText" xml:space="preserve">
+    <value>Neuralwatt API キーを貼り付け</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_DescriptionTextBlock.Text" xml:space="preserve">
+    <value>API キーを貼り付けて Neuralwatt アカウントを追加します。アカウント追加時に Neuralwatt クォータ API でキーを検証します。</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Message" xml:space="preserve">
+    <value>アカウントを追加できませんでした。API キーとネットワーク接続を確認して再試行してください。</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
+    <value>アカウントを追加できません</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyMessage" xml:space="preserve">
+    <value>Neuralwatt がこの API キーを拒否しました。キーを確認して再試行してください。</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyTitle" xml:space="preserve">
+    <value>無効な API キー</value>
+  </data>
   <data name="AddOllamaAccountDialog.CloseButtonText" xml:space="preserve">
     <value>閉じる</value>
   </data>
@@ -455,7 +500,7 @@
     <value>現在のアカウント</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>AI コーディングアカウントの使用量とリセットまでの利用ペースを Windows タスクバーで確認し、Codex、Claude Code、Z.ai、OpenCode Go、Ollama のアカウントを切り替えられます。</value>
+    <value>AI コーディングアカウントの使用量とリセットまでの利用ペースを Windows タスクバーで確認し、Codex、Claude Code、Z.ai、OpenCode Go、Ollama、Neuralwatt のアカウントを切り替えられます。</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
     <value>AI Usage Monitor &amp; Switcher</value>
@@ -514,6 +559,9 @@
   <data name="DashboardPage_ActiveAccountSectionTitleTextBlock.Text" xml:space="preserve">
     <value>アクティブアカウントのクォータ</value>
   </data>
+  <data name="DashboardPage_ActiveMonthlyUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>月間残り</value>
+  </data>
   <data name="DashboardPage_ActiveMonthlyUsdCreditsLabelText" xml:space="preserve">
     <value>月間クレジットの残量</value>
   </data>
@@ -540,6 +588,12 @@
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>アカウント管理へ移動</value>
+  </data>
+  <data name="DashboardPage_MonthlyAverageUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>月間平均クォータ</value>
+  </data>
+  <data name="DashboardPage_MonthlyLowUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>月間の低クォータアカウント</value>
   </data>
   <data name="DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock.Text" xml:space="preserve">
     <value>月間クレジットの平均残量</value>
@@ -987,6 +1041,12 @@
   </data>
   <data name="Provider_CodexDisplayName" xml:space="preserve">
     <value>Codex</value>
+  </data>
+  <data name="Provider_NeuralwattComboBoxItem.Content" xml:space="preserve">
+    <value>Neuralwatt (読み取り専用)</value>
+  </data>
+  <data name="Provider_NeuralwattDisplayName" xml:space="preserve">
+    <value>Neuralwatt</value>
   </data>
   <data name="Provider_OllamaComboBoxItem.Content" xml:space="preserve">
     <value>Ollama (読み取り専用)</value>
@@ -1437,6 +1497,12 @@ Microsoft Store に {0} 件の更新があります。</value>
   <data name="SkillsPage_ModifiedHeaderTextBlock.Text" xml:space="preserve">
     <value>更新日</value>
   </data>
+  <data name="SkillsPage_NeuralwattUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Neuralwatt は読み取り専用プロバイダーであり、ローカルスキルファイルを管理しません。スキルを管理するには Codex、Claude Code、または OpenCode Go に切り替えてください。</value>
+  </data>
+  <data name="SkillsPage_NeuralwattUnsupportedTitleTextBlock.Text" xml:space="preserve">
+    <value>スキルはサポートされていません</value>
+  </data>
   <data name="SkillsPage_NoFilteredSkillsDescriptionTextBlock.Text" xml:space="preserve">
     <value>検索テキストを調整してください。</value>
   </data>
@@ -1476,9 +1542,6 @@ Microsoft Store に {0} 件の更新があります。</value>
   <data name="TaskbarUsageControl_MonthlyCreditAmountFormat" xml:space="preserve">
     <value>{0} / {1}</value>
   </data>
-  <data name="TaskbarUsageControl_MonthlyCreditLabel" xml:space="preserve">
-    <value>月間</value>
-  </data>
   <data name="TaskbarUsageControl_PercentageDifferenceFormat" xml:space="preserve">
     <value>{0:+0;-0;0}%</value>
   </data>
@@ -1490,9 +1553,6 @@ Microsoft Store に {0} 件の更新があります。</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>
-  </data>
-  <data name="TaskbarUsageWindow.Title" xml:space="preserve">
-    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="ThirdPartyLicensePackage_WindowsAppSoftwareDevelopmentKitLicense" xml:space="preserve">
     <value>Microsoft Windows App SDK ライセンス</value>

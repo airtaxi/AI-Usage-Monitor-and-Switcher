@@ -69,6 +69,17 @@ public sealed partial class AccountsPage : Page
             return;
         }
 
+        if (ViewModel.SelectedProviderKind == CliProviderKind.Neuralwatt)
+        {
+            var addNeuralwattAccountDialog = new CliAccountSwitcher.WinUI.Dialogs.AddNeuralwattAccountDialog
+            {
+                XamlRoot = XamlRoot
+            };
+            await addNeuralwattAccountDialog.ShowAsync();
+            ViewModel.ReloadAccounts();
+            return;
+        }
+
         var addAccountDialog = new CliAccountSwitcher.WinUI.Dialogs.AddAccountDialog
         {
             XamlRoot = XamlRoot

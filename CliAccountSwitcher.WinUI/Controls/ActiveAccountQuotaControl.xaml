@@ -142,7 +142,7 @@
                                 Canvas.ZIndex="{x:Bind ViewModel.ActiveAccountPrimaryUsagePacemakerProgressBarZIndex, Mode=OneWay}"
                                 Foreground="{x:Bind ViewModel.IsActiveAccountPrimaryUsageBelowPacemaker, Mode=OneWay, Converter={StaticResource UsagePacemakerForegroundBrushConverter}}"
                                 Maximum="100"
-                                Visibility="{x:Bind ViewModel.IsActiveAccountLegacyUsage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                                Visibility="{x:Bind ViewModel.IsActiveAccountPrimaryUsagePacemakerVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                 Value="{x:Bind ViewModel.ActiveAccountPrimaryUsagePacemakerPercentage, Mode=OneWay}" />
                         </Grid>
                         <TextBlock

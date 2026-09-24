@@ -244,7 +244,7 @@
 
                         <Border Style="{StaticResource DashboardCardBorderStyle}">
                             <StackPanel VerticalAlignment="Center" Spacing="10">
-                                <TextBlock x:Uid="DashboardPage_MonthlyUsdCreditsLowUsageLabelTextBlock" Style="{StaticResource DashboardMetricLabelTextBlockStyle}" />
+                                <TextBlock Style="{StaticResource DashboardMetricLabelTextBlockStyle}" Text="{x:Bind ViewModel.MonthlyLowUsageLabelText, Mode=OneWay}" />
                                 <TextBlock
                                     FontSize="24"
                                     FontWeight="SemiBold"
@@ -254,7 +254,7 @@
 
                         <Border Grid.Column="1" Style="{StaticResource DashboardCardBorderStyle}">
                             <StackPanel VerticalAlignment="Center" Spacing="10">
-                                <TextBlock x:Uid="DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock" Style="{StaticResource DashboardMetricLabelTextBlockStyle}" />
+                                <TextBlock Style="{StaticResource DashboardMetricLabelTextBlockStyle}" Text="{x:Bind ViewModel.MonthlyAverageUsageLabelText, Mode=OneWay}" />
                                 <TextBlock
                                     FontSize="24"
                                     FontWeight="SemiBold"

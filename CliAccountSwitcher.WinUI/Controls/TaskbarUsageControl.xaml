@@ -44,9 +44,11 @@
 
             <Grid
                 Grid.Row="0"
+                Grid.RowSpan="{x:Bind ViewModel.PrimaryUsageRowSpan, Mode=OneWay}"
                 Grid.Column="0"
                 VerticalAlignment="Center"
-                Visibility="{x:Bind ViewModel.IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                ToolTipService.ToolTip="{x:Bind ViewModel.MonthlyUsageToolTipText, Mode=OneWay}"
+                Visibility="{x:Bind ViewModel.IsPrimaryUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                 <ProgressBar
                     Height="4"
                     Canvas.ZIndex="{x:Bind ViewModel.PrimaryUsageRemainingProgressBarZIndex, Mode=OneWay}"
@@ -58,12 +60,13 @@
                     Canvas.ZIndex="{x:Bind ViewModel.PrimaryUsagePacemakerProgressBarZIndex, Mode=OneWay}"
                     Foreground="{x:Bind ViewModel.IsPrimaryUsageBelowPacemaker, Mode=OneWay, Converter={StaticResource UsagePacemakerForegroundBrushConverter}}"
                     Maximum="100"
-                    Visibility="{x:Bind ViewModel.IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
+                    Visibility="{x:Bind ViewModel.IsPrimaryUsagePacemakerVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                     Value="{x:Bind ViewModel.PrimaryUsagePacemakerPercentage, Mode=OneWay}" />
             </Grid>
 
             <TextBlock
                 Grid.Row="0"
+                Grid.RowSpan="{x:Bind ViewModel.PrimaryUsageRowSpan, Mode=OneWay}"
                 Grid.Column="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -73,10 +76,11 @@
                 MaxLines="1"
                 Text="{x:Bind ViewModel.PrimaryUsageRemainingPercentageText, Mode=OneWay}"
                 TextLineBounds="TrimToCapHeight"
-                Visibility="{x:Bind ViewModel.IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                Visibility="{x:Bind ViewModel.IsPrimaryUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
             <TextBlock
                 Grid.Row="0"
+                Grid.RowSpan="{x:Bind ViewModel.PrimaryUsageRowSpan, Mode=OneWay}"
                 Grid.Column="2"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -86,7 +90,7 @@
                 MaxLines="1"
                 Text="{x:Bind ViewModel.PrimaryUsagePacemakerPercentageText, Mode=OneWay}"
                 TextLineBounds="TrimToCapHeight"
-                Visibility="{x:Bind ViewModel.IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                Visibility="{x:Bind ViewModel.IsPrimaryUsagePacemakerVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
             <Grid
                 Grid.Row="1"
@@ -132,42 +136,6 @@
                 Text="{x:Bind ViewModel.SecondaryUsagePacemakerPercentageText, Mode=OneWay}"
                 TextLineBounds="TrimToCapHeight"
                 Visibility="{x:Bind ViewModel.IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
-
-            <Grid
-                Grid.Row="0"
-                Grid.RowSpan="2"
-                Grid.Column="0"
-                Grid.ColumnSpan="3"
-                VerticalAlignment="Center"
-                ColumnSpacing="4"
-                ToolTipService.ToolTip="{x:Bind ViewModel.MonthlyUsageAmountText, Mode=OneWay}"
-                Visibility="{x:Bind ViewModel.IsMonthlyUsage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto" />
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="Auto" />
-                </Grid.ColumnDefinitions>
-                <TextBlock
-                    VerticalAlignment="Center"
-                    FontSize="11"
-                    FontWeight="SemiBold"
-                    Foreground="{ThemeResource ReverseThemeColor}"
-                    Text="{x:Bind ViewModel.MonthlyUsageLabelText, Mode=OneWay}" />
-                <ProgressBar
-                    Grid.Column="1"
-                    Height="4"
-                    VerticalAlignment="Center"
-                    Foreground="{ThemeResource ReverseThemeColor}"
-                    Maximum="100"
-                    Value="{x:Bind ViewModel.PrimaryUsageRemainingPercentage, Mode=OneWay}" />
-                <TextBlock
-                    Grid.Column="2"
-                    VerticalAlignment="Center"
-                    FontSize="11"
-                    FontWeight="ExtraBold"
-                    Foreground="{ThemeResource ReverseThemeColor}"
-                    Text="{x:Bind ViewModel.PrimaryUsageRemainingPercentageText, Mode=OneWay}" />
-            </Grid>
 
             <Button
                 x:Name="RefreshActiveAccountButton"

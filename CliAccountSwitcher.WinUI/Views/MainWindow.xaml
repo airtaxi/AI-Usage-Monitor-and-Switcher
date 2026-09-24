@@ -115,6 +115,7 @@
                         <ComboBoxItem x:Uid="Provider_ZaiComboBoxItem" />
                         <ComboBoxItem x:Uid="Provider_OpenCodeGoComboBoxItem" />
                         <ComboBoxItem x:Uid="Provider_OllamaComboBoxItem" />
+                        <ComboBoxItem x:Uid="Provider_NeuralwattComboBoxItem" />
                     </ComboBox>
                 </StackPanel>
             </TitleBar.RightHeader>

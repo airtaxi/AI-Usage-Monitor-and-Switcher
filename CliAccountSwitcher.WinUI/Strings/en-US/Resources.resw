@@ -89,7 +89,7 @@
     <value>Howon Lee (airtaxi)</value>
   </data>
   <data name="AboutPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>Monitor AI coding account usage and reset-window pace on the Windows taskbar, and switch accounts for Codex, Claude Code, Z.ai, OpenCode Go, and Ollama.</value>
+    <value>Monitor AI coding account usage and reset-window pace on the Windows taskbar, and switch accounts for Codex, Claude Code, Z.ai, OpenCode Go, Ollama, and Neuralwatt.</value>
   </data>
   <data name="AboutPage_GitHubRepositoryButtonTextBlock.Text" xml:space="preserve">
     <value>Open repository</value>
@@ -250,11 +250,17 @@
   <data name="AccountsPage_ImportBackupTextBlock.Text" xml:space="preserve">
     <value>Import Backup</value>
   </data>
+  <data name="AccountsPage_NeuralwattBackupFileTypeChoice" xml:space="preserve">
+    <value>Neuralwatt Backup (.nwb)</value>
+  </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_ClaudeCode.Text" xml:space="preserve">
     <value>Use Add Account to sign in to Claude Code or load credentials.</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Codex.Text" xml:space="preserve">
     <value>Use Add Account to sign in to Codex or load an auth file.</value>
+  </data>
+  <data name="AccountsPage_NoAccountsDescriptionTextBlock_Neuralwatt.Text" xml:space="preserve">
+    <value>Use Add Account to add a Neuralwatt API key.</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Ollama.Text" xml:space="preserve">
     <value>Use Add Account to sign in to Ollama.</value>
@@ -424,6 +430,45 @@
   <data name="AddAccountDialog_OAuthSelectorBarItem.Text" xml:space="preserve">
     <value>OAuth</value>
   </data>
+  <data name="AddNeuralwattAccountDialog.CloseButtonText" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog.Title" xml:space="preserve">
+    <value>Add Neuralwatt Account</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_AddButtonTextBlock.Text" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_AliasHeaderTextBlock.Text" xml:space="preserve">
+    <value>Label (optional)</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_AliasTextBox.PlaceholderText" xml:space="preserve">
+    <value>e.g. Personal</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ApiKeyHeaderTextBlock.Text" xml:space="preserve">
+    <value>API key</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ApiKeyNoticeTextBlock.Text" xml:space="preserve">
+    <value>Neuralwatt usage is read using the API key. When the key stops working, the account will be marked as expired and you will need to add it again.</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ApiKeyPasswordBox.PlaceholderText" xml:space="preserve">
+    <value>Paste your Neuralwatt API key</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_DescriptionTextBlock.Text" xml:space="preserve">
+    <value>Add a Neuralwatt account by pasting an API key. The key is verified with the Neuralwatt quota API when the account is added.</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Message" xml:space="preserve">
+    <value>The account could not be added. Check the API key and your connection, then try again.</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
+    <value>Could not add account</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyMessage" xml:space="preserve">
+    <value>Neuralwatt rejected this API key. Check the key and try again.</value>
+  </data>
+  <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyTitle" xml:space="preserve">
+    <value>Invalid API key</value>
+  </data>
   <data name="AddOllamaAccountDialog.CloseButtonText" xml:space="preserve">
     <value>Close</value>
   </data>
@@ -455,7 +500,7 @@
     <value>Current Account</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>Monitor AI coding account usage and reset-window pace on the Windows taskbar, and switch accounts for Codex, Claude Code, Z.ai, OpenCode Go, and Ollama.</value>
+    <value>Monitor AI coding account usage and reset-window pace on the Windows taskbar, and switch accounts for Codex, Claude Code, Z.ai, OpenCode Go, Ollama, and Neuralwatt.</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
     <value>AI Usage Monitor &amp; Switcher</value>
@@ -514,6 +559,9 @@
   <data name="DashboardPage_ActiveAccountSectionTitleTextBlock.Text" xml:space="preserve">
     <value>Active account quota</value>
   </data>
+  <data name="DashboardPage_ActiveMonthlyUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>Monthly remaining</value>
+  </data>
   <data name="DashboardPage_ActiveMonthlyUsdCreditsLabelText" xml:space="preserve">
     <value>Monthly credits remaining</value>
   </data>
@@ -540,6 +588,12 @@
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>Go to Account Management</value>
+  </data>
+  <data name="DashboardPage_MonthlyAverageUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>Average monthly usage remaining</value>
+  </data>
+  <data name="DashboardPage_MonthlyLowUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>Monthly low-quota accounts</value>
   </data>
   <data name="DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock.Text" xml:space="preserve">
     <value>Average monthly credits remaining</value>
@@ -987,6 +1041,12 @@
   </data>
   <data name="Provider_CodexDisplayName" xml:space="preserve">
     <value>Codex</value>
+  </data>
+  <data name="Provider_NeuralwattComboBoxItem.Content" xml:space="preserve">
+    <value>Neuralwatt (Read-only)</value>
+  </data>
+  <data name="Provider_NeuralwattDisplayName" xml:space="preserve">
+    <value>Neuralwatt</value>
   </data>
   <data name="Provider_OllamaComboBoxItem.Content" xml:space="preserve">
     <value>Ollama (Read-only)</value>
@@ -1437,6 +1497,12 @@ The installed app is already up to date.</value>
   <data name="SkillsPage_ModifiedHeaderTextBlock.Text" xml:space="preserve">
     <value>Modified</value>
   </data>
+  <data name="SkillsPage_NeuralwattUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Neuralwatt is a read-only provider that does not manage local skill files. Switch to Codex, Claude Code, or OpenCode Go to manage skills.</value>
+  </data>
+  <data name="SkillsPage_NeuralwattUnsupportedTitleTextBlock.Text" xml:space="preserve">
+    <value>Skills are not supported</value>
+  </data>
   <data name="SkillsPage_NoFilteredSkillsDescriptionTextBlock.Text" xml:space="preserve">
     <value>Adjust the search text.</value>
   </data>
@@ -1476,9 +1542,6 @@ The installed app is already up to date.</value>
   <data name="TaskbarUsageControl_MonthlyCreditAmountFormat" xml:space="preserve">
     <value>{0} / {1}</value>
   </data>
-  <data name="TaskbarUsageControl_MonthlyCreditLabel" xml:space="preserve">
-    <value>Monthly</value>
-  </data>
   <data name="TaskbarUsageControl_PercentageDifferenceFormat" xml:space="preserve">
     <value>{0:+0;-0;0}%</value>
   </data>
@@ -1490,9 +1553,6 @@ The installed app is already up to date.</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>
-  </data>
-  <data name="TaskbarUsageWindow.Title" xml:space="preserve">
-    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="ThirdPartyLicensePackage_WindowsAppSoftwareDevelopmentKitLicense" xml:space="preserve">
     <value>Microsoft Windows App SDK license</value>

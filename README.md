@@ -6,7 +6,7 @@
 
 ![AI Usage Monitor & Switcher screenshot](.github/Assets/EN.jpg)
 
-AI Usage Monitor & Switcher keeps your active AI coding account's usage and reset-window pace visible on the Windows taskbar while letting you manage and switch accounts for Codex, Claude Code, Z.ai, OpenCode Go, and Ollama.
+AI Usage Monitor & Switcher keeps your active AI coding account's usage and reset-window pace visible on the Windows taskbar while letting you manage and switch accounts for Codex, Claude Code, Z.ai, OpenCode Go, Ollama, and Neuralwatt.
 
 The app stores saved account records in its own local application data folder and switches the active account by writing the selected authentication document to the relevant local authentication file for each tool.
 
@@ -17,7 +17,7 @@ The app stores saved account records in its own local application data folder an
 
 ## Features
 
-- Add Codex, Claude Code, Z.ai, OpenCode Go, and Ollama accounts with the supported sign-in and import flows.
+- Add Codex, Claude Code, Z.ai, OpenCode Go, Ollama, and Neuralwatt accounts with the supported sign-in and import flows.
 - Switch the active account for any supported CLI from the Accounts screen.
 - View plan information and remaining usage for supported accounts.
 - Monitor active account usage from the Windows taskbar with real-time refresh.
@@ -57,7 +57,7 @@ The repository contains three projects:
 | Project | Description |
 | --- | --- |
 | `CliAccountSwitcher.WinUI` | Packaged WinUI 3 desktop app. |
-| `CliAccountSwitcher.Api` | Codex, Claude Code, Z.ai, OpenCode Go, and Ollama authentication, usage, models, and API client helpers. |
+| `CliAccountSwitcher.Api` | Codex, Claude Code, Z.ai, OpenCode Go, Ollama, and Neuralwatt authentication, usage, models, and API client helpers. |
 | `CliAccountSwitcher.Api.Sample` | Console sample project for Codex and Claude Code API behavior. |
 
 The WinUI app targets `net10.0-windows10.0.26100.0`, enables NativeAOT publishing, uses MSIX tooling, and supports `x86`, `x64`, and `ARM64` package bundles.

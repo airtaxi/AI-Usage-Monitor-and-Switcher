@@ -22,4 +22,5 @@ public static class Constants
     public static string OpenCodeGoExecutableFilePath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Programs", "@opencode-aidesktop", "OpenCode.exe");
     public static string OpenCodeGoAccountsFilePath => Path.Combine(UserDataDirectory, "opencode-accounts.json");
     public static string OllamaAccountsFilePath => Path.Combine(UserDataDirectory, "ollama-accounts.json");
+    public static string NeuralwattAccountsFilePath => Path.Combine(UserDataDirectory, "neuralwatt-accounts.json");
 }
