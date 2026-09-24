@@ -1,12 +1,12 @@
-# CLI Account Switcher
+# AI Usage Monitor & Switcher
 
 🌐 [한국어](README.ko.md)
 
 [![Download from Microsoft Store](https://get.microsoft.com/images/en-US%20dark.svg)](https://apps.microsoft.com/detail/9N25QV7VTL54)
 
-![CLI Account Switcher screenshot](.github/Assets/EN.jpg)
+![AI Usage Monitor & Switcher screenshot](.github/Assets/EN.jpg)
 
-CLI Account Switcher is a Windows desktop utility for managing authentication accounts for AI coding tools. It supports Codex, Claude Code, Z.ai, OpenCode Go, and Ollama accounts.
+AI Usage Monitor & Switcher keeps your active AI coding account's usage and reset-window pace visible on the Windows taskbar while letting you manage and switch accounts for Codex, Claude Code, Z.ai, OpenCode Go, and Ollama.
 
 The app stores saved account records in its own local application data folder and switches the active account by writing the selected authentication document to the relevant local authentication file for each tool.
 

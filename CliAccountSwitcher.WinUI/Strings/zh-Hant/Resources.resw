@@ -89,7 +89,7 @@
     <value>Howon Lee (airtaxi)</value>
   </data>
   <data name="AboutPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>CLI Account Switcher 是面向 AI 服務的 CLI 帳號切換器。支援 Codex 和 Claude Code。</value>
+    <value>在 Windows 工作列查看 AI 程式開發帳號的用量及重設週期內的使用進度，並切換 Codex、Claude Code、Z.ai、OpenCode Go 和 Ollama 帳號。</value>
   </data>
   <data name="AboutPage_GitHubRepositoryButtonTextBlock.Text" xml:space="preserve">
     <value>開啟儲存庫</value>
@@ -131,7 +131,7 @@
     <value>第三方授權</value>
   </data>
   <data name="AboutPage_TitleTextBlock.Text" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="AboutPage_VersionHeaderTextBlock.Text" xml:space="preserve">
     <value>版本</value>
@@ -455,10 +455,10 @@
     <value>目前帳戶</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>CLI Account Switcher 是面向 AI 服務的 CLI 帳號切換器。支援 Codex 和 Claude Code。</value>
+    <value>在 Windows 工作列查看 AI 程式開發帳號的用量及重設週期內的使用進度，並切換 Codex、Claude Code、Z.ai、OpenCode Go 和 Ollama 帳號。</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="CurrentAccountAddAccountPage_ClaudeCodeDescription" xml:space="preserve">
     <value>讀取目前 Claude Code credential 和 global config 檔案，並儲存為受管理帳戶。</value>
@@ -677,7 +677,7 @@
     <value>技能</value>
   </data>
   <data name="MainWindow_AppTitleBar.Title" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="MainWindow_CloseProgramMenuFlyoutItem.Text" xml:space="preserve">
     <value>結束</value>
@@ -779,7 +779,7 @@
     <value>Microsoft Store 中有 {0} 個可用更新。</value>
   </data>
   <data name="Notification_StoreUpdateAvailableTitle" xml:space="preserve">
-    <value>CLI Account Switcher 更新</value>
+    <value>AI Usage Monitor &amp; Switcher 更新</value>
   </data>
   <data name="Notification_UsageLowQuotaDetectedMessageFormat" xml:space="preserve">
     <value>{0} 的 {1} 剩餘配額為 {2}%。</value>
@@ -1016,7 +1016,7 @@
     <value>使用中帳號自動重新整理</value>
   </data>
   <data name="SettingsPage_ApplicationSettingsFileTypeChoice" xml:space="preserve">
-    <value>CLI Account Switcher 設定檔案</value>
+    <value>AI Usage Monitor &amp; Switcher 設定檔案</value>
   </data>
   <data name="SettingsPage_ApplicationSettingsTransferSettingsExpander.Description" xml:space="preserve">
     <value>將不包含帳號清單的應用程式設定儲存為 .casc 檔案，或從該檔案載入。</value>
@@ -1296,7 +1296,7 @@
     <value>簡體中文</value>
   </data>
   <data name="SettingsPage_StartupLaunchSettingsCard.Description" xml:space="preserve">
-    <value>Windows 登入後自動執行 CLI Account Switcher。</value>
+    <value>Windows 登入後自動執行 AI Usage Monitor &amp; Switcher。</value>
   </data>
   <data name="SettingsPage_StartupLaunchSettingsCard.Header" xml:space="preserve">
     <value>系統啟動時執行</value>
@@ -1466,6 +1466,9 @@ Microsoft Store 中有 {0} 個可用更新。</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>
+  </data>
+  <data name="TaskbarUsageWindow.Title" xml:space="preserve">
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="ThirdPartyLicensePackage_WindowsSoftwareDevelopmentKitLicense" xml:space="preserve">
     <value>Windows SDK 授權</value>

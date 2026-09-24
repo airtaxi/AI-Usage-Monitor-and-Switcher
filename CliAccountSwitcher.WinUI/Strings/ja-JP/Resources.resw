@@ -89,7 +89,7 @@
     <value>Howon Lee (airtaxi)</value>
   </data>
   <data name="AboutPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>CLI Account Switcher は AI サービス向けの CLI アカウント切替アプリです。Codex と Claude Code をサポートしています。</value>
+    <value>AI コーディングアカウントの使用量とリセットまでの利用ペースを Windows タスクバーで確認し、Codex、Claude Code、Z.ai、OpenCode Go、Ollama のアカウントを切り替えられます。</value>
   </data>
   <data name="AboutPage_GitHubRepositoryButtonTextBlock.Text" xml:space="preserve">
     <value>リポジトリを開く</value>
@@ -131,7 +131,7 @@
     <value>サードパーティライセンス</value>
   </data>
   <data name="AboutPage_TitleTextBlock.Text" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="AboutPage_VersionHeaderTextBlock.Text" xml:space="preserve">
     <value>バージョン</value>
@@ -455,10 +455,10 @@
     <value>現在のアカウント</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>CLI Account Switcher は AI サービス向けの CLI アカウント切替アプリです。Codex と Claude Code をサポートしています。</value>
+    <value>AI コーディングアカウントの使用量とリセットまでの利用ペースを Windows タスクバーで確認し、Codex、Claude Code、Z.ai、OpenCode Go、Ollama のアカウントを切り替えられます。</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="CurrentAccountAddAccountPage_ClaudeCodeDescription" xml:space="preserve">
     <value>現在の Claude Code credential と global config ファイルを読み取り、管理対象アカウントとして保存します。</value>
@@ -677,7 +677,7 @@
     <value>スキル</value>
   </data>
   <data name="MainWindow_AppTitleBar.Title" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="MainWindow_CloseProgramMenuFlyoutItem.Text" xml:space="preserve">
     <value>終了</value>
@@ -779,7 +779,7 @@
     <value>Microsoft Store に {0} 件の更新があります。</value>
   </data>
   <data name="Notification_StoreUpdateAvailableTitle" xml:space="preserve">
-    <value>CLI Account Switcher の更新</value>
+    <value>AI Usage Monitor &amp; Switcher の更新</value>
   </data>
   <data name="Notification_UsageLowQuotaDetectedMessageFormat" xml:space="preserve">
     <value>{0} の {1} 残りクォータは {2}% です。</value>
@@ -1016,7 +1016,7 @@
     <value>アクティブアカウントの自動更新</value>
   </data>
   <data name="SettingsPage_ApplicationSettingsFileTypeChoice" xml:space="preserve">
-    <value>CLI Account Switcher 設定ファイル</value>
+    <value>AI Usage Monitor &amp; Switcher 設定ファイル</value>
   </data>
   <data name="SettingsPage_ApplicationSettingsTransferSettingsExpander.Description" xml:space="preserve">
     <value>アカウント一覧を含めずに、アプリ設定を .casc ファイルとして保存または読み込みます。</value>
@@ -1296,7 +1296,7 @@
     <value>簡体字中国語</value>
   </data>
   <data name="SettingsPage_StartupLaunchSettingsCard.Description" xml:space="preserve">
-    <value>Windows サインイン後に CLI Account Switcher を自動的に実行します。</value>
+    <value>Windows サインイン後に AI Usage Monitor &amp; Switcher を自動的に実行します。</value>
   </data>
   <data name="SettingsPage_StartupLaunchSettingsCard.Header" xml:space="preserve">
     <value>システム起動時に起動</value>
@@ -1466,6 +1466,9 @@ Microsoft Store に {0} 件の更新があります。</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>
+  </data>
+  <data name="TaskbarUsageWindow.Title" xml:space="preserve">
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="ThirdPartyLicensePackage_WindowsSoftwareDevelopmentKitLicense" xml:space="preserve">
     <value>Windows SDK ライセンス</value>

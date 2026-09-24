@@ -16,7 +16,7 @@ namespace CliAccountSwitcher.WinUI.Pages;
 
 public sealed partial class AboutPage : Page
 {
-    private const string ApplicationRepositoryAddress = "https://github.com/airtaxi/Cli-Account-Switcher";
+    private const string ApplicationRepositoryAddress = "https://github.com/airtaxi/AI-Usage-Monitor-and-Switcher";
     private const string CreatorGitHubAddress = "https://github.com/airtaxi";
     private const string InspirationRepositoryAddress = "https://github.com/isxlan0/Codex_AccountSwitch";
     private const string ClaudeSwapRepositoryAddress = "https://github.com/realiti4/claude-swap";
@@ -28,7 +28,7 @@ public sealed partial class AboutPage : Page
 
     public string ApplicationVersionText { get; } = GetCurrentApplicationVersion();
 
-    public string CopyrightText { get; } = "Copyright (c) 2026 CLI Account Switcher contributors";
+    public string CopyrightText { get; } = "Copyright (c) 2026 AI Usage Monitor & Switcher contributors";
 
 #pragma warning disable CA1822 // Mark members as static => Used in XAML binding, which doesn't support static members
     public List<ThirdPartyLicensePackage> ThirdPartyLicensePackages => s_thirdPartyLicensePackages;

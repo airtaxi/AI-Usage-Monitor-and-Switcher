@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<StoreAssociation xmlns="http://schemas.microsoft.com/appx/2010/storeassociation">
+  <Publisher>CN=7713B07B-6F8A-4FB4-877B-2FA9AF531D39</Publisher>
+  <PublisherDisplayName>Howon Lee</PublisherDisplayName>
+  <DeveloperAccountType>MSA</DeveloperAccountType>
+  <GeneratePackageHash>http://www.w3.org/2001/04/xmlenc#sha256</GeneratePackageHash>
+  <SupportedLocales>
+    <Language Code="en-us" InMinimumRequirementSet="true" />
+    <Language Code="ja-jp" InMinimumRequirementSet="true" />
+    <Language Code="ko-kr" InMinimumRequirementSet="true" />
+    <Language Code="zh-hans" InMinimumRequirementSet="true" />
+    <Language Code="zh-hant" InMinimumRequirementSet="true" />
+  </SupportedLocales>
+  <ProductReservedInfo>
+    <MainPackageIdentityName>49536HowonLee.CodexAccountSwitch</MainPackageIdentityName>
+    <ReservedNames>
+      <ReservedName>AI Usage Monitor &amp; Switcher</ReservedName>
+    </ReservedNames>
+  </ProductReservedInfo>
+  <AccountPackageIdentityNames />
+  <PackageInfoList LandingUrl="https://developer.microsoft.com/dashboard/Application?appId=9N25QV7VTL54" />
+</StoreAssociation>

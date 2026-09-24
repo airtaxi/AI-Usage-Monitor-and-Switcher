@@ -89,7 +89,7 @@
     <value>이호원 (airtaxi)</value>
   </data>
   <data name="AboutPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>CLI Account Switcher는 AI 서비스용 CLI 계정 전환 도구입니다. Codex와 Claude Code를 지원합니다.</value>
+    <value>AI 코딩 계정의 사용량과 초기화 주기별 사용 속도를 Windows 작업 표시줄에서 확인하고 Codex, Claude Code, Z.ai, OpenCode Go, Ollama 계정을 전환할 수 있습니다.</value>
   </data>
   <data name="AboutPage_GitHubRepositoryButtonTextBlock.Text" xml:space="preserve">
     <value>저장소 열기</value>
@@ -131,7 +131,7 @@
     <value>써드파티 라이선스</value>
   </data>
   <data name="AboutPage_TitleTextBlock.Text" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="AboutPage_VersionHeaderTextBlock.Text" xml:space="preserve">
     <value>버전</value>
@@ -455,10 +455,10 @@
     <value>현재 계정</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>CLI Account Switcher는 AI 서비스용 CLI 계정 전환 도구입니다. Codex와 Claude Code를 지원합니다.</value>
+    <value>AI 코딩 계정의 사용량과 초기화 주기별 사용 속도를 Windows 작업 표시줄에서 확인하고 Codex, Claude Code, Z.ai, OpenCode Go, Ollama 계정을 전환할 수 있습니다.</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="CurrentAccountAddAccountPage_ClaudeCodeDescription" xml:space="preserve">
     <value>현재 Claude Code credential과 global config 파일을 읽어 관리 계정으로 저장합니다.</value>
@@ -677,7 +677,7 @@
     <value>스킬</value>
   </data>
   <data name="MainWindow_AppTitleBar.Title" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="MainWindow_CloseProgramMenuFlyoutItem.Text" xml:space="preserve">
     <value>프로그램 종료</value>
@@ -779,7 +779,7 @@
     <value>Microsoft Store에서 사용 가능한 업데이트 {0}개가 있습니다.</value>
   </data>
   <data name="Notification_StoreUpdateAvailableTitle" xml:space="preserve">
-    <value>CLI Account Switcher 업데이트</value>
+    <value>AI Usage Monitor &amp; Switcher 업데이트</value>
   </data>
   <data name="Notification_UsageLowQuotaDetectedMessageFormat" xml:space="preserve">
     <value>{0} 계정의 {1} 잔여 할당량이 {2}%입니다.</value>
@@ -1016,7 +1016,7 @@
     <value>활성 계정 자동 새로고침</value>
   </data>
   <data name="SettingsPage_ApplicationSettingsFileTypeChoice" xml:space="preserve">
-    <value>CLI Account Switcher 설정 파일</value>
+    <value>AI Usage Monitor &amp; Switcher 설정 파일</value>
   </data>
   <data name="SettingsPage_ApplicationSettingsTransferSettingsExpander.Description" xml:space="preserve">
     <value>계정 목록을 제외한 앱 설정을 .casc 파일로 저장하거나 불러옵니다.</value>
@@ -1296,7 +1296,7 @@
     <value>중국어 간체</value>
   </data>
   <data name="SettingsPage_StartupLaunchSettingsCard.Description" xml:space="preserve">
-    <value>Windows 로그인 후 CLI Account Switcher를 자동으로 실행합니다.</value>
+    <value>Windows 로그인 후 AI Usage Monitor &amp; Switcher를 자동으로 실행합니다.</value>
   </data>
   <data name="SettingsPage_StartupLaunchSettingsCard.Header" xml:space="preserve">
     <value>시스템 시작 시 자동 실행</value>
@@ -1466,6 +1466,9 @@ Microsoft Store에서 사용 가능한 업데이트 {0}개를 찾았습니다.</
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>
+  </data>
+  <data name="TaskbarUsageWindow.Title" xml:space="preserve">
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="ThirdPartyLicensePackage_WindowsSoftwareDevelopmentKitLicense" xml:space="preserve">
     <value>Windows SDK 라이선스</value>

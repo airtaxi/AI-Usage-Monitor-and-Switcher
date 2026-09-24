@@ -89,7 +89,7 @@
     <value>Howon Lee (airtaxi)</value>
   </data>
   <data name="AboutPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>CLI account switcher for AI services. Supports Codex and Claude Code.</value>
+    <value>Monitor AI coding account usage and reset-window pace on the Windows taskbar, and switch accounts for Codex, Claude Code, Z.ai, OpenCode Go, and Ollama.</value>
   </data>
   <data name="AboutPage_GitHubRepositoryButtonTextBlock.Text" xml:space="preserve">
     <value>Open repository</value>
@@ -131,7 +131,7 @@
     <value>Third-party licenses</value>
   </data>
   <data name="AboutPage_TitleTextBlock.Text" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="AboutPage_VersionHeaderTextBlock.Text" xml:space="preserve">
     <value>Version</value>
@@ -455,10 +455,10 @@
     <value>Current Account</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
-    <value>CLI account switcher for AI services. Supports Codex and Claude Code.</value>
+    <value>Monitor AI coding account usage and reset-window pace on the Windows taskbar, and switch accounts for Codex, Claude Code, Z.ai, OpenCode Go, and Ollama.</value>
   </data>
   <data name="AppDisplayName" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="CurrentAccountAddAccountPage_ClaudeCodeDescription" xml:space="preserve">
     <value>Read the current Claude Code credential and global config files, then save them as a managed account.</value>
@@ -677,7 +677,7 @@
     <value>Skills</value>
   </data>
   <data name="MainWindow_AppTitleBar.Title" xml:space="preserve">
-    <value>CLI Account Switcher</value>
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="MainWindow_CloseProgramMenuFlyoutItem.Text" xml:space="preserve">
     <value>Exit</value>
@@ -779,7 +779,7 @@
     <value>{0} update(s) are available from Microsoft Store.</value>
   </data>
   <data name="Notification_StoreUpdateAvailableTitle" xml:space="preserve">
-    <value>CLI Account Switcher update</value>
+    <value>AI Usage Monitor &amp; Switcher update</value>
   </data>
   <data name="Notification_UsageLowQuotaDetectedMessageFormat" xml:space="preserve">
     <value>{0}'s {1} remaining quota is {2}%.</value>
@@ -1016,7 +1016,7 @@
     <value>Active account automatic refresh</value>
   </data>
   <data name="SettingsPage_ApplicationSettingsFileTypeChoice" xml:space="preserve">
-    <value>CLI Account Switcher settings file</value>
+    <value>AI Usage Monitor &amp; Switcher settings file</value>
   </data>
   <data name="SettingsPage_ApplicationSettingsTransferSettingsExpander.Description" xml:space="preserve">
     <value>Save or load app settings as a .casc file without including the account list.</value>
@@ -1296,7 +1296,7 @@ The installed app is already up to date.</value>
     <value>Simplified Chinese</value>
   </data>
   <data name="SettingsPage_StartupLaunchSettingsCard.Description" xml:space="preserve">
-    <value>Run CLI Account Switcher automatically after Windows sign-in.</value>
+    <value>Run AI Usage Monitor &amp; Switcher automatically after Windows sign-in.</value>
   </data>
   <data name="SettingsPage_StartupLaunchSettingsCard.Header" xml:space="preserve">
     <value>Launch at system startup</value>
@@ -1466,6 +1466,9 @@ The installed app is already up to date.</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>
+  </data>
+  <data name="TaskbarUsageWindow.Title" xml:space="preserve">
+    <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="ThirdPartyLicensePackage_WindowsSoftwareDevelopmentKitLicense" xml:space="preserve">
     <value>Windows SDK license</value>
