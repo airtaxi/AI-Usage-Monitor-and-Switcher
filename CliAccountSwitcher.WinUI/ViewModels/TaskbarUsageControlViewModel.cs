@@ -1,4 +1,4 @@
-using CliAccountSwitcher.Api.Providers.Abstractions;
+﻿using CliAccountSwitcher.Api.Providers.Abstractions;
 using CliAccountSwitcher.WinUI.Helpers;
 using CliAccountSwitcher.WinUI.Managers;
 using CliAccountSwitcher.WinUI.Models;
@@ -56,7 +56,7 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
 
     public string MonthlyUsageAmountText { get; private set; } = "";
 
-    public string? MonthlyUsageToolTipText => !IsMonthlyUsage ? null : string.IsNullOrWhiteSpace(MonthlyUsageAmountText) ? PrimaryUsageRemainingPercentageText : MonthlyUsageAmountText;
+    public string MonthlyUsageToolTipText => !IsMonthlyUsage ? null : string.IsNullOrWhiteSpace(MonthlyUsageAmountText) ? PrimaryUsageRemainingPercentageText : MonthlyUsageAmountText;
 
     public string RemainingCreditText { get; private set; } = "";
 
