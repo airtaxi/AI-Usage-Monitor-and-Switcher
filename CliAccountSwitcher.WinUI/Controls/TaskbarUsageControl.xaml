@@ -44,7 +44,6 @@
 
             <Grid
                 Grid.Row="0"
-                Grid.RowSpan="{x:Bind ViewModel.PrimaryUsageRowSpan, Mode=OneWay}"
                 Grid.Column="0"
                 VerticalAlignment="Center"
                 ToolTipService.ToolTip="{x:Bind ViewModel.MonthlyUsageToolTipText, Mode=OneWay}"
@@ -66,7 +65,6 @@
 
             <TextBlock
                 Grid.Row="0"
-                Grid.RowSpan="{x:Bind ViewModel.PrimaryUsageRowSpan, Mode=OneWay}"
                 Grid.Column="1"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -80,7 +78,6 @@
 
             <TextBlock
                 Grid.Row="0"
-                Grid.RowSpan="{x:Bind ViewModel.PrimaryUsageRowSpan, Mode=OneWay}"
                 Grid.Column="2"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center"
@@ -136,6 +133,21 @@
                 Text="{x:Bind ViewModel.SecondaryUsagePacemakerPercentageText, Mode=OneWay}"
                 TextLineBounds="TrimToCapHeight"
                 Visibility="{x:Bind ViewModel.IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+
+            <TextBlock
+                Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Center"
+                FontSize="11"
+                FontWeight="ExtraBold"
+                Foreground="{ThemeResource ReverseThemeColor}"
+                MaxLines="1"
+                Text="{x:Bind ViewModel.RemainingCreditText, Mode=OneWay}"
+                TextLineBounds="TrimToCapHeight"
+                TextTrimming="CharacterEllipsis"
+                Visibility="{x:Bind ViewModel.IsRemainingCreditVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
 
             <Button
                 x:Name="RefreshActiveAccountButton"

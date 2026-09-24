@@ -568,6 +568,9 @@
   <data name="DashboardPage_ActivePrimaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>5시간 잔여량</value>
   </data>
+  <data name="DashboardPage_ActiveRemainingCreditLabelText" xml:space="preserve">
+    <value>남은 크레딧</value>
+  </data>
   <data name="DashboardPage_ActiveSecondaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>7일 잔여량</value>
   </data>
@@ -993,6 +996,9 @@
   </data>
   <data name="ProviderAccountViewModel_PrimaryUsageWindowLabel" xml:space="preserve">
     <value>5시간 한도</value>
+  </data>
+  <data name="ProviderAccountViewModel_RemainingCreditTotalFormat" xml:space="preserve">
+    <value>총 {0}</value>
   </data>
   <data name="ProviderAccountViewModel_ResetAfterFormat" xml:space="preserve">
     <value>{0:hh\:mm\:ss} 후 재설정</value>
@@ -1550,6 +1556,9 @@ Microsoft Store에서 사용 가능한 업데이트 {0}개를 찾았습니다.</
   </data>
   <data name="TaskbarUsageControl_RefreshButtonToolTip" xml:space="preserve">
     <value>활성 계정 사용량 새로고침</value>
+  </data>
+  <data name="TaskbarUsageControl_RemainingCreditAmountFormat" xml:space="preserve">
+    <value>남은 크레딧 {0}</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>

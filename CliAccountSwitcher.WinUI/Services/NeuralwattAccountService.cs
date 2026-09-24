@@ -135,6 +135,8 @@ public sealed class NeuralwattAccountService : AccountServiceBase<NeuralwattAcco
         IsActive = neuralwattAccount.IsActive,
         IsTokenExpired = neuralwattAccount.IsTokenExpired,
         LastProviderUsageSnapshot = CreateProviderUsageSnapshot(neuralwattAccount.LastNeuralwattUsageSnapshot),
+        RemainingCreditAmountUsd = neuralwattAccount.LastNeuralwattUsageSnapshot?.RemainingCreditAmountUsd,
+        TotalCreditAmountUsd = neuralwattAccount.LastNeuralwattUsageSnapshot?.TotalCreditAmountUsd,
         LastUsageRefreshTime = neuralwattAccount.LastUsageRefreshTime
     };
 

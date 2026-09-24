@@ -103,10 +103,7 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel
-                        Grid.Column="0"
-                        Grid.ColumnSpan="{x:Bind ViewModel.ActiveAccountPrimaryUsageColumnSpan, Mode=OneWay}"
-                        Spacing="4">
+                    <StackPanel Grid.Column="0" Spacing="4">
                         <Grid ColumnSpacing="8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
@@ -230,6 +227,37 @@
                             Text="{x:Bind ViewModel.ActiveAccountSecondaryUsageAverageRateStatusText, Mode=OneWay}"
                             TextTrimming="WordEllipsis"
                             Visibility="{x:Bind ViewModel.HasActiveAccountSecondaryUsageAverageRateLimitHeadroom, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
+                    </StackPanel>
+
+                    <StackPanel
+                        Grid.Column="1"
+                        Spacing="4"
+                        Visibility="{x:Bind ViewModel.IsActiveAccountRemainingCreditVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <Grid ColumnSpacing="8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <TextBlock
+                                Grid.Column="0"
+                                MaxLines="1"
+                                Style="{StaticResource ActiveAccountQuotaMetricLabelTextBlockStyle}"
+                                Text="{x:Bind ViewModel.ActiveAccountRemainingCreditLabelText, Mode=OneWay}"
+                                TextTrimming="WordEllipsis" />
+                            <TextBlock
+                                Grid.Column="1"
+                                FontWeight="SemiBold"
+                                MaxLines="1"
+                                Text="{x:Bind ViewModel.ActiveAccountRemainingCreditText, Mode=OneWay}"
+                                TextTrimming="WordEllipsis" />
+                        </Grid>
+                        <TextBlock
+                            FontSize="12"
+                            Foreground="{ThemeResource TextFillColorTertiaryBrush}"
+                            MaxLines="1"
+                            Text="{x:Bind ViewModel.ActiveAccountRemainingCreditDetailText, Mode=OneWay}"
+                            TextTrimming="WordEllipsis"
+                            Visibility="{x:Bind ViewModel.IsActiveAccountRemainingCreditDetailVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </StackPanel>
                 </Grid>
             </StackPanel>

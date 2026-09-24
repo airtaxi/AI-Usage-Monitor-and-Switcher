@@ -19,4 +19,6 @@ public sealed class OllamaUsageSnapshot
     public decimal? MonthlyUsedAmountUsd { get; set; }
 
     public decimal? MonthlyLimitAmountUsd { get; set; }
+
+    public decimal? RemainingCreditAmountUsd { get; set; }
 }

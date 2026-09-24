@@ -30,5 +30,9 @@ public sealed class ProviderAccount
 
     public decimal? MonthlyLimitAmountUsd { get; set; }
 
+    public decimal? RemainingCreditAmountUsd { get; set; }
+
+    public decimal? TotalCreditAmountUsd { get; set; }
+
     public DateTimeOffset? LastUsageRefreshTime { get; set; }
 }

@@ -568,6 +568,9 @@
   <data name="DashboardPage_ActivePrimaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>5-hour remaining</value>
   </data>
+  <data name="DashboardPage_ActiveRemainingCreditLabelText" xml:space="preserve">
+    <value>Remaining credit</value>
+  </data>
   <data name="DashboardPage_ActiveSecondaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>7-day remaining</value>
   </data>
@@ -993,6 +996,9 @@
   </data>
   <data name="ProviderAccountViewModel_PrimaryUsageWindowLabel" xml:space="preserve">
     <value>5-hour limit</value>
+  </data>
+  <data name="ProviderAccountViewModel_RemainingCreditTotalFormat" xml:space="preserve">
+    <value>{0} total</value>
   </data>
   <data name="ProviderAccountViewModel_ResetAfterFormat" xml:space="preserve">
     <value>resets in {0:hh\:mm\:ss}</value>
@@ -1550,6 +1556,9 @@ The installed app is already up to date.</value>
   </data>
   <data name="TaskbarUsageControl_RefreshButtonToolTip" xml:space="preserve">
     <value>Refresh active account usage</value>
+  </data>
+  <data name="TaskbarUsageControl_RemainingCreditAmountFormat" xml:space="preserve">
+    <value>Remaining credit {0}</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>

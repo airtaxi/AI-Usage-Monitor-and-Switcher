@@ -568,6 +568,9 @@
   <data name="DashboardPage_ActivePrimaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>5 小时剩余</value>
   </data>
+  <data name="DashboardPage_ActiveRemainingCreditLabelText" xml:space="preserve">
+    <value>剩余额度</value>
+  </data>
   <data name="DashboardPage_ActiveSecondaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>7 天剩余</value>
   </data>
@@ -993,6 +996,9 @@
   </data>
   <data name="ProviderAccountViewModel_PrimaryUsageWindowLabel" xml:space="preserve">
     <value>5 小时限制</value>
+  </data>
+  <data name="ProviderAccountViewModel_RemainingCreditTotalFormat" xml:space="preserve">
+    <value>共 {0}</value>
   </data>
   <data name="ProviderAccountViewModel_ResetAfterFormat" xml:space="preserve">
     <value>将在 {0:hh\:mm\:ss} 后重置</value>
@@ -1550,6 +1556,9 @@ Microsoft Store 中有 {0} 个可用更新。</value>
   </data>
   <data name="TaskbarUsageControl_RefreshButtonToolTip" xml:space="preserve">
     <value>刷新活动帐户用量</value>
+  </data>
+  <data name="TaskbarUsageControl_RemainingCreditAmountFormat" xml:space="preserve">
+    <value>剩余额度 {0}</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>

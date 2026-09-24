@@ -22,6 +22,7 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
     private readonly LocalizationService _localizationService;
     private readonly DispatcherQueue _dispatcherQueue;
     private bool _hasRequestedInitialUsageRefresh;
+    private decimal? _remainingCreditAmountUsd;
     private bool _disposed;
 
     public TaskbarUsageControlViewModel(AccountServiceManager accountServiceManager, ApplicationSettings applicationSettings, LocalizationService localizationService, DispatcherQueue dispatcherQueue)
@@ -53,11 +54,13 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
 
     public bool IsPrimaryUsageVisible => IsLegacyUsageVisible || IsMonthlyUsage;
 
-    public int PrimaryUsageRowSpan => IsMonthlyUsage ? 2 : 1;
-
     public string MonthlyUsageAmountText { get; private set; } = "";
 
     public string? MonthlyUsageToolTipText => !IsMonthlyUsage ? null : string.IsNullOrWhiteSpace(MonthlyUsageAmountText) ? PrimaryUsageRemainingPercentageText : MonthlyUsageAmountText;
+
+    public string RemainingCreditText { get; private set; } = "";
+
+    public bool IsRemainingCreditVisible => IsMonthlyUsage && _remainingCreditAmountUsd is not null;
 
     [ObservableProperty]
     public partial bool HasSecondaryUsagePercentage { get; set; }
@@ -127,6 +130,8 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
         var snapshot = activeAccount?.LastProviderUsageSnapshot;
         IsMonthlyUsage = snapshot?.Monthly.RemainingPercentage >= 0 && snapshot.FiveHour.RemainingPercentage < 0 && snapshot.SevenDay.RemainingPercentage < 0;
         MonthlyUsageAmountText = IsMonthlyUsage && activeAccount?.MonthlyUsedAmountUsd is { } usedAmount && activeAccount.MonthlyLimitAmountUsd is { } limitAmount ? _localizationService.GetFormattedString("TaskbarUsageControl_MonthlyCreditAmountFormat", FormattableString.Invariant($"${usedAmount:0.00}"), FormattableString.Invariant($"${limitAmount:0.00}")) : "";
+        _remainingCreditAmountUsd = IsMonthlyUsage ? activeAccount?.RemainingCreditAmountUsd : null;
+        RemainingCreditText = _remainingCreditAmountUsd is { } remainingCreditAmountUsd ? _localizationService.GetFormattedString("TaskbarUsageControl_RemainingCreditAmountFormat", FormattableString.Invariant($"${remainingCreditAmountUsd:0.00}")) : "";
         SetPrimaryUsage(IsMonthlyUsage ? snapshot.Monthly : snapshot?.FiveHour);
         SetSecondaryUsage(IsMonthlyUsage ? null : snapshot?.SevenDay);
         RefreshComputedProperties();
@@ -215,7 +220,8 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
     {
         OnPropertyChanged(nameof(IsLegacyUsageVisible));
         OnPropertyChanged(nameof(IsPrimaryUsageVisible));
-        OnPropertyChanged(nameof(PrimaryUsageRowSpan));
+        OnPropertyChanged(nameof(RemainingCreditText));
+        OnPropertyChanged(nameof(IsRemainingCreditVisible));
         OnPropertyChanged(nameof(MonthlyUsageAmountText));
         OnPropertyChanged(nameof(MonthlyUsageToolTipText));
         OnPropertyChanged(nameof(PrimaryUsageRemainingPercentageText));

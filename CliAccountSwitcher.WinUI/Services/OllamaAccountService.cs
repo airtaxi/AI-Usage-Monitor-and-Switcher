@@ -140,6 +140,7 @@ public sealed class OllamaAccountService : AccountServiceBase<OllamaAccount>
         LastProviderUsageSnapshot = CreateProviderUsageSnapshot(ollamaAccount.LastOllamaUsageSnapshot),
         MonthlyUsedAmountUsd = ollamaAccount.LastOllamaUsageSnapshot?.MonthlyUsedAmountUsd,
         MonthlyLimitAmountUsd = ollamaAccount.LastOllamaUsageSnapshot?.MonthlyLimitAmountUsd,
+        RemainingCreditAmountUsd = ollamaAccount.LastOllamaUsageSnapshot?.RemainingCreditAmountUsd,
         LastUsageRefreshTime = ollamaAccount.LastUsageRefreshTime
     };
 

@@ -62,7 +62,15 @@ public sealed partial class ActiveAccountQuotaControlViewModel(LocalizationServi
 
     public bool IsActiveAccountPrimaryUsagePacemakerVisible => DashboardViewModel?.IsActiveAccountMonthlyUsdUsage != true;
 
-    public int ActiveAccountPrimaryUsageColumnSpan => IsActiveAccountLegacyUsage ? 1 : 2;
+    public bool IsActiveAccountRemainingCreditVisible => DashboardViewModel?.IsActiveAccountRemainingCreditVisible == true;
+
+    public bool IsActiveAccountRemainingCreditDetailVisible => DashboardViewModel?.IsActiveAccountRemainingCreditDetailVisible == true;
+
+    public string ActiveAccountRemainingCreditLabelText => localizationService.GetLocalizedString("DashboardPage_ActiveRemainingCreditLabelText");
+
+    public string ActiveAccountRemainingCreditText => DashboardViewModel?.ActiveAccountRemainingCreditText ?? "";
+
+    public string ActiveAccountRemainingCreditDetailText => DashboardViewModel?.ActiveAccountRemainingCreditDetailText ?? "";
 
     public string ActiveAccountSecondaryUsageRemainingText => DashboardViewModel?.ActiveAccountSecondaryUsageRemainingText ?? "";
 
@@ -152,7 +160,11 @@ public sealed partial class ActiveAccountQuotaControlViewModel(LocalizationServi
         OnPropertyChanged(nameof(IsActiveAccountLegacyUsage));
         OnPropertyChanged(nameof(IsActiveAccountMonthlyOnlyUsage));
         OnPropertyChanged(nameof(IsActiveAccountPrimaryUsagePacemakerVisible));
-        OnPropertyChanged(nameof(ActiveAccountPrimaryUsageColumnSpan));
+        OnPropertyChanged(nameof(IsActiveAccountRemainingCreditVisible));
+        OnPropertyChanged(nameof(IsActiveAccountRemainingCreditDetailVisible));
+        OnPropertyChanged(nameof(ActiveAccountRemainingCreditLabelText));
+        OnPropertyChanged(nameof(ActiveAccountRemainingCreditText));
+        OnPropertyChanged(nameof(ActiveAccountRemainingCreditDetailText));
         OnPropertyChanged(nameof(ActiveAccountSecondaryUsageRemainingText));
         OnPropertyChanged(nameof(ActiveAccountPrimaryUsageRemainingPercentage));
         OnPropertyChanged(nameof(ActiveAccountSecondaryUsageRemainingPercentage));

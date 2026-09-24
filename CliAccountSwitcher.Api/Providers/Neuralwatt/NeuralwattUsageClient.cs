@@ -36,8 +36,11 @@ public sealed class NeuralwattUsageClient(HttpClient httpClient)
         catch { return snapshot; }
 
         var subscription = response.Subscription ?? new NeuralwattSubscriptionApiData();
+        var balance = response.Balance ?? new NeuralwattBalanceApiData();
         snapshot.PlanLevel = FormatPlanLevel(subscription.Plan);
         snapshot.SubscriptionUsage = ParseSubscriptionUsage(subscription);
+        snapshot.RemainingCreditAmountUsd = balance.CreditsRemainingUsd;
+        snapshot.TotalCreditAmountUsd = balance.TotalCreditsUsd;
         return snapshot;
     }
 

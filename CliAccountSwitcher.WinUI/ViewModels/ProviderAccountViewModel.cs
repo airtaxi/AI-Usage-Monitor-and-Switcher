@@ -38,6 +38,12 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     public bool HasMonthlyOnlyUsage => !IsMonthlyUsdUsage && ProviderUsageSnapshot.Monthly.RemainingPercentage >= 0 && ProviderUsageSnapshot.FiveHour.RemainingPercentage < 0 && ProviderUsageSnapshot.SevenDay.RemainingPercentage < 0;
 
+    public bool HasRemainingCredit => (IsMonthlyUsdUsage || HasMonthlyOnlyUsage) && ProviderAccount.RemainingCreditAmountUsd is not null;
+
+    public string RemainingCreditText => ProviderAccount.RemainingCreditAmountUsd is { } remainingCreditAmountUsd ? FormatUsdAmount(remainingCreditAmountUsd) : "";
+
+    public string RemainingCreditDetailText => ProviderAccount.TotalCreditAmountUsd is { } totalCreditAmountUsd ? _localizationService.GetFormattedString("ProviderAccountViewModel_RemainingCreditTotalFormat", FormatUsdAmount(totalCreditAmountUsd)) : "";
+
     public bool IsLegacyUsageVisible => !IsMonthlyUsdUsage && !HasMonthlyOnlyUsage;
 
     public ProviderUsageWindow PrimaryUsageWindow => IsMonthlyUsdUsage || HasMonthlyOnlyUsage ? ProviderUsageSnapshot.Monthly : ProviderUsageSnapshot.FiveHour;
@@ -195,6 +201,9 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
         OnPropertyChanged(nameof(HasMonthlyUsdCredits));
         OnPropertyChanged(nameof(IsMonthlyUsdUsage));
         OnPropertyChanged(nameof(HasMonthlyOnlyUsage));
+        OnPropertyChanged(nameof(HasRemainingCredit));
+        OnPropertyChanged(nameof(RemainingCreditText));
+        OnPropertyChanged(nameof(RemainingCreditDetailText));
         OnPropertyChanged(nameof(IsLegacyUsageVisible));
         OnPropertyChanged(nameof(PrimaryUsageWindow));
         OnPropertyChanged(nameof(AccountIdentifier));

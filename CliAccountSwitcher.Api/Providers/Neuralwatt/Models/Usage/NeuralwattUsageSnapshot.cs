@@ -7,4 +7,8 @@ public sealed class NeuralwattUsageSnapshot
     public string RawResponseText { get; set; } = "";
 
     public NeuralwattUsageWindow SubscriptionUsage { get; set; } = new();
+
+    public decimal? RemainingCreditAmountUsd { get; set; }
+
+    public decimal? TotalCreditAmountUsd { get; set; }
 }

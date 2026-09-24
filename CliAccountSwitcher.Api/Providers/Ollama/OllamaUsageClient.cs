@@ -54,7 +54,9 @@ public sealed class OllamaUsageClient(HttpClient httpClient)
         httpRequestMessage.Headers.Add("Accept", "text/html");
 
         using var httpResponseMessage = await httpClient.SendAsync(httpRequestMessage, cancellationToken);
-        if (httpResponseMessage.StatusCode is HttpStatusCode.Unauthorized or HttpStatusCode.Forbidden) throw new OllamaAuthExpiredException("The Ollama session cookie has been rejected.");
+        if (httpResponseMessage.StatusCode is HttpStatusCode.Unauthorized or HttpStatusCode.Forbidden or HttpStatusCode.SeeOther) throw new OllamaAuthExpiredException("The Ollama session cookie has been rejected.");
+        var finalRequestUri = httpResponseMessage.RequestMessage?.RequestUri;
+        if (finalRequestUri is not null && (finalRequestUri.Host.Contains("signin", StringComparison.OrdinalIgnoreCase) || finalRequestUri.AbsolutePath.StartsWith("/signin", StringComparison.OrdinalIgnoreCase))) throw new OllamaAuthExpiredException("The Ollama session cookie has expired: the request was redirected to the sign-in page.");
 
         httpResponseMessage.EnsureSuccessStatusCode();
         var responseText = await httpResponseMessage.Content.ReadAsStringAsync(cancellationToken);
@@ -75,6 +77,7 @@ public sealed class OllamaUsageClient(HttpClient httpClient)
         snapshot.SessionUsage = ParseUsageWindow(htmlDocument, SessionUsageLabel);
         snapshot.WeeklyUsage = ParseUsageWindow(htmlDocument, WeeklyUsageLabel);
         ParseMonthlyUsage(htmlDocument, snapshot);
+        ParseRemainingCredit(htmlDocument, snapshot);
 
         if (snapshot.SessionUsage.RemainingPercentage < 0 && snapshot.WeeklyUsage.RemainingPercentage < 0 && snapshot.MonthlyUsage.RemainingPercentage < 0) throw new InvalidDataException("The Ollama settings page did not contain recognizable usage data.");
 
@@ -95,6 +98,22 @@ public sealed class OllamaUsageClient(HttpClient httpClient)
         snapshot.MonthlyLimitAmountUsd = limitAmount;
     }
 
+    private static void ParseRemainingCredit(HtmlDocument htmlDocument, OllamaUsageSnapshot snapshot)
+    {
+        var balanceNode = htmlDocument.GetElementbyId("extra-usage-balance");
+        if (balanceNode is null) return;
+        if (!TryParseUsdAmount(HtmlEntity.DeEntitize(balanceNode.InnerText), out var remainingCreditAmountUsd)) return;
+        snapshot.RemainingCreditAmountUsd = remainingCreditAmountUsd;
+    }
+
+    private static bool TryParseUsdAmount(string text, out decimal amount)
+    {
+        amount = 0;
+        if (string.IsNullOrWhiteSpace(text)) return false;
+        var normalizedText = text.Replace("$", "").Replace(",", "").Trim();
+        return decimal.TryParse(normalizedText, NumberStyles.Number, CultureInfo.InvariantCulture, out amount);
+    }
+
     private static bool LooksSignedOut(string html)
     {
         var lower = html.ToLowerInvariant();
@@ -110,6 +129,7 @@ public sealed class OllamaUsageClient(HttpClient httpClient)
         var headerContainer = emailNode.ParentNode;
         var userName = "";
         var emailAddress = emailNode.InnerText.Trim();
+        if (headerContainer is null) return ("", emailAddress);
 
         var anchorNode = headerContainer.SelectSingleNode(".//a");
         if (anchorNode is not null)

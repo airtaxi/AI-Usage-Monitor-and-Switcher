@@ -107,6 +107,18 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
     public partial bool IsActiveAccountMonthlyOnlyUsage { get; set; }
 
     [ObservableProperty]
+    public partial bool IsActiveAccountRemainingCreditVisible { get; set; }
+
+    [ObservableProperty]
+    public partial bool IsActiveAccountRemainingCreditDetailVisible { get; set; }
+
+    [ObservableProperty]
+    public partial string ActiveAccountRemainingCreditText { get; set; } = "";
+
+    [ObservableProperty]
+    public partial string ActiveAccountRemainingCreditDetailText { get; set; } = "";
+
+    [ObservableProperty]
     public partial string ActiveAccountSecondaryUsageRemainingText { get; set; } = "";
 
     [ObservableProperty]
@@ -286,6 +298,10 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
         ActiveAccountPlanText = activeAccountViewModel?.PlanText ?? "";
         IsActiveAccountMonthlyUsdUsage = activeAccountViewModel?.IsMonthlyUsdUsage == true;
         IsActiveAccountMonthlyOnlyUsage = activeAccountViewModel?.HasMonthlyOnlyUsage == true;
+        IsActiveAccountRemainingCreditVisible = activeAccountViewModel?.HasRemainingCredit == true;
+        IsActiveAccountRemainingCreditDetailVisible = !string.IsNullOrWhiteSpace(activeAccountViewModel?.RemainingCreditDetailText);
+        ActiveAccountRemainingCreditText = activeAccountViewModel?.RemainingCreditText ?? "";
+        ActiveAccountRemainingCreditDetailText = activeAccountViewModel?.RemainingCreditDetailText ?? "";
         ActiveAccountPrimaryUsageDetailText = activeAccountViewModel?.PrimaryUsageResetText ?? "";
         ActiveAccountPrimaryUsageRemainingText = activeAccountViewModel?.PrimaryUsageRemainingText ?? _localizationService.GetLocalizedString("ProviderAccountViewModel_UnknownUsage");
         ActiveAccountSecondaryUsageRemainingText = activeAccountViewModel?.SecondaryUsageRemainingText ?? _localizationService.GetLocalizedString("ProviderAccountViewModel_UnknownUsage");

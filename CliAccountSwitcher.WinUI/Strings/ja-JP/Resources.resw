@@ -568,6 +568,9 @@
   <data name="DashboardPage_ActivePrimaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>5時間残り</value>
   </data>
+  <data name="DashboardPage_ActiveRemainingCreditLabelText" xml:space="preserve">
+    <value>残りクレジット</value>
+  </data>
   <data name="DashboardPage_ActiveSecondaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>7日間残り</value>
   </data>
@@ -993,6 +996,9 @@
   </data>
   <data name="ProviderAccountViewModel_PrimaryUsageWindowLabel" xml:space="preserve">
     <value>5時間制限</value>
+  </data>
+  <data name="ProviderAccountViewModel_RemainingCreditTotalFormat" xml:space="preserve">
+    <value>合計 {0}</value>
   </data>
   <data name="ProviderAccountViewModel_ResetAfterFormat" xml:space="preserve">
     <value>{0:hh\:mm\:ss} 後にリセット</value>
@@ -1550,6 +1556,9 @@ Microsoft Store に {0} 件の更新があります。</value>
   </data>
   <data name="TaskbarUsageControl_RefreshButtonToolTip" xml:space="preserve">
     <value>アクティブアカウントの使用量を更新</value>
+  </data>
+  <data name="TaskbarUsageControl_RemainingCreditAmountFormat" xml:space="preserve">
+    <value>残りクレジット {0}</value>
   </data>
   <data name="TaskbarUsageControl_UnknownPercentageText" xml:space="preserve">
     <value>--</value>
