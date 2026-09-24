@@ -59,18 +59,20 @@ public sealed partial class AboutPage : Page
     private static List<ThirdPartyLicensePackage> CreateThirdPartyLicensePackages()
     {
         var windowsSoftwareDevelopmentKitLicenseText = s_localizationService.GetLocalizedString("ThirdPartyLicensePackage_WindowsSoftwareDevelopmentKitLicense");
+        var windowsAppSoftwareDevelopmentKitLicenseText = s_localizationService.GetLocalizedString("ThirdPartyLicensePackage_WindowsAppSoftwareDevelopmentKitLicense");
 
         return
         [
             new("CommunityToolkit.Mvvm", "8.4.2", "MIT", "Microsoft", "https://github.com/CommunityToolkit/dotnet"),
             new("CommunityToolkit.WinUI.Converters", "8.2.251219", "MIT", "Microsoft.Toolkit", "https://github.com/CommunityToolkit/Windows"),
-            new("Deskband11Lib.WinUI", "1.3.9", "MIT", "airtaxi", "https://github.com/airtaxi/Deskband11Lib"),
-            new("DevWinUI.Controls", "9.9.4", "MIT", "Mahdi Hosseini", "https://github.com/ghost1372/DevWinUI"),
+            new("Deskband11Lib.WinUI", "1.4.2", "MIT", "airtaxi", "https://github.com/airtaxi/Deskband11Lib"),
+            new("DevWinUI", "10.4.1", "MIT", "Mahdi Hosseini", "https://github.com/ghost1372/DevWinUI"),
             new("H.NotifyIcon.WinUI", "2.4.1", "MIT", "havendv", "https://github.com/HavenDV/H.NotifyIcon"),
-            new("Microsoft.Extensions.DependencyInjection", "10.0.10", "MIT", "Microsoft", "https://github.com/dotnet/runtime"),
-            new("Microsoft.Windows.SDK.BuildTools", "10.0.28000.2526", windowsSoftwareDevelopmentKitLicenseText, "Microsoft", "https://aka.ms/WinSDKProjectURL"),
-            new("Microsoft.WindowsAppSDK", "2.3.1", "MIT", "Microsoft", "https://github.com/microsoft/windowsappsdk"),
-            new("WinUIEx", "2.9.2", "MIT", "Morten Nielsen", "https://dotmorten.github.io/WinUIEx")
+            new("HtmlAgilityPack", "1.13.0", "MIT", "ZZZ Projects, Simon Mourrier, Jeff Klawiter, Stephan Grell", "http://html-agility-pack.net/"),
+            new("Microsoft.Extensions.DependencyInjection", "10.0.12", "MIT", "Microsoft", "https://dot.net/"),
+            new("Microsoft.Windows.SDK.BuildTools", "10.0.28000.2705", windowsSoftwareDevelopmentKitLicenseText, "Microsoft", "https://aka.ms/WinSDKProjectURL"),
+            new("Microsoft.WindowsAppSDK", "2.5.1", windowsAppSoftwareDevelopmentKitLicenseText, "Microsoft", "https://github.com/microsoft/windowsappsdk"),
+            new("WinUIEx", "2.9.3", "MIT", "Morten Nielsen - https://xaml.dev", "https://dotmorten.github.io/WinUIEx")
         ];
     }
 

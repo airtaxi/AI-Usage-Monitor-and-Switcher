@@ -6,6 +6,6 @@
     <RootNamespace>CliAccountSwitcher.Api</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="HtmlAgilityPack" Version="1.12.4" />
+    <PackageReference Include="HtmlAgilityPack" Version="1.13.0" />
   </ItemGroup>
 </Project>

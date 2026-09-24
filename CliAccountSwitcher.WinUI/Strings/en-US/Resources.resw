@@ -1470,6 +1470,9 @@ The installed app is already up to date.</value>
   <data name="TaskbarUsageWindow.Title" xml:space="preserve">
     <value>AI Usage Monitor &amp; Switcher</value>
   </data>
+  <data name="ThirdPartyLicensePackage_WindowsAppSoftwareDevelopmentKitLicense" xml:space="preserve">
+    <value>Microsoft Windows App SDK license</value>
+  </data>
   <data name="ThirdPartyLicensePackage_WindowsSoftwareDevelopmentKitLicense" xml:space="preserve">
     <value>Windows SDK license</value>
   </data>
