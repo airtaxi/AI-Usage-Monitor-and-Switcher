@@ -352,7 +352,8 @@
                                             Padding="8,3"
                                             VerticalAlignment="Center"
                                             Background="{x:Bind IsPrimaryUsageUnderWarningThreshold, Mode=OneWay, Converter={StaticResource PrimaryUsageLimitBadgeBackgroundBrushConverter}}"
-                                            CornerRadius="{ThemeResource ControlCornerRadius}">
+                                            CornerRadius="{ThemeResource ControlCornerRadius}"
+                                            Visibility="{x:Bind IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                                             <TextBlock
                                                 HorizontalAlignment="Center"
                                                 FontSize="12"
@@ -363,7 +364,8 @@
                                         <StackPanel
                                             Grid.Column="1"
                                             VerticalAlignment="Center"
-                                            Spacing="3">
+                                            Spacing="3"
+                                            Visibility="{x:Bind IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                                             <Grid ColumnSpacing="4">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
@@ -421,7 +423,8 @@
                                             Padding="8,3"
                                             VerticalAlignment="Center"
                                             Background="{x:Bind IsSecondaryUsageUnderWarningThreshold, Mode=OneWay, Converter={StaticResource SecondaryUsageLimitBadgeBackgroundBrushConverter}}"
-                                            CornerRadius="{ThemeResource ControlCornerRadius}">
+                                            CornerRadius="{ThemeResource ControlCornerRadius}"
+                                            Visibility="{x:Bind IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                                             <TextBlock
                                                 HorizontalAlignment="Center"
                                                 FontSize="12"
@@ -433,7 +436,8 @@
                                             Grid.Row="1"
                                             Grid.Column="1"
                                             VerticalAlignment="Center"
-                                            Spacing="3">
+                                            Spacing="3"
+                                            Visibility="{x:Bind IsLegacyUsageVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                                             <Grid ColumnSpacing="4">
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />

@@ -89,6 +89,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
 
                     <Grid ColumnSpacing="12">
@@ -136,7 +137,10 @@
                             </StackPanel>
                         </Border>
 
-                        <Border Grid.Column="1" Style="{StaticResource DashboardCardBorderStyle}">
+                        <Border
+                            Grid.Column="1"
+                            Style="{StaticResource DashboardCardBorderStyle}"
+                            Visibility="{x:Bind ViewModel.IsLegacyUsageSummaryVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                             <StackPanel VerticalAlignment="Center" Spacing="10">
                                 <TextBlock
                                     x:Uid="DashboardPage_PrimaryLowUsageAccountLabelTextBlock"
@@ -158,7 +162,10 @@
                             </StackPanel>
                         </Border>
 
-                        <Border Grid.Column="2" Style="{StaticResource DashboardCardBorderStyle}">
+                        <Border
+                            Grid.Column="2"
+                            Style="{StaticResource DashboardCardBorderStyle}"
+                            Visibility="{x:Bind ViewModel.IsLegacyUsageSummaryVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                             <StackPanel VerticalAlignment="Center" Spacing="10">
                                 <TextBlock
                                     x:Uid="DashboardPage_SecondaryLowUsageAccountLabelTextBlock"
@@ -187,7 +194,7 @@
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <Border Style="{StaticResource DashboardCardBorderStyle}">
+                        <Border Style="{StaticResource DashboardCardBorderStyle}" Visibility="{x:Bind ViewModel.IsLegacyUsageSummaryVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                             <StackPanel VerticalAlignment="Center" Spacing="10">
                                 <TextBlock
                                     x:Uid="DashboardPage_PrimaryAverageUsageLabelTextBlock"
@@ -207,7 +214,8 @@
                         <Border
                             Grid.Column="1"
                             VerticalAlignment="Center"
-                            Style="{StaticResource DashboardCardBorderStyle}">
+                            Style="{StaticResource DashboardCardBorderStyle}"
+                            Visibility="{x:Bind ViewModel.IsLegacyUsageSummaryVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                             <StackPanel Spacing="10">
                                 <TextBlock
                                     x:Uid="DashboardPage_SecondaryAverageUsageLabelTextBlock"
@@ -221,6 +229,37 @@
                                     Text="{x:Bind ViewModel.SecondaryAverageUsageRemainingText, Mode=OneWay}"
                                     TextTrimming="WordEllipsis" />
                                 <ProgressBar Maximum="100" Value="{x:Bind ViewModel.SecondaryAverageUsageRemainingPercentage, Mode=OneWay}" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
+                    <Grid
+                        Grid.Row="2"
+                        ColumnSpacing="12"
+                        Visibility="{x:Bind ViewModel.IsMonthlyUsageSummaryVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Border Style="{StaticResource DashboardCardBorderStyle}">
+                            <StackPanel VerticalAlignment="Center" Spacing="10">
+                                <TextBlock x:Uid="DashboardPage_MonthlyUsdCreditsLowUsageLabelTextBlock" Style="{StaticResource DashboardMetricLabelTextBlockStyle}" />
+                                <TextBlock
+                                    FontSize="24"
+                                    FontWeight="SemiBold"
+                                    Text="{x:Bind ViewModel.MonthlyLowUsageAccountCountText, Mode=OneWay}" />
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Column="1" Style="{StaticResource DashboardCardBorderStyle}">
+                            <StackPanel VerticalAlignment="Center" Spacing="10">
+                                <TextBlock x:Uid="DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock" Style="{StaticResource DashboardMetricLabelTextBlockStyle}" />
+                                <TextBlock
+                                    FontSize="24"
+                                    FontWeight="SemiBold"
+                                    Text="{x:Bind ViewModel.MonthlyAverageUsageRemainingText, Mode=OneWay}" />
+                                <ProgressBar Maximum="100" Value="{x:Bind ViewModel.MonthlyAverageUsageRemainingPercentage, Mode=OneWay}" />
                             </StackPanel>
                         </Border>
                     </Grid>
@@ -318,6 +357,16 @@
                                                         Foreground="{ThemeResource UsageWarningProgressBarForegroundBrush}"
                                                         Maximum="100"
                                                         Value="{x:Bind SecondaryUsageRemainingPercentage}" />
+                                                </StackPanel>
+                                                <StackPanel Spacing="4" Visibility="{x:Bind IsMonthlyUsageWarningVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+                                                    <TextBlock
+                                                        FontWeight="SemiBold"
+                                                        Text="{x:Bind MonthlyUsageWarningText}"
+                                                        TextTrimming="WordEllipsis" />
+                                                    <ProgressBar
+                                                        Foreground="{ThemeResource UsageWarningProgressBarForegroundBrush}"
+                                                        Maximum="100"
+                                                        Value="{x:Bind MonthlyUsageRemainingPercentage}" />
                                                 </StackPanel>
                                             </StackPanel>
 

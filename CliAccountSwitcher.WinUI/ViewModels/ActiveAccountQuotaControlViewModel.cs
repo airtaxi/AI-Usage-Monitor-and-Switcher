@@ -54,6 +54,12 @@ public sealed partial class ActiveAccountQuotaControlViewModel(LocalizationServi
 
     public string ActiveAccountPrimaryUsageRemainingText => DashboardViewModel?.ActiveAccountPrimaryUsageRemainingText ?? "";
 
+    public string ActiveAccountPrimaryUsageLabelText => DashboardViewModel?.IsActiveAccountMonthlyUsdUsage == true ? localizationService.GetLocalizedString("DashboardPage_ActiveMonthlyUsdCreditsLabelText") : localizationService.GetLocalizedString("DashboardPage_ActivePrimaryUsageLabelTextBlock.Text");
+
+    public bool IsActiveAccountLegacyUsage => DashboardViewModel?.IsActiveAccountMonthlyUsdUsage != true;
+
+    public int ActiveAccountPrimaryUsageColumnSpan => IsActiveAccountLegacyUsage ? 1 : 2;
+
     public string ActiveAccountSecondaryUsageRemainingText => DashboardViewModel?.ActiveAccountSecondaryUsageRemainingText ?? "";
 
     public int ActiveAccountPrimaryUsageRemainingPercentage => DashboardViewModel?.ActiveAccountPrimaryUsageRemainingPercentage ?? 0;
@@ -64,7 +70,7 @@ public sealed partial class ActiveAccountQuotaControlViewModel(LocalizationServi
 
     public int ActiveAccountSecondaryUsagePacemakerPercentage => DashboardViewModel?.ActiveAccountSecondaryUsagePacemakerPercentage ?? 0;
 
-    public string ActiveAccountPrimaryUsageResetText => FormatUsageReset(DashboardViewModel?.ActiveAccountPrimaryUsageResetAt);
+    public string ActiveAccountPrimaryUsageResetText => DashboardViewModel?.IsActiveAccountMonthlyUsdUsage == true ? DashboardViewModel.ActiveAccountPrimaryUsageDetailText : FormatUsageReset(DashboardViewModel?.ActiveAccountPrimaryUsageResetAt);
 
     public string ActiveAccountSecondaryUsageResetText => FormatUsageReset(DashboardViewModel?.ActiveAccountSecondaryUsageResetAt);
 
@@ -78,7 +84,7 @@ public sealed partial class ActiveAccountQuotaControlViewModel(LocalizationServi
 
     public bool IsActiveAccountSecondaryUsageOverAverageRateLimit => DashboardViewModel?.IsActiveAccountSecondaryUsageOverAverageRateLimit == true;
 
-    public bool IsActiveAccountPrimaryUsageAtAverageRateLimit => !IsActiveAccountPrimaryUsageOverAverageRateLimit && (DashboardViewModel?.ActiveAccountPrimaryUsageAverageRateLimitHeadroomPercentage ?? 0) == 0;
+    public bool IsActiveAccountPrimaryUsageAtAverageRateLimit => IsActiveAccountLegacyUsage && !IsActiveAccountPrimaryUsageOverAverageRateLimit && (DashboardViewModel?.ActiveAccountPrimaryUsageAverageRateLimitHeadroomPercentage ?? 0) == 0;
 
     public bool IsActiveAccountSecondaryUsageAtAverageRateLimit => !IsActiveAccountSecondaryUsageOverAverageRateLimit && (DashboardViewModel?.ActiveAccountSecondaryUsageAverageRateLimitHeadroomPercentage ?? 0) == 0;
 
@@ -138,6 +144,9 @@ public sealed partial class ActiveAccountQuotaControlViewModel(LocalizationServi
         OnPropertyChanged(nameof(IsActiveAccountEmailAddressVisible));
         OnPropertyChanged(nameof(ActiveAccountPlanText));
         OnPropertyChanged(nameof(ActiveAccountPrimaryUsageRemainingText));
+        OnPropertyChanged(nameof(ActiveAccountPrimaryUsageLabelText));
+        OnPropertyChanged(nameof(IsActiveAccountLegacyUsage));
+        OnPropertyChanged(nameof(ActiveAccountPrimaryUsageColumnSpan));
         OnPropertyChanged(nameof(ActiveAccountSecondaryUsageRemainingText));
         OnPropertyChanged(nameof(ActiveAccountPrimaryUsageRemainingPercentage));
         OnPropertyChanged(nameof(ActiveAccountSecondaryUsageRemainingPercentage));

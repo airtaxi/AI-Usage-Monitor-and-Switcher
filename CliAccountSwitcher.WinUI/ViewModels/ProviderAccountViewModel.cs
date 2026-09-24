@@ -19,7 +19,7 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     private readonly ApplicationSettings _applicationSettings = applicationSettings;
     private readonly LocalizationService _localizationService = localizationService;
-    private DateTimeOffset? _primaryUsageResetTime = GetUsageResetTime(GetProviderUsageSnapshot(providerAccount).FiveHour, providerAccount.LastUsageRefreshTime);
+    private DateTimeOffset? _primaryUsageResetTime = GetUsageResetTime(GetPrimaryUsageWindow(providerAccount), providerAccount.LastUsageRefreshTime);
     private DateTimeOffset? _secondaryUsageResetTime = GetUsageResetTime(GetProviderUsageSnapshot(providerAccount).SevenDay, providerAccount.LastUsageRefreshTime);
     private DateTimeOffset? _monthlyUsageResetTime = GetUsageResetTime(GetProviderUsageSnapshot(providerAccount).Monthly, providerAccount.LastUsageRefreshTime);
 
@@ -32,6 +32,14 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     public ProviderUsageSnapshot ProviderUsageSnapshot => GetProviderUsageSnapshot(ProviderAccount);
 
+    public bool HasMonthlyUsdCredits => ProviderUsageSnapshot.Monthly.RemainingPercentage >= 0 && ProviderAccount.MonthlyUsedAmountUsd.HasValue && ProviderAccount.MonthlyLimitAmountUsd.HasValue;
+
+    public bool IsMonthlyUsdUsage => HasMonthlyUsdCredits && ProviderUsageSnapshot.FiveHour.RemainingPercentage < 0 && ProviderUsageSnapshot.SevenDay.RemainingPercentage < 0;
+
+    public bool IsLegacyUsageVisible => !IsMonthlyUsdUsage;
+
+    public ProviderUsageWindow PrimaryUsageWindow => IsMonthlyUsdUsage ? ProviderUsageSnapshot.Monthly : ProviderUsageSnapshot.FiveHour;
+
     public string AccountIdentifier => ProviderAccount.AccountIdentifier;
 
     public string CustomAlias => ProviderAccount.CustomAlias;
@@ -42,7 +50,7 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     public bool IsEmailAddressVisible => ProviderKind is not (CliProviderKind.Zai or CliProviderKind.OpenCodeGo);
 
-    public bool IsMonthlyUsageVisible => ProviderKind == CliProviderKind.OpenCodeGo || (ProviderKind == CliProviderKind.Zai && ProviderUsageSnapshot.Monthly.RemainingPercentage >= 0);
+    public bool IsMonthlyUsageVisible => ProviderKind == CliProviderKind.OpenCodeGo || ProviderKind == CliProviderKind.Zai && ProviderUsageSnapshot.Monthly.RemainingPercentage >= 0 || HasMonthlyUsdCredits;
 
     public string PlanType => ProviderAccount.PlanType;
 
@@ -58,27 +66,27 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     public string AccessTokenPreview => ProviderKind == CliProviderKind.Codex && string.IsNullOrWhiteSpace(ProviderAccount.AccountDetailText) ? _localizationService.GetLocalizedString("ProviderAccountViewModel_NoAccessToken") : ProviderAccount.AccountDetailText;
 
-    public string PrimaryUsageText => FormatUsageWindow(ProviderUsageSnapshot.FiveHour, _primaryUsageResetTime);
+    public string PrimaryUsageText => FormatUsageWindow(PrimaryUsageWindow, _primaryUsageResetTime);
 
     public string SecondaryUsageText => FormatUsageWindow(ProviderUsageSnapshot.SevenDay, _secondaryUsageResetTime);
 
-    public string PrimaryUsageWindowLabelText => _localizationService.GetLocalizedString("ProviderAccountViewModel_PrimaryUsageWindowLabel");
+    public string PrimaryUsageWindowLabelText => _localizationService.GetLocalizedString(IsMonthlyUsdUsage ? "ProviderAccountViewModel_MonthlyUsdCreditsWindowLabel" : "ProviderAccountViewModel_PrimaryUsageWindowLabel");
 
     public string SecondaryUsageWindowLabelText => _localizationService.GetLocalizedString("ProviderAccountViewModel_SecondaryUsageWindowLabel");
 
-    public string PrimaryUsageRemainingText => FormatUsageRemaining(ProviderUsageSnapshot.FiveHour);
+    public string PrimaryUsageRemainingText => IsMonthlyUsdUsage ? MonthlyUsageRemainingText : FormatUsageRemaining(PrimaryUsageWindow);
 
     public string SecondaryUsageRemainingText => FormatUsageRemaining(ProviderUsageSnapshot.SevenDay);
 
-    public string PrimaryUsageResetText => FormatUsageReset(_primaryUsageResetTime);
+    public string PrimaryUsageResetText => IsMonthlyUsdUsage ? MonthlyUsageAmountText : FormatUsageReset(_primaryUsageResetTime);
 
     public string SecondaryUsageResetText => FormatUsageReset(_secondaryUsageResetTime);
 
-    public int PrimaryUsageRemainingPercentage => ClampUsageRemainingPercentage(ProviderUsageSnapshot.FiveHour);
+    public int PrimaryUsageRemainingPercentage => ClampUsageRemainingPercentage(PrimaryUsageWindow);
 
     public int SecondaryUsageRemainingPercentage => ClampUsageRemainingPercentage(ProviderUsageSnapshot.SevenDay);
 
-    public bool IsPrimaryUsageUnderWarningThreshold => IsUsageUnderWarningThreshold(ProviderUsageSnapshot.FiveHour, _applicationSettings.PrimaryUsageWarningThresholdPercentage);
+    public bool IsPrimaryUsageUnderWarningThreshold => IsUsageUnderWarningThreshold(PrimaryUsageWindow, IsMonthlyUsdUsage ? _applicationSettings.SecondaryUsageWarningThresholdPercentage : _applicationSettings.PrimaryUsageWarningThresholdPercentage);
 
     public bool IsSecondaryUsageUnderWarningThreshold => IsUsageUnderWarningThreshold(ProviderUsageSnapshot.SevenDay, _applicationSettings.SecondaryUsageWarningThresholdPercentage);
 
@@ -86,11 +94,11 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     public bool IsSecondaryUsageOverAverageRateLimit => SecondaryUsageAverageRateLimitExceededPercentage > 0;
 
-    public int PrimaryUsagePacemakerPercentage => GetUsagePacemakerPercentage(ProviderUsageSnapshot.FiveHour, s_primaryUsageWindowDuration);
+    public int PrimaryUsagePacemakerPercentage => IsMonthlyUsdUsage ? 0 : GetUsagePacemakerPercentage(PrimaryUsageWindow, s_primaryUsageWindowDuration);
 
     public int SecondaryUsagePacemakerPercentage => GetUsagePacemakerPercentage(ProviderUsageSnapshot.SevenDay, s_secondaryUsageWindowDuration);
 
-    public int PrimaryUsagePacemakerDifferencePercentage => GetUsagePacemakerDifferencePercentage(ProviderUsageSnapshot.FiveHour, s_primaryUsageWindowDuration);
+    public int PrimaryUsagePacemakerDifferencePercentage => IsMonthlyUsdUsage ? 0 : GetUsagePacemakerDifferencePercentage(PrimaryUsageWindow, s_primaryUsageWindowDuration);
 
     public int SecondaryUsagePacemakerDifferencePercentage => GetUsagePacemakerDifferencePercentage(ProviderUsageSnapshot.SevenDay, s_secondaryUsageWindowDuration);
 
@@ -106,15 +114,15 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     public int SecondaryUsagePacemakerProgressBarZIndex => UsagePacemakerHelper.GetPacemakerProgressBarZIndex(SecondaryUsageRemainingPercentage, SecondaryUsagePacemakerPercentage, SecondaryUsagePacemakerDifferencePercentage);
 
-    public int PrimaryUsageAverageRateLimitExceededPercentage => CalculateUsageAverageRateLimitExceededPercentage(ProviderUsageSnapshot.FiveHour, s_primaryUsageWindowDuration, s_primaryUsageAverageUnitDuration);
+    public int PrimaryUsageAverageRateLimitExceededPercentage => IsMonthlyUsdUsage ? 0 : CalculateUsageAverageRateLimitExceededPercentage(PrimaryUsageWindow, s_primaryUsageWindowDuration, s_primaryUsageAverageUnitDuration);
 
     public int SecondaryUsageAverageRateLimitExceededPercentage => CalculateUsageAverageRateLimitExceededPercentage(ProviderUsageSnapshot.SevenDay, s_secondaryUsageWindowDuration, s_secondaryUsageAverageUnitDuration);
 
-    public int PrimaryUsageAverageRateLimitHeadroomPercentage => CalculateUsageAverageRateLimitHeadroomPercentage(ProviderUsageSnapshot.FiveHour, s_primaryUsageWindowDuration, s_primaryUsageAverageUnitDuration);
+    public int PrimaryUsageAverageRateLimitHeadroomPercentage => IsMonthlyUsdUsage ? 0 : CalculateUsageAverageRateLimitHeadroomPercentage(PrimaryUsageWindow, s_primaryUsageWindowDuration, s_primaryUsageAverageUnitDuration);
 
     public int SecondaryUsageAverageRateLimitHeadroomPercentage => CalculateUsageAverageRateLimitHeadroomPercentage(ProviderUsageSnapshot.SevenDay, s_secondaryUsageWindowDuration, s_secondaryUsageAverageUnitDuration);
 
-    public bool IsPrimaryUsageAtAverageRateLimit => PrimaryUsageAverageRateLimitExceededPercentage == 0 && PrimaryUsageAverageRateLimitHeadroomPercentage == 0;
+    public bool IsPrimaryUsageAtAverageRateLimit => !IsMonthlyUsdUsage && PrimaryUsageAverageRateLimitExceededPercentage == 0 && PrimaryUsageAverageRateLimitHeadroomPercentage == 0;
 
     public bool IsSecondaryUsageAtAverageRateLimit => SecondaryUsageAverageRateLimitExceededPercentage == 0 && SecondaryUsageAverageRateLimitHeadroomPercentage == 0;
 
@@ -128,11 +136,13 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     public string MonthlyUsageText => FormatUsageWindow(ProviderUsageSnapshot.Monthly, _monthlyUsageResetTime);
 
-    public string MonthlyUsageWindowLabelText => _localizationService.GetLocalizedString("ProviderAccountViewModel_MonthlyUsageWindowLabel");
+    public string MonthlyUsageWindowLabelText => _localizationService.GetLocalizedString(HasMonthlyUsdCredits ? "ProviderAccountViewModel_MonthlyUsdCreditsWindowLabel" : "ProviderAccountViewModel_MonthlyUsageWindowLabel");
 
-    public string MonthlyUsageRemainingText => FormatUsageRemaining(ProviderUsageSnapshot.Monthly);
+    public string MonthlyUsageRemainingText => HasMonthlyUsdCredits && ProviderAccount.MonthlyLimitAmountUsd is { } limitAmount && ProviderAccount.MonthlyUsedAmountUsd is { } usedAmount ? _localizationService.GetFormattedString("ProviderAccountViewModel_MonthlyUsdCreditsRemainingFormat", FormatUsdAmount(Math.Max(0, limitAmount - usedAmount)), ProviderUsageSnapshot.Monthly.RemainingPercentage) : FormatUsageRemaining(ProviderUsageSnapshot.Monthly);
 
-    public string MonthlyUsageResetText => FormatUsageReset(_monthlyUsageResetTime);
+    public string MonthlyUsageResetText => HasMonthlyUsdCredits ? MonthlyUsageAmountText : FormatUsageReset(_monthlyUsageResetTime);
+
+    public string MonthlyUsageAmountText => HasMonthlyUsdCredits && ProviderAccount.MonthlyLimitAmountUsd is { } limitAmount && ProviderAccount.MonthlyUsedAmountUsd is { } usedAmount ? _localizationService.GetFormattedString("ProviderAccountViewModel_MonthlyUsdCreditsUsedFormat", FormatUsdAmount(usedAmount), FormatUsdAmount(limitAmount)) : "";
 
     public int MonthlyUsageRemainingPercentage => ClampUsageRemainingPercentage(ProviderUsageSnapshot.Monthly);
 
@@ -154,7 +164,7 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     public int MonthlyUsageAverageRateLimitHeadroomPercentage => CalculateUsageAverageRateLimitHeadroomPercentage(ProviderUsageSnapshot.Monthly, s_monthlyUsageWindowDuration, s_monthlyUsageAverageUnitDuration);
 
-    public bool IsMonthlyUsageAtAverageRateLimit => MonthlyUsageAverageRateLimitExceededPercentage == 0 && MonthlyUsageAverageRateLimitHeadroomPercentage == 0;
+    public bool IsMonthlyUsageAtAverageRateLimit => !HasMonthlyUsdCredits && MonthlyUsageAverageRateLimitExceededPercentage == 0 && MonthlyUsageAverageRateLimitHeadroomPercentage == 0;
 
     public bool HasMonthlyUsageAverageRateLimitHeadroom => MonthlyUsageAverageRateLimitHeadroomPercentage > 0;
 
@@ -169,7 +179,7 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
     public void Update(ProviderAccount providerAccount)
     {
         ProviderAccount = providerAccount;
-        _primaryUsageResetTime = GetUsageResetTime(ProviderUsageSnapshot.FiveHour, ProviderAccount.LastUsageRefreshTime);
+        _primaryUsageResetTime = GetUsageResetTime(PrimaryUsageWindow, ProviderAccount.LastUsageRefreshTime);
         _secondaryUsageResetTime = GetUsageResetTime(ProviderUsageSnapshot.SevenDay, ProviderAccount.LastUsageRefreshTime);
         _monthlyUsageResetTime = GetUsageResetTime(ProviderUsageSnapshot.Monthly, ProviderAccount.LastUsageRefreshTime);
         RefreshAccountProperties();
@@ -180,6 +190,10 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
         OnPropertyChanged(nameof(ProviderAccount));
         OnPropertyChanged(nameof(ProviderKind));
         OnPropertyChanged(nameof(ProviderUsageSnapshot));
+        OnPropertyChanged(nameof(HasMonthlyUsdCredits));
+        OnPropertyChanged(nameof(IsMonthlyUsdUsage));
+        OnPropertyChanged(nameof(IsLegacyUsageVisible));
+        OnPropertyChanged(nameof(PrimaryUsageWindow));
         OnPropertyChanged(nameof(AccountIdentifier));
         OnPropertyChanged(nameof(CustomAlias));
         OnPropertyChanged(nameof(DisplayName));
@@ -231,6 +245,7 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
         OnPropertyChanged(nameof(MonthlyUsageWindowLabelText));
         OnPropertyChanged(nameof(MonthlyUsageRemainingText));
         OnPropertyChanged(nameof(MonthlyUsageResetText));
+        OnPropertyChanged(nameof(MonthlyUsageAmountText));
         OnPropertyChanged(nameof(MonthlyUsageRemainingPercentage));
         OnPropertyChanged(nameof(IsMonthlyUsageUnderWarningThreshold));
         OnPropertyChanged(nameof(IsMonthlyUsageOverAverageRateLimit));
@@ -306,6 +321,14 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
     }
 
     private static ProviderUsageSnapshot GetProviderUsageSnapshot(ProviderAccount providerAccount) => providerAccount.LastProviderUsageSnapshot ?? new ProviderUsageSnapshot { ProviderKind = providerAccount.ProviderKind };
+
+    private static ProviderUsageWindow GetPrimaryUsageWindow(ProviderAccount providerAccount)
+    {
+        var snapshot = GetProviderUsageSnapshot(providerAccount);
+        return providerAccount.MonthlyUsedAmountUsd.HasValue && providerAccount.MonthlyLimitAmountUsd.HasValue && snapshot.Monthly.RemainingPercentage >= 0 && snapshot.FiveHour.RemainingPercentage < 0 && snapshot.SevenDay.RemainingPercentage < 0 ? snapshot.Monthly : snapshot.FiveHour;
+    }
+
+    private static string FormatUsdAmount(decimal amount) => FormattableString.Invariant($"${amount:0.00}");
 
     private static int GetUsagePacemakerPercentage(ProviderUsageWindow providerUsageWindow, TimeSpan usageWindowDuration) => UsagePacemakerHelper.TryGetUsagePercentages(providerUsageWindow, usageWindowDuration, out _, out var pacemakerPercentage, out _) ? pacemakerPercentage : 0;
 

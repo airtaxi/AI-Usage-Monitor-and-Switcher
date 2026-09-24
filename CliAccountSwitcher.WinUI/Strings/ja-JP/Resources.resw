@@ -514,6 +514,9 @@
   <data name="DashboardPage_ActiveAccountSectionTitleTextBlock.Text" xml:space="preserve">
     <value>アクティブアカウントのクォータ</value>
   </data>
+  <data name="DashboardPage_ActiveMonthlyUsdCreditsLabelText" xml:space="preserve">
+    <value>月間クレジットの残量</value>
+  </data>
   <data name="DashboardPage_ActivePrimaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>5時間残り</value>
   </data>
@@ -537,6 +540,12 @@
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>アカウント管理へ移動</value>
+  </data>
+  <data name="DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>月間クレジットの平均残量</value>
+  </data>
+  <data name="DashboardPage_MonthlyUsdCreditsLowUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>月間クレジットが少ないアカウント</value>
   </data>
   <data name="DashboardPage_NoActiveAccountDescriptionTextBlock.Text" xml:space="preserve">
     <value>アカウント管理で使用するアカウントに切り替えると、ここに残りクォータが表示されます。</value>
@@ -912,6 +921,15 @@
   </data>
   <data name="ProviderAccountViewModel_MonthlyUsageWindowLabel" xml:space="preserve">
     <value>月次制限</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsRemainingFormat" xml:space="preserve">
+    <value>残り {0}（{1}%）</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsUsedFormat" xml:space="preserve">
+    <value>{0} / {1} 使用</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsWindowLabel" xml:space="preserve">
+    <value>月間クレジット</value>
   </data>
   <data name="ProviderAccountViewModel_NoAccessToken" xml:space="preserve">
     <value>なし</value>
@@ -1454,6 +1472,12 @@ Microsoft Store に {0} 件の更新があります。</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedTitleTextBlock.Text" xml:space="preserve">
     <value>スキルはサポートされていません</value>
+  </data>
+  <data name="TaskbarUsageControl_MonthlyCreditAmountFormat" xml:space="preserve">
+    <value>{0} / {1}</value>
+  </data>
+  <data name="TaskbarUsageControl_MonthlyCreditLabel" xml:space="preserve">
+    <value>月間</value>
   </data>
   <data name="TaskbarUsageControl_PercentageDifferenceFormat" xml:space="preserve">
     <value>{0:+0;-0;0}%</value>

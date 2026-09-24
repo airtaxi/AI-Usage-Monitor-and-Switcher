@@ -59,6 +59,21 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
     public partial string SecondaryLowUsageAccountCountText { get; set; } = "";
 
     [ObservableProperty]
+    public partial bool IsLegacyUsageSummaryVisible { get; set; } = true;
+
+    [ObservableProperty]
+    public partial bool IsMonthlyUsageSummaryVisible { get; set; }
+
+    [ObservableProperty]
+    public partial string MonthlyAverageUsageRemainingText { get; set; } = "";
+
+    [ObservableProperty]
+    public partial int MonthlyAverageUsageRemainingPercentage { get; set; }
+
+    [ObservableProperty]
+    public partial string MonthlyLowUsageAccountCountText { get; set; } = "";
+
+    [ObservableProperty]
     public partial bool HasActiveAccount { get; set; }
 
     [ObservableProperty]
@@ -75,6 +90,12 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
 
     [ObservableProperty]
     public partial string ActiveAccountPrimaryUsageRemainingText { get; set; } = "";
+
+    [ObservableProperty]
+    public partial string ActiveAccountPrimaryUsageDetailText { get; set; } = "";
+
+    [ObservableProperty]
+    public partial bool IsActiveAccountMonthlyUsdUsage { get; set; }
 
     [ObservableProperty]
     public partial string ActiveAccountSecondaryUsageRemainingText { get; set; } = "";
@@ -214,22 +235,32 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
 
     private void SetAverageUsageProperties(IReadOnlyList<ProviderAccountViewModel> accountViewModels)
     {
-        var primaryAverageUsageRemainingPercentage = CalculateAverageUsageRemainingPercentage(accountViewModels, accountViewModel => accountViewModel.ProviderUsageSnapshot.FiveHour.RemainingPercentage);
-        var secondaryAverageUsageRemainingPercentage = CalculateAverageUsageRemainingPercentage(accountViewModels, accountViewModel => accountViewModel.ProviderUsageSnapshot.SevenDay.RemainingPercentage);
+        var legacyAccountViewModels = accountViewModels.Where(accountViewModel => !accountViewModel.IsMonthlyUsdUsage).ToList();
+        var monthlyAccountViewModels = accountViewModels.Where(accountViewModel => accountViewModel.HasMonthlyUsdCredits).ToList();
+        IsLegacyUsageSummaryVisible = legacyAccountViewModels.Count > 0 || monthlyAccountViewModels.Count == 0;
+        IsMonthlyUsageSummaryVisible = monthlyAccountViewModels.Count > 0;
+
+        var primaryAverageUsageRemainingPercentage = CalculateAverageUsageRemainingPercentage(legacyAccountViewModels, accountViewModel => accountViewModel.ProviderUsageSnapshot.FiveHour.RemainingPercentage);
+        var secondaryAverageUsageRemainingPercentage = CalculateAverageUsageRemainingPercentage(legacyAccountViewModels, accountViewModel => accountViewModel.ProviderUsageSnapshot.SevenDay.RemainingPercentage);
+        var monthlyAverageUsageRemainingPercentage = CalculateAverageUsageRemainingPercentage(monthlyAccountViewModels, accountViewModel => accountViewModel.ProviderUsageSnapshot.Monthly.RemainingPercentage);
 
         PrimaryAverageUsageRemainingText = FormatUsageRemainingPercentage(primaryAverageUsageRemainingPercentage);
         PrimaryAverageUsageRemainingPercentage = ClampUsageRemainingPercentage(primaryAverageUsageRemainingPercentage);
         SecondaryAverageUsageRemainingText = FormatUsageRemainingPercentage(secondaryAverageUsageRemainingPercentage);
         SecondaryAverageUsageRemainingPercentage = ClampUsageRemainingPercentage(secondaryAverageUsageRemainingPercentage);
+        MonthlyAverageUsageRemainingText = FormatUsageRemainingPercentage(monthlyAverageUsageRemainingPercentage);
+        MonthlyAverageUsageRemainingPercentage = ClampUsageRemainingPercentage(monthlyAverageUsageRemainingPercentage);
     }
 
     private void SetLowUsageSummaryProperties(IReadOnlyList<ProviderAccountViewModel> accountViewModels)
     {
-        var primaryLowUsageAccountCount = accountViewModels.Count(accountViewModel => accountViewModel.IsPrimaryUsageUnderWarningThreshold);
-        var secondaryLowUsageAccountCount = accountViewModels.Count(accountViewModel => accountViewModel.IsSecondaryUsageUnderWarningThreshold);
+        var primaryLowUsageAccountCount = accountViewModels.Count(accountViewModel => !accountViewModel.IsMonthlyUsdUsage && accountViewModel.IsPrimaryUsageUnderWarningThreshold);
+        var secondaryLowUsageAccountCount = accountViewModels.Count(accountViewModel => !accountViewModel.IsMonthlyUsdUsage && accountViewModel.IsSecondaryUsageUnderWarningThreshold);
+        var monthlyLowUsageAccountCount = accountViewModels.Count(accountViewModel => accountViewModel.HasMonthlyUsdCredits && accountViewModel.IsMonthlyUsageUnderWarningThreshold);
 
         PrimaryLowUsageAccountCountText = FormatLowUsageAccountCount(primaryLowUsageAccountCount);
         SecondaryLowUsageAccountCountText = FormatLowUsageAccountCount(secondaryLowUsageAccountCount);
+        MonthlyLowUsageAccountCountText = FormatLowUsageAccountCount(monthlyLowUsageAccountCount);
     }
 
     private void SetActiveAccountProperties(ProviderAccountViewModel activeAccountViewModel)
@@ -240,11 +271,13 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
         ActiveAccountDisplayNameText = activeAccountViewModel?.DisplayName ?? "";
         ActiveAccountEmailAddressText = activeAccountViewModel?.EmailAddress ?? "";
         ActiveAccountPlanText = activeAccountViewModel?.PlanText ?? "";
+        IsActiveAccountMonthlyUsdUsage = activeAccountViewModel?.IsMonthlyUsdUsage == true;
+        ActiveAccountPrimaryUsageDetailText = activeAccountViewModel?.PrimaryUsageResetText ?? "";
         ActiveAccountPrimaryUsageRemainingText = activeAccountViewModel?.PrimaryUsageRemainingText ?? _localizationService.GetLocalizedString("ProviderAccountViewModel_UnknownUsage");
         ActiveAccountSecondaryUsageRemainingText = activeAccountViewModel?.SecondaryUsageRemainingText ?? _localizationService.GetLocalizedString("ProviderAccountViewModel_UnknownUsage");
         ActiveAccountPrimaryUsageRemainingPercentage = activeAccountViewModel?.PrimaryUsageRemainingPercentage ?? 0;
         ActiveAccountSecondaryUsageRemainingPercentage = activeAccountViewModel?.SecondaryUsageRemainingPercentage ?? 0;
-        ActiveAccountPrimaryUsageResetAt = activeAccountViewModel is null ? null : GetUsageResetAt(activeAccountViewModel.ProviderUsageSnapshot.FiveHour);
+        ActiveAccountPrimaryUsageResetAt = activeAccountViewModel is null ? null : GetUsageResetAt(activeAccountViewModel.PrimaryUsageWindow);
         ActiveAccountSecondaryUsageResetAt = activeAccountViewModel is null ? null : GetUsageResetAt(activeAccountViewModel.ProviderUsageSnapshot.SevenDay);
         ActiveAccountLastUsageRefreshText = activeAccountViewModel?.LastUsageRefreshText ?? "";
         IsActiveAccountPrimaryUsageUnderWarningThreshold = activeAccountViewModel?.IsPrimaryUsageUnderWarningThreshold == true;
@@ -277,13 +310,14 @@ public sealed partial class DashboardPageViewModel : ObservableObject, IDisposab
         HasNoLowUsageAccounts = LowUsageAccounts.Count == 0;
     }
 
-    private static bool IsLowUsageAccount(ProviderAccountViewModel accountViewModel) => accountViewModel.IsPrimaryUsageUnderWarningThreshold || accountViewModel.IsSecondaryUsageUnderWarningThreshold;
+    private static bool IsLowUsageAccount(ProviderAccountViewModel accountViewModel) => accountViewModel.IsPrimaryUsageUnderWarningThreshold || accountViewModel.IsSecondaryUsageUnderWarningThreshold || accountViewModel.HasMonthlyUsdCredits && accountViewModel.IsMonthlyUsageUnderWarningThreshold;
 
     private static int GetLowestKnownUsageRemainingPercentage(ProviderAccountViewModel accountViewModel)
     {
         var primaryUsageRemainingPercentage = accountViewModel.IsPrimaryUsageUnderWarningThreshold ? accountViewModel.PrimaryUsageRemainingPercentage : 101;
         var secondaryUsageRemainingPercentage = accountViewModel.IsSecondaryUsageUnderWarningThreshold ? accountViewModel.SecondaryUsageRemainingPercentage : 101;
-        return Math.Min(primaryUsageRemainingPercentage, secondaryUsageRemainingPercentage);
+        var monthlyUsageRemainingPercentage = accountViewModel.HasMonthlyUsdCredits && accountViewModel.IsMonthlyUsageUnderWarningThreshold ? accountViewModel.MonthlyUsageRemainingPercentage : 101;
+        return Math.Min(Math.Min(primaryUsageRemainingPercentage, secondaryUsageRemainingPercentage), monthlyUsageRemainingPercentage);
     }
 
     private static int CalculateAverageUsageRemainingPercentage(IEnumerable<ProviderAccountViewModel> accountViewModels, Func<ProviderAccountViewModel, int> remainingPercentageSelector)
@@ -325,11 +359,17 @@ public sealed class DashboardLowUsageAccountViewModel(ProviderAccountViewModel a
 
     public bool IsSecondaryUsageWarningVisible { get; } = accountViewModel.IsSecondaryUsageUnderWarningThreshold;
 
+    public bool IsMonthlyUsageWarningVisible { get; } = accountViewModel.HasMonthlyUsdCredits && !accountViewModel.IsMonthlyUsdUsage && accountViewModel.IsMonthlyUsageUnderWarningThreshold;
+
     public string PrimaryUsageWarningText { get; } = localizationService.GetFormattedString("DashboardLowUsageAccountViewModel_LowUsageFormat", accountViewModel.PrimaryUsageWindowLabelText, accountViewModel.PrimaryUsageRemainingText);
 
     public string SecondaryUsageWarningText { get; } = localizationService.GetFormattedString("DashboardLowUsageAccountViewModel_LowUsageFormat", accountViewModel.SecondaryUsageWindowLabelText, accountViewModel.SecondaryUsageRemainingText);
 
+    public string MonthlyUsageWarningText { get; } = localizationService.GetFormattedString("DashboardLowUsageAccountViewModel_LowUsageFormat", accountViewModel.MonthlyUsageWindowLabelText, accountViewModel.MonthlyUsageRemainingText);
+
     public int PrimaryUsageRemainingPercentage { get; } = accountViewModel.PrimaryUsageRemainingPercentage;
 
     public int SecondaryUsageRemainingPercentage { get; } = accountViewModel.SecondaryUsageRemainingPercentage;
+
+    public int MonthlyUsageRemainingPercentage { get; } = accountViewModel.MonthlyUsageRemainingPercentage;
 }

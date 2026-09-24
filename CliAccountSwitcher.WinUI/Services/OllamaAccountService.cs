@@ -138,6 +138,8 @@ public sealed class OllamaAccountService : AccountServiceBase<OllamaAccount>
         IsActive = ollamaAccount.IsActive,
         IsTokenExpired = ollamaAccount.IsTokenExpired,
         LastProviderUsageSnapshot = CreateProviderUsageSnapshot(ollamaAccount.LastOllamaUsageSnapshot),
+        MonthlyUsedAmountUsd = ollamaAccount.LastOllamaUsageSnapshot?.MonthlyUsedAmountUsd,
+        MonthlyLimitAmountUsd = ollamaAccount.LastOllamaUsageSnapshot?.MonthlyLimitAmountUsd,
         LastUsageRefreshTime = ollamaAccount.LastUsageRefreshTime
     };
 
@@ -225,7 +227,7 @@ public sealed class OllamaAccountService : AccountServiceBase<OllamaAccount>
             EmailAddress = snapshot.EmailAddress,
             FiveHour = CreateProviderUsageWindow(snapshot.SessionUsage),
             SevenDay = CreateProviderUsageWindow(snapshot.WeeklyUsage),
-            Monthly = new ProviderUsageWindow()
+            Monthly = CreateProviderUsageWindow(snapshot.MonthlyUsage)
         };
     }
 

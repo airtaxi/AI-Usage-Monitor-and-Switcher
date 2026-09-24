@@ -103,17 +103,20 @@
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
 
-                    <StackPanel Grid.Column="0" Spacing="4">
+                    <StackPanel
+                        Grid.Column="0"
+                        Grid.ColumnSpan="{x:Bind ViewModel.ActiveAccountPrimaryUsageColumnSpan, Mode=OneWay}"
+                        Spacing="4">
                         <Grid ColumnSpacing="8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />
                                 <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <TextBlock
-                                x:Uid="DashboardPage_ActivePrimaryUsageLabelTextBlock"
                                 Grid.Column="0"
                                 MaxLines="1"
                                 Style="{StaticResource ActiveAccountQuotaMetricLabelTextBlockStyle}"
+                                Text="{x:Bind ViewModel.ActiveAccountPrimaryUsageLabelText, Mode=OneWay}"
                                 TextTrimming="WordEllipsis" />
                             <TextBlock
                                 Grid.Column="1"
@@ -139,6 +142,7 @@
                                 Canvas.ZIndex="{x:Bind ViewModel.ActiveAccountPrimaryUsagePacemakerProgressBarZIndex, Mode=OneWay}"
                                 Foreground="{x:Bind ViewModel.IsActiveAccountPrimaryUsageBelowPacemaker, Mode=OneWay, Converter={StaticResource UsagePacemakerForegroundBrushConverter}}"
                                 Maximum="100"
+                                Visibility="{x:Bind ViewModel.IsActiveAccountLegacyUsage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}"
                                 Value="{x:Bind ViewModel.ActiveAccountPrimaryUsagePacemakerPercentage, Mode=OneWay}" />
                         </Grid>
                         <TextBlock
@@ -164,7 +168,10 @@
                             Visibility="{x:Bind ViewModel.HasActiveAccountPrimaryUsageAverageRateLimitHeadroom, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}" />
                     </StackPanel>
 
-                    <StackPanel Grid.Column="1" Spacing="4">
+                    <StackPanel
+                        Grid.Column="1"
+                        Spacing="4"
+                        Visibility="{x:Bind ViewModel.IsActiveAccountLegacyUsage, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                         <Grid ColumnSpacing="8">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="*" />

@@ -26,5 +26,9 @@ public sealed class ProviderAccount
 
     public ProviderUsageSnapshot LastProviderUsageSnapshot { get; set; } = new();
 
+    public decimal? MonthlyUsedAmountUsd { get; set; }
+
+    public decimal? MonthlyLimitAmountUsd { get; set; }
+
     public DateTimeOffset? LastUsageRefreshTime { get; set; }
 }

@@ -15,6 +15,7 @@ public sealed class OllamaUsageClient(HttpClient httpClient)
     private static readonly Regex s_percentUsedPattern = new(@"([0-9]+(?:\.[0-9]+)?)\s*%\s*used", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static readonly Regex s_barWidthPattern = new(@"width:\s*([0-9]+(?:\.[0-9]+)?)%", RegexOptions.Compiled | RegexOptions.IgnoreCase);
     private static readonly Regex s_durationTokenPattern = new(@"(\d+)\s*(week|day|hour|hr|minute|min)s?\b", RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static readonly Regex s_monthlyUsagePattern = new(@"Monthly\s+usage[\s\S]{0,200}?\$([0-9][0-9,.]*)\s+of\s+\$([0-9][0-9,.]*)", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
     private static readonly string[] s_signedOutMarkers =
     [
@@ -73,8 +74,25 @@ public sealed class OllamaUsageClient(HttpClient httpClient)
         snapshot.PlanLevel = ParsePlanLevel(htmlDocument);
         snapshot.SessionUsage = ParseUsageWindow(htmlDocument, SessionUsageLabel);
         snapshot.WeeklyUsage = ParseUsageWindow(htmlDocument, WeeklyUsageLabel);
+        ParseMonthlyUsage(htmlDocument, snapshot);
+
+        if (snapshot.SessionUsage.RemainingPercentage < 0 && snapshot.WeeklyUsage.RemainingPercentage < 0 && snapshot.MonthlyUsage.RemainingPercentage < 0) throw new InvalidDataException("The Ollama settings page did not contain recognizable usage data.");
 
         return snapshot;
+    }
+
+    private static void ParseMonthlyUsage(HtmlDocument htmlDocument, OllamaUsageSnapshot snapshot)
+    {
+        var pageText = HtmlEntity.DeEntitize(htmlDocument.DocumentNode.InnerText);
+        var match = s_monthlyUsagePattern.Match(pageText);
+        if (!match.Success) return;
+        if (!decimal.TryParse(match.Groups[1].Value, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var usedAmount)) return;
+        if (!decimal.TryParse(match.Groups[2].Value, NumberStyles.AllowDecimalPoint | NumberStyles.AllowThousands, CultureInfo.InvariantCulture, out var limitAmount) || limitAmount <= 0) return;
+
+        var usedPercentage = usedAmount >= limitAmount ? 100 : (int)Math.Round(usedAmount / limitAmount * 100, MidpointRounding.AwayFromZero);
+        snapshot.MonthlyUsage = new OllamaUsageWindow { UsedPercentage = usedPercentage, RemainingPercentage = 100 - usedPercentage };
+        snapshot.MonthlyUsedAmountUsd = usedAmount;
+        snapshot.MonthlyLimitAmountUsd = limitAmount;
     }
 
     private static bool LooksSignedOut(string html)

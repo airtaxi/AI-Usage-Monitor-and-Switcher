@@ -514,6 +514,9 @@
   <data name="DashboardPage_ActiveAccountSectionTitleTextBlock.Text" xml:space="preserve">
     <value>Active account quota</value>
   </data>
+  <data name="DashboardPage_ActiveMonthlyUsdCreditsLabelText" xml:space="preserve">
+    <value>Monthly credits remaining</value>
+  </data>
   <data name="DashboardPage_ActivePrimaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>5-hour remaining</value>
   </data>
@@ -537,6 +540,12 @@
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>Go to Account Management</value>
+  </data>
+  <data name="DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>Average monthly credits remaining</value>
+  </data>
+  <data name="DashboardPage_MonthlyUsdCreditsLowUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>Accounts low on monthly credits</value>
   </data>
   <data name="DashboardPage_NoActiveAccountDescriptionTextBlock.Text" xml:space="preserve">
     <value>Switch to an account in Account Management to show remaining quota here.</value>
@@ -912,6 +921,15 @@
   </data>
   <data name="ProviderAccountViewModel_MonthlyUsageWindowLabel" xml:space="preserve">
     <value>Monthly limit</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsRemainingFormat" xml:space="preserve">
+    <value>{0} remaining ({1}%)</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsUsedFormat" xml:space="preserve">
+    <value>{0} / {1} used</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsWindowLabel" xml:space="preserve">
+    <value>Monthly credits</value>
   </data>
   <data name="ProviderAccountViewModel_NoAccessToken" xml:space="preserve">
     <value>None</value>
@@ -1454,6 +1472,12 @@ The installed app is already up to date.</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedTitleTextBlock.Text" xml:space="preserve">
     <value>Skills are not supported</value>
+  </data>
+  <data name="TaskbarUsageControl_MonthlyCreditAmountFormat" xml:space="preserve">
+    <value>{0} / {1}</value>
+  </data>
+  <data name="TaskbarUsageControl_MonthlyCreditLabel" xml:space="preserve">
+    <value>Monthly</value>
   </data>
   <data name="TaskbarUsageControl_PercentageDifferenceFormat" xml:space="preserve">
     <value>{0:+0;-0;0}%</value>

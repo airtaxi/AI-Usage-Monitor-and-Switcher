@@ -43,6 +43,15 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
     public partial bool HasPrimaryUsagePercentage { get; set; }
 
     [ObservableProperty]
+    public partial bool IsMonthlyUsage { get; set; }
+
+    public bool IsLegacyUsageVisible => !IsMonthlyUsage;
+
+    public string MonthlyUsageLabelText => _localizationService.GetLocalizedString("TaskbarUsageControl_MonthlyCreditLabel");
+
+    public string MonthlyUsageAmountText { get; private set; } = "";
+
+    [ObservableProperty]
     public partial bool HasSecondaryUsagePercentage { get; set; }
 
     [ObservableProperty]
@@ -94,7 +103,7 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
     public async Task ReloadUsageOrRefreshMissingActiveUsageAsync()
     {
         ReloadUsage();
-        if (_hasRequestedInitialUsageRefresh || IsRefreshing || HasPrimaryUsagePercentage && HasSecondaryUsagePercentage) return;
+        if (_hasRequestedInitialUsageRefresh || IsRefreshing || HasPrimaryUsagePercentage && (IsMonthlyUsage || HasSecondaryUsagePercentage)) return;
         if (GetActiveAccount() is null) return;
 
         _hasRequestedInitialUsageRefresh = true;
@@ -105,8 +114,11 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
 
     private void SetUsage(ProviderAccount activeAccount)
     {
-        SetPrimaryUsage(activeAccount?.LastProviderUsageSnapshot?.FiveHour);
-        SetSecondaryUsage(activeAccount?.LastProviderUsageSnapshot?.SevenDay);
+        var snapshot = activeAccount?.LastProviderUsageSnapshot;
+        IsMonthlyUsage = activeAccount?.MonthlyUsedAmountUsd.HasValue == true && activeAccount.MonthlyLimitAmountUsd.HasValue && snapshot?.Monthly.RemainingPercentage >= 0 && snapshot.FiveHour.RemainingPercentage < 0 && snapshot.SevenDay.RemainingPercentage < 0;
+        MonthlyUsageAmountText = IsMonthlyUsage && activeAccount.MonthlyUsedAmountUsd is { } usedAmount && activeAccount.MonthlyLimitAmountUsd is { } limitAmount ? _localizationService.GetFormattedString("TaskbarUsageControl_MonthlyCreditAmountFormat", FormattableString.Invariant($"${usedAmount:0.00}"), FormattableString.Invariant($"${limitAmount:0.00}")) : "";
+        SetPrimaryUsage(IsMonthlyUsage ? snapshot.Monthly : snapshot?.FiveHour);
+        SetSecondaryUsage(IsMonthlyUsage ? null : snapshot?.SevenDay);
         RefreshComputedProperties();
     }
 
@@ -136,6 +148,15 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
 
     private void SetPrimaryUsage(ProviderUsageWindow providerUsageWindow)
     {
+        if (IsMonthlyUsage)
+        {
+            HasPrimaryUsagePercentage = providerUsageWindow?.RemainingPercentage >= 0;
+            PrimaryUsageRemainingPercentage = HasPrimaryUsagePercentage ? Math.Clamp(providerUsageWindow.RemainingPercentage, 0, 100) : 0;
+            PrimaryUsagePacemakerPercentage = 0;
+            PrimaryUsagePacemakerDifferencePercentage = 0;
+            return;
+        }
+
         var hasUsagePercentage = UsagePacemakerHelper.TryGetUsagePercentages(providerUsageWindow, s_primaryUsageWindowDuration, out var remainingPercentage, out var pacemakerPercentage, out var pacemakerDifferencePercentage);
         HasPrimaryUsagePercentage = hasUsagePercentage;
         PrimaryUsageRemainingPercentage = remainingPercentage;
@@ -180,6 +201,9 @@ public sealed partial class TaskbarUsageControlViewModel : ObservableObject, IDi
 
     private void RefreshComputedProperties()
     {
+        OnPropertyChanged(nameof(IsLegacyUsageVisible));
+        OnPropertyChanged(nameof(MonthlyUsageLabelText));
+        OnPropertyChanged(nameof(MonthlyUsageAmountText));
         OnPropertyChanged(nameof(PrimaryUsageRemainingPercentageText));
         OnPropertyChanged(nameof(PrimaryUsagePacemakerPercentageText));
         OnPropertyChanged(nameof(SecondaryUsageRemainingPercentageText));

@@ -514,6 +514,9 @@
   <data name="DashboardPage_ActiveAccountSectionTitleTextBlock.Text" xml:space="preserve">
     <value>活跃账号配额</value>
   </data>
+  <data name="DashboardPage_ActiveMonthlyUsdCreditsLabelText" xml:space="preserve">
+    <value>每月额度剩余</value>
+  </data>
   <data name="DashboardPage_ActivePrimaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>5 小时剩余</value>
   </data>
@@ -537,6 +540,12 @@
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>前往账号管理</value>
+  </data>
+  <data name="DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>每月额度平均剩余</value>
+  </data>
+  <data name="DashboardPage_MonthlyUsdCreditsLowUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>每月额度不足的账户</value>
   </data>
   <data name="DashboardPage_NoActiveAccountDescriptionTextBlock.Text" xml:space="preserve">
     <value>在账号管理中切换账号后，此处会显示剩余配额。</value>
@@ -912,6 +921,15 @@
   </data>
   <data name="ProviderAccountViewModel_MonthlyUsageWindowLabel" xml:space="preserve">
     <value>每月限额</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsRemainingFormat" xml:space="preserve">
+    <value>剩余 {0}（{1}%）</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsUsedFormat" xml:space="preserve">
+    <value>已使用 {0} / {1}</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsWindowLabel" xml:space="preserve">
+    <value>每月额度</value>
   </data>
   <data name="ProviderAccountViewModel_NoAccessToken" xml:space="preserve">
     <value>无</value>
@@ -1454,6 +1472,12 @@ Microsoft Store 中有 {0} 个可用更新。</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedTitleTextBlock.Text" xml:space="preserve">
     <value>不支持技能管理</value>
+  </data>
+  <data name="TaskbarUsageControl_MonthlyCreditAmountFormat" xml:space="preserve">
+    <value>{0} / {1}</value>
+  </data>
+  <data name="TaskbarUsageControl_MonthlyCreditLabel" xml:space="preserve">
+    <value>每月</value>
   </data>
   <data name="TaskbarUsageControl_PercentageDifferenceFormat" xml:space="preserve">
     <value>{0:+0;-0;0}%</value>

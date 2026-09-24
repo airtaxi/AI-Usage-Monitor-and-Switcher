@@ -514,6 +514,9 @@
   <data name="DashboardPage_ActiveAccountSectionTitleTextBlock.Text" xml:space="preserve">
     <value>활성 계정 할당량</value>
   </data>
+  <data name="DashboardPage_ActiveMonthlyUsdCreditsLabelText" xml:space="preserve">
+    <value>월간 크레딧 잔여량</value>
+  </data>
   <data name="DashboardPage_ActivePrimaryUsageLabelTextBlock.Text" xml:space="preserve">
     <value>5시간 잔여량</value>
   </data>
@@ -537,6 +540,12 @@
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>계정 관리로 이동</value>
+  </data>
+  <data name="DashboardPage_MonthlyUsdCreditsAverageUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>월간 크레딧 평균 잔여량</value>
+  </data>
+  <data name="DashboardPage_MonthlyUsdCreditsLowUsageLabelTextBlock.Text" xml:space="preserve">
+    <value>월간 크레딧 부족 계정</value>
   </data>
   <data name="DashboardPage_NoActiveAccountDescriptionTextBlock.Text" xml:space="preserve">
     <value>계정 관리에서 사용할 계정을 전환하면 이곳에 잔여량이 표시됩니다.</value>
@@ -912,6 +921,15 @@
   </data>
   <data name="ProviderAccountViewModel_MonthlyUsageWindowLabel" xml:space="preserve">
     <value>월간 한도</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsRemainingFormat" xml:space="preserve">
+    <value>잔여 {0} ({1}%)</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsUsedFormat" xml:space="preserve">
+    <value>{0} / {1} 사용</value>
+  </data>
+  <data name="ProviderAccountViewModel_MonthlyUsdCreditsWindowLabel" xml:space="preserve">
+    <value>월간 크레딧</value>
   </data>
   <data name="ProviderAccountViewModel_NoAccessToken" xml:space="preserve">
     <value>없음</value>
@@ -1454,6 +1472,12 @@ Microsoft Store에서 사용 가능한 업데이트 {0}개를 찾았습니다.</
   </data>
   <data name="SkillsPage_ZaiUnsupportedTitleTextBlock.Text" xml:space="preserve">
     <value>스킬을 지원하지 않음</value>
+  </data>
+  <data name="TaskbarUsageControl_MonthlyCreditAmountFormat" xml:space="preserve">
+    <value>{0} / {1}</value>
+  </data>
+  <data name="TaskbarUsageControl_MonthlyCreditLabel" xml:space="preserve">
+    <value>월간</value>
   </data>
   <data name="TaskbarUsageControl_PercentageDifferenceFormat" xml:space="preserve">
     <value>{0:+0;-0;0}%</value>

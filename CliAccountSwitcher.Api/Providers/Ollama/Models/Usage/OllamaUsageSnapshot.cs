@@ -13,4 +13,10 @@ public sealed class OllamaUsageSnapshot
     public OllamaUsageWindow SessionUsage { get; set; } = new();
 
     public OllamaUsageWindow WeeklyUsage { get; set; } = new();
+
+    public OllamaUsageWindow MonthlyUsage { get; set; } = new();
+
+    public decimal? MonthlyUsedAmountUsd { get; set; }
+
+    public decimal? MonthlyLimitAmountUsd { get; set; }
 }
