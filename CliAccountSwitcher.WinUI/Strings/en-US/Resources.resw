@@ -461,7 +461,7 @@
     <value>The account could not be added. Check the API key and your connection, then try again.</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
-    <value>Could not add account</value>
+    <value>Failed to Add Account</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyMessage" xml:space="preserve">
     <value>Neuralwatt rejected this API key. Check the key and try again.</value>
@@ -581,13 +581,13 @@
     <value>Check account quotas and the current active account at a glance.</value>
   </data>
   <data name="DashboardPage_LowUsageAccountsSectionDescriptionTextBlock.Text" xml:space="preserve">
-    <value>Only accounts whose 5-hour or 7-day remaining quota is below the warning threshold are shown.</value>
+    <value>Only accounts whose 5-hour or 7-day remaining quota is at or below the warning threshold are shown.</value>
   </data>
   <data name="DashboardPage_LowUsageAccountsSectionTitleTextBlock.Text" xml:space="preserve">
     <value>Low-quota accounts</value>
   </data>
   <data name="DashboardPage_LowUsageMetricDescriptionTextBlock.Text" xml:space="preserve">
-    <value>Below the configured warning threshold</value>
+    <value>At or below the configured warning threshold</value>
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>Go to Account Management</value>
@@ -629,7 +629,7 @@
     <value>7-day low-quota accounts</value>
   </data>
   <data name="DashboardPage_SecondaryLowUsageMetricDescriptionTextBlock.Text" xml:space="preserve">
-    <value>Below the configured warning threshold</value>
+    <value>At or below the configured warning threshold</value>
   </data>
   <data name="DashboardPage_TitleTextBlock.Text" xml:space="preserve">
     <value>Dashboard</value>
@@ -1540,7 +1540,7 @@ The installed app is already up to date.</value>
     <value>Skills</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
-    <value>Z.ai is a read-only usage monitor and does not manage local skill files. Switch to Codex, Claude Code, or OpenCode Go to manage skills.</value>
+    <value>Z.ai is a read-only provider that does not manage local skill files. Switch to Codex, Claude Code, or OpenCode Go to manage skills.</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedTitleTextBlock.Text" xml:space="preserve">
     <value>Skills are not supported</value>

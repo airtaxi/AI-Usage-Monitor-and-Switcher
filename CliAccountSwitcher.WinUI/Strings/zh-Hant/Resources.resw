@@ -80,7 +80,7 @@
     <value>著作權</value>
   </data>
   <data name="AboutPage_CreatorGitHubButtonTextBlock.Text" xml:space="preserve">
-    <value>開啟 GitHub 個人资料</value>
+    <value>開啟 GitHub 個人資料</value>
   </data>
   <data name="AboutPage_CreatorSettingsCard.Description" xml:space="preserve">
     <value>作者</value>
@@ -104,7 +104,7 @@
     <value>開啟原始儲存庫</value>
   </data>
   <data name="AboutPage_InspirationSettingsCard.Description" xml:space="preserve">
-    <value>靈感来自 isxlan0/Codex_AccountSwitch。感谢分享原始想法。</value>
+    <value>靈感來自 isxlan0/Codex_AccountSwitch。感謝分享原始想法。</value>
   </data>
   <data name="AboutPage_InspirationSettingsCard.Header" xml:space="preserve">
     <value>特別感謝</value>
@@ -203,7 +203,7 @@
     <value>清理過期帳號</value>
   </data>
   <data name="AccountsPage_DeleteExpiredAccountsNoAccountsMessage" xml:space="preserve">
-    <value>没有可刪除的過期帳號。</value>
+    <value>沒有可刪除的過期帳號。</value>
   </data>
   <data name="AccountsPage_DeleteExpiredAccountsTextBlock.Text" xml:space="preserve">
     <value>清理過期帳號</value>
@@ -233,10 +233,10 @@
     <value>匯入備份</value>
   </data>
   <data name="AccountsPage_ImportBackupDuplicateCountFormat" xml:space="preserve">
-    <value>{0} 個重复</value>
+    <value>{0} 個重複</value>
   </data>
   <data name="AccountsPage_ImportBackupEmptyResultMessage" xml:space="preserve">
-    <value>没有可匯入的帳號。</value>
+    <value>沒有可匯入的帳號。</value>
   </data>
   <data name="AccountsPage_ImportBackupFailureCountFormat" xml:space="preserve">
     <value>{0} 個失敗</value>
@@ -263,7 +263,7 @@
     <value>點擊「新增帳號」新增 Neuralwatt API 金鑰。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Ollama.Text" xml:space="preserve">
-    <value>使用新增帳戶登入 Ollama。</value>
+    <value>使用新增帳號登入 Ollama。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_OpenCodeGo.Text" xml:space="preserve">
     <value>點擊「新增帳號」登入 OpenCode Go 以新增帳號。</value>
@@ -278,7 +278,7 @@
     <value>請調整搜尋文字或方案篩選。</value>
   </data>
   <data name="AccountsPage_NoFilteredAccountsTitleTextBlock.Text" xml:space="preserve">
-    <value>没有符合篩選條件的帳號。</value>
+    <value>沒有符合篩選條件的帳號。</value>
   </data>
   <data name="AccountsPage_OllamaBackupFileTypeChoice" xml:space="preserve">
     <value>Ollama 備份 (.ollamab)</value>
@@ -323,7 +323,7 @@
     <value>重新命名帳號</value>
   </data>
   <data name="AccountsPage_RenameAccountPlaceholderText" xml:space="preserve">
-    <value>留空将重設為電子郵件</value>
+    <value>留空將重設為電子郵件</value>
   </data>
   <data name="AccountsPage_RenameAccountToolTip.Content" xml:space="preserve">
     <value>重新命名</value>
@@ -332,7 +332,7 @@
     <value>重新啟動</value>
   </data>
   <data name="AccountsPage_RestartClaudeCodeSessionDialogMessage" xml:space="preserve">
-    <value>帳戶切換已完成。若要立即使用切換後的帳戶，需要重新啟動執行中的 VS Code。現在重新啟動嗎？</value>
+    <value>帳號切換已完成。若要立即使用切換後的帳號，需要重新啟動執行中的 VS Code。現在重新啟動嗎？</value>
   </data>
   <data name="AccountsPage_RestartClaudeCodeSessionDialogTitle" xml:space="preserve">
     <value>重新啟動 VS Code</value>
@@ -434,7 +434,7 @@
     <value>關閉</value>
   </data>
   <data name="AddNeuralwattAccountDialog.Title" xml:space="preserve">
-    <value>新增 Neuralwatt 帳戶</value>
+    <value>新增 Neuralwatt 帳號</value>
   </data>
   <data name="AddNeuralwattAccountDialog_AddButtonTextBlock.Text" xml:space="preserve">
     <value>新增</value>
@@ -449,19 +449,19 @@
     <value>API 金鑰</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ApiKeyNoticeTextBlock.Text" xml:space="preserve">
-    <value>Neuralwatt 使用量透過 API 金鑰讀取。金鑰失效時，帳戶將標記為已到期，您需要重新新增。</value>
+    <value>Neuralwatt 使用量透過 API 金鑰讀取。金鑰失效時，帳號將標記為已到期，您需要重新新增。</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ApiKeyPasswordBox.PlaceholderText" xml:space="preserve">
     <value>貼上您的 Neuralwatt API 金鑰</value>
   </data>
   <data name="AddNeuralwattAccountDialog_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>貼上 API 金鑰以新增 Neuralwatt 帳戶。新增帳戶時會透過 Neuralwatt 配額 API 驗證金鑰。</value>
+    <value>貼上 API 金鑰以新增 Neuralwatt 帳號。新增帳號時會透過 Neuralwatt 配額 API 驗證金鑰。</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Message" xml:space="preserve">
-    <value>無法新增帳戶。請檢查 API 金鑰與網路連線後再試一次。</value>
+    <value>無法新增帳號。請檢查 API 金鑰與網路連線後再試一次。</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
-    <value>無法新增帳戶</value>
+    <value>新增帳號失敗</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyMessage" xml:space="preserve">
     <value>Neuralwatt 拒絕了此 API 金鑰。請檢查金鑰後再試一次。</value>
@@ -473,7 +473,7 @@
     <value>關閉</value>
   </data>
   <data name="AddOllamaAccountDialog.Title" xml:space="preserve">
-    <value>新增 Ollama 帳戶</value>
+    <value>新增 Ollama 帳號</value>
   </data>
   <data name="AddOpenCodeGoAccountDialog.CloseButtonText" xml:space="preserve">
     <value>關閉</value>
@@ -485,19 +485,19 @@
     <value>API 金鑰</value>
   </data>
   <data name="AddOpenCodeGoAccountDialog_CurrentAccountSelectorBarItem.Text" xml:space="preserve">
-    <value>目前帳戶</value>
+    <value>目前帳號</value>
   </data>
   <data name="AddZaiAccountDialog.CloseButtonText" xml:space="preserve">
     <value>關閉</value>
   </data>
   <data name="AddZaiAccountDialog.Title" xml:space="preserve">
-    <value>新增 Z.ai 帳戶</value>
+    <value>新增 Z.ai 帳號</value>
   </data>
   <data name="AddZaiAccountDialog_ApiKeySelectorBarItem.Text" xml:space="preserve">
     <value>API 金鑰</value>
   </data>
   <data name="AddZaiAccountDialog_CurrentAccountSelectorBarItem.Text" xml:space="preserve">
-    <value>目前帳戶</value>
+    <value>目前帳號</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
     <value>在 Windows 工作列查看 AI 程式開發帳號的用量及重設週期內的使用進度，並切換 Codex、Claude Code、Z.ai、OpenCode Go、Ollama 和 Neuralwatt 帳號。</value>
@@ -506,7 +506,7 @@
     <value>AI Usage Monitor &amp; Switcher</value>
   </data>
   <data name="CurrentAccountAddAccountPage_ClaudeCodeDescription" xml:space="preserve">
-    <value>讀取目前 Claude Code credential 和 global config 檔案，並儲存為受管理帳戶。</value>
+    <value>讀取目前 Claude Code credential 和 global config 檔案，並儲存為受管理帳號。</value>
   </data>
   <data name="CurrentAccountAddAccountPage_ClaudeCodeErrorMessage" xml:space="preserve">
     <value>無法儲存目前 Claude Code credential。請先登入 Claude Code。</value>
@@ -515,13 +515,13 @@
     <value>Claude Code 檔案</value>
   </data>
   <data name="CurrentAccountAddAccountPage_ClaudeCodeImportButtonText" xml:space="preserve">
-    <value>儲存目前 Claude Code 帳戶</value>
+    <value>儲存目前 Claude Code 帳號</value>
   </data>
   <data name="CurrentAccountAddAccountPage_ClaudeCodeTitle" xml:space="preserve">
-    <value>儲存目前 Claude Code 帳戶</value>
+    <value>儲存目前 Claude Code 帳號</value>
   </data>
   <data name="CurrentAccountAddAccountPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>讀取目前已登入 Codex 的 .codex/auth.json，並通過用量請求驗證帳號。</value>
+    <value>讀取目前已登入 Codex 的 .codex/auth.json，並透過用量請求驗證帳號。</value>
   </data>
   <data name="CurrentAccountAddAccountPage_ErrorInfoBar.Message" xml:space="preserve">
     <value>匯入已登入帳號時發生錯誤。</value>
@@ -581,13 +581,13 @@
     <value>一目了然地查看帳號配額和目前使用中帳號。</value>
   </data>
   <data name="DashboardPage_LowUsageAccountsSectionDescriptionTextBlock.Text" xml:space="preserve">
-    <value>仅顯示 5 小時或 7 天剩餘配額低於警告閾值的帳號。</value>
+    <value>僅顯示 5 小時或 7 天剩餘配額等於或低於警告閾值的帳號。</value>
   </data>
   <data name="DashboardPage_LowUsageAccountsSectionTitleTextBlock.Text" xml:space="preserve">
     <value>低配額帳號</value>
   </data>
   <data name="DashboardPage_LowUsageMetricDescriptionTextBlock.Text" xml:space="preserve">
-    <value>低於已配置的警告閾值</value>
+    <value>等於或低於已配置的警告閾值</value>
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>前往帳號管理</value>
@@ -602,7 +602,7 @@
     <value>每月額度平均剩餘</value>
   </data>
   <data name="DashboardPage_MonthlyUsdCreditsLowUsageLabelTextBlock.Text" xml:space="preserve">
-    <value>每月額度不足的帳戶</value>
+    <value>每月額度不足的帳號</value>
   </data>
   <data name="DashboardPage_NoActiveAccountDescriptionTextBlock.Text" xml:space="preserve">
     <value>在帳號管理中切換要使用的帳號後，這裡會顯示剩餘配額。</value>
@@ -611,7 +611,7 @@
     <value>沒有使用中帳號。</value>
   </data>
   <data name="DashboardPage_NoLowUsageAccountsTitleTextBlock.Text" xml:space="preserve">
-    <value>没有低配額帳號。</value>
+    <value>沒有低配額帳號。</value>
   </data>
   <data name="DashboardPage_PrimaryAverageUsageLabelTextBlock.Text" xml:space="preserve">
     <value>5 小時平均配額</value>
@@ -629,7 +629,7 @@
     <value>7 天低配額帳號</value>
   </data>
   <data name="DashboardPage_SecondaryLowUsageMetricDescriptionTextBlock.Text" xml:space="preserve">
-    <value>低於已配置的警告閾值</value>
+    <value>等於或低於已配置的警告閾值</value>
   </data>
   <data name="DashboardPage_TitleTextBlock.Text" xml:space="preserve">
     <value>儀表板</value>
@@ -665,7 +665,7 @@
     <value>匯入 Claude Code 檔案</value>
   </data>
   <data name="FileAddAccountPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>選取此电脑上儲存的 auth.json 檔案，並通過用量請求驗證帳號。</value>
+    <value>選取此電腦上儲存的 auth.json 檔案，並透過用量請求驗證帳號。</value>
   </data>
   <data name="FileAddAccountPage_ErrorInfoBar.Message" xml:space="preserve">
     <value>匯入 auth.json 檔案時發生錯誤。</value>
@@ -677,7 +677,7 @@
     <value>選取 auth.json 檔案</value>
   </data>
   <data name="FileAddAccountPage_SupportedFormatDescriptionTextBlock.Text" xml:space="preserve">
-    <value>請選取一個 .json 檔案。它必须使用 Codex auth.json 格式。</value>
+    <value>請選取一個 .json 檔案。它必須使用 Codex auth.json 格式。</value>
   </data>
   <data name="FileAddAccountPage_SupportedFormatHeaderTextBlock.Text" xml:space="preserve">
     <value>支援的格式</value>
@@ -770,7 +770,7 @@
     <value>貼上 .credentials.json</value>
   </data>
   <data name="ManualPasteAddAccountPage_ClaudeCodeDescription" xml:space="preserve">
-    <value>貼上 .credentials.json 與 global config JSON。需要 claudeAiOauth 權杖及 oauthAccount 帳戶/組織欄位。</value>
+    <value>貼上 .credentials.json 與 global config JSON。需要 claudeAiOauth 權杖及 oauthAccount 帳號/組織欄位。</value>
   </data>
   <data name="ManualPasteAddAccountPage_ClaudeCodeGlobalConfigJsonTextBox.Header" xml:space="preserve">
     <value>Global config JSON</value>
@@ -821,7 +821,7 @@
     <value>手動貼上</value>
   </data>
   <data name="Notification_ExpiredAccountDetectedMessageFormat" xml:space="preserve">
-    <value>{0} 無法使用。已根据你的設定更新帳號狀態。</value>
+    <value>{0} 無法使用。已根據你的設定更新帳號狀態。</value>
   </data>
   <data name="Notification_ExpiredAccountDetectedTitle" xml:space="preserve">
     <value>發現無效帳號</value>
@@ -857,10 +857,10 @@
     <value>{0} 的 {1} 剩餘配額為 {2}%。另一個帳號的配額高於警告閾值。選取此通知可從帳號管理切換帳號。</value>
   </data>
   <data name="OAuthAddAccountPage_ClaudeCodeDescription" xml:space="preserve">
-    <value>執行 Claude Code 登入，然後將目前的 Claude Code credential 與 global config 儲存為受管理帳戶。</value>
+    <value>執行 Claude Code 登入，然後將目前的 Claude Code credential 與 global config 儲存為受管理帳號。</value>
   </data>
   <data name="OAuthAddAccountPage_ClaudeCodeErrorMessage" xml:space="preserve">
-    <value>Claude Code 登入或目前帳戶儲存失敗。請確認 Claude Code 已安裝並已登入。</value>
+    <value>Claude Code 登入或目前帳號儲存失敗。請確認 Claude Code 已安裝並已登入。</value>
   </data>
   <data name="OAuthAddAccountPage_ClaudeCodeRunLoginButtonText" xml:space="preserve">
     <value>執行 Claude Code 登入</value>
@@ -884,7 +884,7 @@
     <value>無法自動開啟瀏覽器。請複製下面的地址，貼上到瀏覽器中並繼續驗證。</value>
   </data>
   <data name="OAuthAddAccountPage_OpenBrowserTextBlock.Text" xml:space="preserve">
-    <value>在瀏覽器中开始驗證</value>
+    <value>在瀏覽器中開始驗證</value>
   </data>
   <data name="OAuthAddAccountPage_TitleTextBlock.Text" xml:space="preserve">
     <value>OAuth</value>
@@ -893,22 +893,22 @@
     <value>正在等待驗證回呼。</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_AddButtonTextBlock.Text" xml:space="preserve">
-    <value>新增帳戶</value>
+    <value>新增帳號</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_AliasHeaderTextBlock.Text" xml:space="preserve">
-    <value>帳戶標籤（選填）</value>
+    <value>帳號標籤（選用）</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_AliasTextBox.PlaceholderText" xml:space="preserve">
-    <value>輸入標籤以區分此帳戶</value>
+    <value>輸入標籤以區分此帳號</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_CookieExpiryNoticeTextBlock.Text" xml:space="preserve">
-    <value>Ollama 使用量透過工作階段 Cookie 讀取。Cookie 到期時，帳戶將標記為已到期，您需要重新登入。</value>
+    <value>Ollama 使用量透過工作階段 Cookie 讀取。Cookie 到期時，帳號將標記為已到期，您需要重新登入。</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>使用您的 Ollama 帳戶登入。登入後將自動擷取工作階段 Cookie 與帳戶電子郵件。工作階段 Cookie 可能會隨時間到期。</value>
+    <value>使用您的 Ollama 帳號登入。登入後將自動擷取工作階段 Cookie 與帳號電子郵件。工作階段 Cookie 可能會隨時間到期。</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_ExtractingStatusText.Text" xml:space="preserve">
-    <value>偵測到登入。正在擷取帳戶資訊...</value>
+    <value>偵測到登入。正在擷取帳號資訊...</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_InitializingWebViewTextBlock.Text" xml:space="preserve">
     <value>正在初始化登入視窗...</value>
@@ -932,7 +932,7 @@
     <value>貼上您的 OpenCode Go API 金鑰</value>
   </data>
   <data name="OpenCodeGoApiKeyAddAccountPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>貼上 API 金鑰以新增 OpenCode Go 帳戶。輸入選用標籤以區分多個金鑰。</value>
+    <value>貼上 API 金鑰以新增 OpenCode Go 帳號。輸入選用標籤以區分多個金鑰。</value>
   </data>
   <data name="OpenCodeGoApiKeyAddAccountPage_ErrorInfoBar.Message" xml:space="preserve">
     <value>無法驗證 API 金鑰。請檢查金鑰後再試一次。</value>
@@ -1283,7 +1283,7 @@
     <value>顯示優先順序</value>
   </data>
   <data name="SettingsPage_NextUsageRefreshFormat" xml:space="preserve">
-    <value>下次重新整理还有 {0}</value>
+    <value>下次重新整理還有 {0}</value>
   </data>
   <data name="SettingsPage_NoUpdateDialogMessage" xml:space="preserve">
     <value>已安裝的應用程式已經是最新版本。</value>
@@ -1335,7 +1335,7 @@
     <value>觀察單位（分鐘）</value>
   </data>
   <data name="SettingsPage_PrimaryUsageWarningThresholdSettingsCard.Description" xml:space="preserve">
-    <value>当 5 小時限制的剩餘用量等於或低於此百分比時标记為低配額。</value>
+    <value>當 5 小時限制的剩餘用量等於或低於此百分比時標記為低配額。</value>
   </data>
   <data name="SettingsPage_PrimaryUsageWarningThresholdSettingsCard.Header" xml:space="preserve">
     <value>5 小時低配額閾值</value>
@@ -1344,7 +1344,7 @@
     <value>自動重新整理已關閉</value>
   </data>
   <data name="SettingsPage_RefreshRemainingFormat" xml:space="preserve">
-    <value>下次重新整理还有 {0:00}:{1:00}:{2:00}</value>
+    <value>下次重新整理還有 {0:00}:{1:00}:{2:00}</value>
   </data>
   <data name="SettingsPage_RemainingTimeWithDaysFormat" xml:space="preserve">
     <value>{0} 天 {1}</value>
@@ -1371,7 +1371,7 @@
     <value>7 天低配額通知</value>
   </data>
   <data name="SettingsPage_SecondaryUsageWarningThresholdSettingsCard.Description" xml:space="preserve">
-    <value>当 7 天限制的剩餘用量等於或低於此百分比時标记為低配額。</value>
+    <value>當 7 天限制的剩餘用量等於或低於此百分比時標記為低配額。</value>
   </data>
   <data name="SettingsPage_SecondaryUsageWarningThresholdSettingsCard.Header" xml:space="preserve">
     <value>7 天低配額閾值</value>
@@ -1386,7 +1386,7 @@
     <value>系統啟動時執行</value>
   </data>
   <data name="SettingsPage_StartupRegistrationFailedDialogMessage" xml:space="preserve">
-    <value>無法應用程式 Windows 啟動任务設定。請檢查套件資訊清單註冊或 Windows 啟動應用程式權限。</value>
+    <value>無法應用程式 Windows 啟動任務設定。請檢查套件資訊清單註冊或 Windows 啟動應用程式權限。</value>
   </data>
   <data name="SettingsPage_StartupRegistrationFailedDialogTitle" xml:space="preserve">
     <value>啟動設定失敗</value>
@@ -1398,13 +1398,13 @@
     <value>系統默認</value>
   </data>
   <data name="SettingsPage_TaskbarUsageSettingsCard.Description" xml:space="preserve">
-    <value>在 Windows 工作列顯示所選服務的使用中帳戶 5 小時/7 天用量。</value>
+    <value>在 Windows 工作列顯示所選服務的使用中帳號 5 小時/7 天用量。</value>
   </data>
   <data name="SettingsPage_TaskbarUsageSettingsCard.Header" xml:space="preserve">
     <value>工作列使用量</value>
   </data>
   <data name="SettingsPage_ThemeSettingsCard.Description" xml:space="preserve">
-    <value>立即變更應用程式和对话框的色彩主題。</value>
+    <value>立即變更應用程式和對話框的色彩主題。</value>
   </data>
   <data name="SettingsPage_ThemeSettingsCard.Header" xml:space="preserve">
     <value>主題</value>
@@ -1423,7 +1423,7 @@ Microsoft Store 中有 {0} 個可用更新。</value>
     <value>有可用更新</value>
   </data>
   <data name="SettingsPage_UpdateCheckFailedDialogMessage" xml:space="preserve">
-    <value>無法檢查 Microsoft Store 更新資訊。請确認套件安裝狀態和網路連線。</value>
+    <value>無法檢查 Microsoft Store 更新資訊。請確認套件安裝狀態和網路連線。</value>
   </data>
   <data name="SettingsPage_UpdateCheckFailedDialogTitle" xml:space="preserve">
     <value>更新檢查失敗</value>
@@ -1540,7 +1540,7 @@ Microsoft Store 中有 {0} 個可用更新。</value>
     <value>技能</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
-    <value>Z.ai 是唯讀用量監控，不管理本地技能檔案。請切換到 Codex、Claude Code 或 OpenCode Go 來管理技能。</value>
+    <value>Z.ai 是唯讀提供者，不管理本地技能檔案。請切換到 Codex、Claude Code 或 OpenCode Go 來管理技能。</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedTitleTextBlock.Text" xml:space="preserve">
     <value>不支援技能管理</value>
@@ -1555,7 +1555,7 @@ Microsoft Store 中有 {0} 個可用更新。</value>
     <value>{0}%</value>
   </data>
   <data name="TaskbarUsageControl_RefreshButtonToolTip" xml:space="preserve">
-    <value>重新整理使用中帳戶用量</value>
+    <value>重新整理使用中帳號用量</value>
   </data>
   <data name="TaskbarUsageControl_RemainingCreditAmountFormat" xml:space="preserve">
     <value>剩餘額度 {0}</value>
@@ -1618,7 +1618,7 @@ Microsoft Store 中有 {0} 個可用更新。</value>
     <value>貼上您的 Z.ai API 金鑰</value>
   </data>
   <data name="ZaiApiKeyAddAccountPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>貼上 API 金鑰以新增 Z.ai 帳戶。輸入選用標籤以區分多個金鑰。</value>
+    <value>貼上 API 金鑰以新增 Z.ai 帳號。輸入選用標籤以區分多個金鑰。</value>
   </data>
   <data name="ZaiApiKeyAddAccountPage_ErrorInfoBar.Message" xml:space="preserve">
     <value>無法驗證 API 金鑰。請檢查金鑰後再試一次。</value>

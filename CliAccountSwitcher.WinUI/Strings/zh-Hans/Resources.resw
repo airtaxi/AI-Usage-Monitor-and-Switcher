@@ -263,7 +263,7 @@
     <value>点击“添加账号”添加 Neuralwatt API 密钥。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Ollama.Text" xml:space="preserve">
-    <value>使用添加帐户登录 Ollama。</value>
+    <value>使用添加账号登录 Ollama。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_OpenCodeGo.Text" xml:space="preserve">
     <value>点击“添加账号”登录 OpenCode Go 以添加账号。</value>
@@ -368,7 +368,7 @@
     <value>重启</value>
   </data>
   <data name="AccountsPage_RestartOpenCodeGoApplicationDialogMessage" xml:space="preserve">
-    <value>账户切换已完成。是否重启正在运行的 OpenCode Go 桌面应用以应用更改？</value>
+    <value>账号切换已完成。是否重启正在运行的 OpenCode Go 桌面应用以应用更改？</value>
   </data>
   <data name="AccountsPage_RestartOpenCodeGoApplicationDialogTitle" xml:space="preserve">
     <value>重启 OpenCode Go</value>
@@ -434,7 +434,7 @@
     <value>关闭</value>
   </data>
   <data name="AddNeuralwattAccountDialog.Title" xml:space="preserve">
-    <value>添加 Neuralwatt 账户</value>
+    <value>添加 Neuralwatt 账号</value>
   </data>
   <data name="AddNeuralwattAccountDialog_AddButtonTextBlock.Text" xml:space="preserve">
     <value>添加</value>
@@ -449,19 +449,19 @@
     <value>API 密钥</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ApiKeyNoticeTextBlock.Text" xml:space="preserve">
-    <value>Neuralwatt 使用量通过 API 密钥读取。密钥失效时，账户将标记为已过期，您需要重新添加。</value>
+    <value>Neuralwatt 使用量通过 API 密钥读取。密钥失效时，账号将标记为已过期，您需要重新添加。</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ApiKeyPasswordBox.PlaceholderText" xml:space="preserve">
     <value>粘贴您的 Neuralwatt API 密钥</value>
   </data>
   <data name="AddNeuralwattAccountDialog_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>粘贴 API 密钥以添加 Neuralwatt 账户。添加账户时会通过 Neuralwatt 配额 API 验证密钥。</value>
+    <value>粘贴 API 密钥以添加 Neuralwatt 账号。添加账号时会通过 Neuralwatt 配额 API 验证密钥。</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Message" xml:space="preserve">
-    <value>无法添加账户。请检查 API 密钥和网络连接后重试。</value>
+    <value>无法添加账号。请检查 API 密钥和网络连接后重试。</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
-    <value>无法添加账户</value>
+    <value>添加账号失败</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyMessage" xml:space="preserve">
     <value>Neuralwatt 拒绝了此 API 密钥。请检查密钥后重试。</value>
@@ -473,31 +473,31 @@
     <value>关闭</value>
   </data>
   <data name="AddOllamaAccountDialog.Title" xml:space="preserve">
-    <value>添加 Ollama 帐户</value>
+    <value>添加 Ollama 账号</value>
   </data>
   <data name="AddOpenCodeGoAccountDialog.CloseButtonText" xml:space="preserve">
     <value>关闭</value>
   </data>
   <data name="AddOpenCodeGoAccountDialog.Title" xml:space="preserve">
-    <value>添加 OpenCode Go 账户</value>
+    <value>添加 OpenCode Go 账号</value>
   </data>
   <data name="AddOpenCodeGoAccountDialog_ApiKeySelectorBarItem.Text" xml:space="preserve">
     <value>API 密钥</value>
   </data>
   <data name="AddOpenCodeGoAccountDialog_CurrentAccountSelectorBarItem.Text" xml:space="preserve">
-    <value>当前账户</value>
+    <value>当前账号</value>
   </data>
   <data name="AddZaiAccountDialog.CloseButtonText" xml:space="preserve">
     <value>关闭</value>
   </data>
   <data name="AddZaiAccountDialog.Title" xml:space="preserve">
-    <value>添加 Z.ai 账户</value>
+    <value>添加 Z.ai 账号</value>
   </data>
   <data name="AddZaiAccountDialog_ApiKeySelectorBarItem.Text" xml:space="preserve">
     <value>API 密钥</value>
   </data>
   <data name="AddZaiAccountDialog_CurrentAccountSelectorBarItem.Text" xml:space="preserve">
-    <value>当前账户</value>
+    <value>当前账号</value>
   </data>
   <data name="AppDescription" xml:space="preserve">
     <value>在 Windows 任务栏查看 AI 编程账号的用量及重置周期内的使用进度，并切换 Codex、Claude Code、Z.ai、OpenCode Go、Ollama 和 Neuralwatt 账号。</value>
@@ -581,13 +581,13 @@
     <value>一目了然地查看账号配额和当前活跃账号。</value>
   </data>
   <data name="DashboardPage_LowUsageAccountsSectionDescriptionTextBlock.Text" xml:space="preserve">
-    <value>仅显示 5 小时或 7 天剩余配额低于警告阈值的账号。</value>
+    <value>仅显示 5 小时或 7 天剩余配额等于或低于警告阈值的账号。</value>
   </data>
   <data name="DashboardPage_LowUsageAccountsSectionTitleTextBlock.Text" xml:space="preserve">
     <value>低配额账号</value>
   </data>
   <data name="DashboardPage_LowUsageMetricDescriptionTextBlock.Text" xml:space="preserve">
-    <value>低于已配置的警告阈值</value>
+    <value>等于或低于已配置的警告阈值</value>
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>前往账号管理</value>
@@ -602,7 +602,7 @@
     <value>每月额度平均剩余</value>
   </data>
   <data name="DashboardPage_MonthlyUsdCreditsLowUsageLabelTextBlock.Text" xml:space="preserve">
-    <value>每月额度不足的账户</value>
+    <value>每月额度不足的账号</value>
   </data>
   <data name="DashboardPage_NoActiveAccountDescriptionTextBlock.Text" xml:space="preserve">
     <value>在账号管理中切换账号后，此处会显示剩余配额。</value>
@@ -629,7 +629,7 @@
     <value>7 天低配额账号</value>
   </data>
   <data name="DashboardPage_SecondaryLowUsageMetricDescriptionTextBlock.Text" xml:space="preserve">
-    <value>低于已配置的警告阈值</value>
+    <value>等于或低于已配置的警告阈值</value>
   </data>
   <data name="DashboardPage_TitleTextBlock.Text" xml:space="preserve">
     <value>仪表板</value>
@@ -893,22 +893,22 @@
     <value>正在等待身份验证回调。</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_AddButtonTextBlock.Text" xml:space="preserve">
-    <value>添加帐户</value>
+    <value>添加账号</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_AliasHeaderTextBlock.Text" xml:space="preserve">
-    <value>帐户标签（选填）</value>
+    <value>账号标签（可选）</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_AliasTextBox.PlaceholderText" xml:space="preserve">
-    <value>输入标签以区分此帐户</value>
+    <value>输入标签以区分此账号</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_CookieExpiryNoticeTextBlock.Text" xml:space="preserve">
-    <value>Ollama 使用量通过会话 Cookie 读取。Cookie 过期时，帐户将标记为已过期，您需要重新登录。</value>
+    <value>Ollama 使用量通过会话 Cookie 读取。Cookie 过期时，账号将标记为已过期，您需要重新登录。</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>使用您的 Ollama 帐户登录。登录后将自动提取会话 Cookie 和帐户电子邮件。会话 Cookie 可能会随时间过期。</value>
+    <value>使用您的 Ollama 账号登录。登录后将自动提取会话 Cookie 和账号电子邮件。会话 Cookie 可能会随时间过期。</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_ExtractingStatusText.Text" xml:space="preserve">
-    <value>检测到登录。正在提取帐户信息...</value>
+    <value>检测到登录。正在提取账号信息...</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_InitializingWebViewTextBlock.Text" xml:space="preserve">
     <value>正在初始化登录窗口...</value>
@@ -932,7 +932,7 @@
     <value>粘贴您的 OpenCode Go API 密钥</value>
   </data>
   <data name="OpenCodeGoApiKeyAddAccountPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>粘贴 API 密钥以添加 OpenCode Go 账户。输入可选标签以区分多个密钥。</value>
+    <value>粘贴 API 密钥以添加 OpenCode Go 账号。输入可选标签以区分多个密钥。</value>
   </data>
   <data name="OpenCodeGoApiKeyAddAccountPage_ErrorInfoBar.Message" xml:space="preserve">
     <value>无法验证 API 密钥。请检查密钥后重试。</value>
@@ -1398,7 +1398,7 @@
     <value>系统默认</value>
   </data>
   <data name="SettingsPage_TaskbarUsageSettingsCard.Description" xml:space="preserve">
-    <value>在 Windows 任务栏中显示所选服务的活动帐户 5 小时/7 天用量。</value>
+    <value>在 Windows 任务栏中显示所选服务的活动账号 5 小时/7 天用量。</value>
   </data>
   <data name="SettingsPage_TaskbarUsageSettingsCard.Header" xml:space="preserve">
     <value>任务栏用量</value>
@@ -1540,7 +1540,7 @@ Microsoft Store 中有 {0} 个可用更新。</value>
     <value>技能</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
-    <value>Z.ai 是只读用量监控，不管理本地技能文件。请切换到 Codex、Claude Code 或 OpenCode Go 来管理技能。</value>
+    <value>Z.ai 是只读提供者，不管理本地技能文件。请切换到 Codex、Claude Code 或 OpenCode Go 来管理技能。</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedTitleTextBlock.Text" xml:space="preserve">
     <value>不支持技能管理</value>
@@ -1555,7 +1555,7 @@ Microsoft Store 中有 {0} 个可用更新。</value>
     <value>{0}%</value>
   </data>
   <data name="TaskbarUsageControl_RefreshButtonToolTip" xml:space="preserve">
-    <value>刷新活动帐户用量</value>
+    <value>刷新活动账号用量</value>
   </data>
   <data name="TaskbarUsageControl_RemainingCreditAmountFormat" xml:space="preserve">
     <value>剩余额度 {0}</value>
@@ -1618,7 +1618,7 @@ Microsoft Store 中有 {0} 个可用更新。</value>
     <value>粘贴您的 Z.ai API 密钥</value>
   </data>
   <data name="ZaiApiKeyAddAccountPage_DescriptionTextBlock.Text" xml:space="preserve">
-    <value>粘贴 API 密钥以添加 Z.ai 账户。输入可选标签以区分多个密钥。</value>
+    <value>粘贴 API 密钥以添加 Z.ai 账号。输入可选标签以区分多个密钥。</value>
   </data>
   <data name="ZaiApiKeyAddAccountPage_ErrorInfoBar.Message" xml:space="preserve">
     <value>无法验证 API 密钥。请检查密钥后重试。</value>

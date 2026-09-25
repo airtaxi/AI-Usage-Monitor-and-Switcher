@@ -434,7 +434,7 @@
     <value>閉じる</value>
   </data>
   <data name="AddNeuralwattAccountDialog.Title" xml:space="preserve">
-    <value>Neuralwatt アカウント追加</value>
+    <value>Neuralwatt アカウントを追加</value>
   </data>
   <data name="AddNeuralwattAccountDialog_AddButtonTextBlock.Text" xml:space="preserve">
     <value>追加</value>
@@ -461,7 +461,7 @@
     <value>アカウントを追加できませんでした。API キーとネットワーク接続を確認して再試行してください。</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
-    <value>アカウントを追加できません</value>
+    <value>アカウントの追加に失敗しました</value>
   </data>
   <data name="AddNeuralwattAccountDialog_ErrorInfoBar_InvalidApiKeyMessage" xml:space="preserve">
     <value>Neuralwatt がこの API キーを拒否しました。キーを確認して再試行してください。</value>
@@ -473,7 +473,7 @@
     <value>閉じる</value>
   </data>
   <data name="AddOllamaAccountDialog.Title" xml:space="preserve">
-    <value>Ollama アカウント追加</value>
+    <value>Ollama アカウントを追加</value>
   </data>
   <data name="AddOpenCodeGoAccountDialog.CloseButtonText" xml:space="preserve">
     <value>閉じる</value>
@@ -581,13 +581,13 @@
     <value>アカウントのクォータと現在のアクティブアカウントをひと目で確認できます。</value>
   </data>
   <data name="DashboardPage_LowUsageAccountsSectionDescriptionTextBlock.Text" xml:space="preserve">
-    <value>5時間または7日間の残りクォータが警告しきい値未満のアカウントのみ表示されます。</value>
+    <value>5時間または7日間の残りクォータが警告しきい値以下のアカウントのみ表示されます。</value>
   </data>
   <data name="DashboardPage_LowUsageAccountsSectionTitleTextBlock.Text" xml:space="preserve">
     <value>低クォータアカウント</value>
   </data>
   <data name="DashboardPage_LowUsageMetricDescriptionTextBlock.Text" xml:space="preserve">
-    <value>設定された警告しきい値未満</value>
+    <value>設定された警告しきい値以下</value>
   </data>
   <data name="DashboardPage_ManageAccountsTextBlock.Text" xml:space="preserve">
     <value>アカウント管理へ移動</value>
@@ -629,7 +629,7 @@
     <value>7日間の低クォータアカウント</value>
   </data>
   <data name="DashboardPage_SecondaryLowUsageMetricDescriptionTextBlock.Text" xml:space="preserve">
-    <value>設定された警告しきい値未満</value>
+    <value>設定された警告しきい値以下</value>
   </data>
   <data name="DashboardPage_TitleTextBlock.Text" xml:space="preserve">
     <value>ダッシュボード</value>
@@ -896,10 +896,10 @@
     <value>アカウント追加</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_AliasHeaderTextBlock.Text" xml:space="preserve">
-    <value>アカウントの別名（任意）</value>
+    <value>アカウントのラベル（任意）</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_AliasTextBox.PlaceholderText" xml:space="preserve">
-    <value>このアカウントを区別するための別名を入力</value>
+    <value>このアカウントを区別するためのラベルを入力</value>
   </data>
   <data name="OllamaWebViewLoginAddAccountPage_CookieExpiryNoticeTextBlock.Text" xml:space="preserve">
     <value>Ollama の使用量はセッション Cookie で読み取られます。Cookie の有効期限が切れるとアカウントは期限切れとして表示され、再度ログインする必要があります。</value>
@@ -1540,7 +1540,7 @@ Microsoft Store に {0} 件の更新があります。</value>
     <value>スキル</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
-    <value>Z.ai は読み取り専用の使用量モニターであり、ローカルスキルファイルを管理しません。スキルを管理するには Codex、Claude Code、または OpenCode Go に切り替えてください。</value>
+    <value>Z.ai は読み取り専用プロバイダーであり、ローカルスキルファイルを管理しません。スキルを管理するには Codex、Claude Code、または OpenCode Go に切り替えてください。</value>
   </data>
   <data name="SkillsPage_ZaiUnsupportedTitleTextBlock.Text" xml:space="preserve">
     <value>スキルはサポートされていません</value>
