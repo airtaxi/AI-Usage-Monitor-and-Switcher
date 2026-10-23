@@ -2,6 +2,8 @@ namespace CliAccountSwitcher.Api.Providers.Codex.Models.Usage;
 
 public sealed class CodexUsageWindow
 {
+    public long LimitWindowSeconds { get; set; } = -1;
+
     public int UsedPercentage { get; set; } = -1;
 
     public int RemainingPercentage { get; set; } = -1;

@@ -46,6 +46,7 @@ public sealed class CodexUsageClient(HttpClient httpClient, CodexRequestMessageF
         var usedPercentage = CodexJsonElementReader.ReadInt32OrNull(windowElement, "used_percent") ?? -1;
         return new CodexUsageWindow
         {
+            LimitWindowSeconds = CodexJsonElementReader.ReadInt64OrNull(windowElement, "limit_window_seconds") ?? -1,
             UsedPercentage = usedPercentage,
             RemainingPercentage = usedPercentage is < 0 or > 100 ? -1 : 100 - usedPercentage,
             ResetAfterSeconds = CodexJsonElementReader.ReadInt64OrNull(windowElement, "reset_after_seconds") ?? -1,

@@ -484,8 +484,8 @@ public sealed class CodexAccountService : AccountServiceBase<CodexAccount>
         PlanType = codexUsageSnapshot.PlanType,
         EmailAddress = codexUsageSnapshot.EmailAddress,
         RawResponseText = codexUsageSnapshot.RawResponseText,
-        FiveHour = CreateProviderUsageWindow(codexUsageSnapshot.PrimaryWindow),
-        SevenDay = CreateProviderUsageWindow(codexUsageSnapshot.SecondaryWindow)
+        FiveHour = CreateProviderUsageWindow(codexUsageSnapshot.GetFiveHourWindow()),
+        SevenDay = CreateProviderUsageWindow(codexUsageSnapshot.GetSevenDayWindow())
     };
 
     private static ProviderUsageWindow CreateProviderUsageWindow(CodexUsageWindow codexUsageWindow) => new()

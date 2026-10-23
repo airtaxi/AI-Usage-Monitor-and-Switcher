@@ -97,6 +97,8 @@ public sealed class CodexProviderAdapter : ProviderAdapterBase<CodexAccountState
     {
         var codexAuthenticationDocument = string.IsNullOrWhiteSpace(storedAccountIdentifier) ? (await ReadLiveAccountStateAsync(cancellationToken)).AuthenticationDocument : CreateLiveAccountState(await LoadCodexStoredAccountPayloadAsync(storedAccountIdentifier, cancellationToken)).AuthenticationDocument;
         var codexUsageSnapshot = await _codexUsageClient.GetUsageAsync(codexAuthenticationDocument, cancellationToken);
+        var fiveHourWindow = codexUsageSnapshot.GetFiveHourWindow();
+        var sevenDayWindow = codexUsageSnapshot.GetSevenDayWindow();
 
         return new ProviderUsageSnapshot
         {
@@ -106,17 +108,17 @@ public sealed class CodexProviderAdapter : ProviderAdapterBase<CodexAccountState
             RawResponseText = codexUsageSnapshot.RawResponseText,
             FiveHour = new ProviderUsageWindow
             {
-                UsedPercentage = codexUsageSnapshot.PrimaryWindow.UsedPercentage,
-                RemainingPercentage = codexUsageSnapshot.PrimaryWindow.RemainingPercentage,
-                ResetAfterSeconds = codexUsageSnapshot.PrimaryWindow.ResetAfterSeconds,
-                ResetAt = CreateDateTimeOffset(codexUsageSnapshot.PrimaryWindow.ResetAtUnixSeconds)
+                UsedPercentage = fiveHourWindow.UsedPercentage,
+                RemainingPercentage = fiveHourWindow.RemainingPercentage,
+                ResetAfterSeconds = fiveHourWindow.ResetAfterSeconds,
+                ResetAt = CreateDateTimeOffset(fiveHourWindow.ResetAtUnixSeconds)
             },
             SevenDay = new ProviderUsageWindow
             {
-                UsedPercentage = codexUsageSnapshot.SecondaryWindow.UsedPercentage,
-                RemainingPercentage = codexUsageSnapshot.SecondaryWindow.RemainingPercentage,
-                ResetAfterSeconds = codexUsageSnapshot.SecondaryWindow.ResetAfterSeconds,
-                ResetAt = CreateDateTimeOffset(codexUsageSnapshot.SecondaryWindow.ResetAtUnixSeconds)
+                UsedPercentage = sevenDayWindow.UsedPercentage,
+                RemainingPercentage = sevenDayWindow.RemainingPercentage,
+                ResetAfterSeconds = sevenDayWindow.ResetAfterSeconds,
+                ResetAt = CreateDateTimeOffset(sevenDayWindow.ResetAtUnixSeconds)
             }
         };
     }
