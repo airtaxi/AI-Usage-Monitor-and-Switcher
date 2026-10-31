@@ -6,14 +6,14 @@ namespace CliAccountSwitcher.Api.Providers.ClaudeCode.Models;
 
 internal sealed class ClaudeCodeUsageResponse
 {
-    public static ProviderUsageSnapshot Parse(string responseText, string emailAddress)
+    public static ProviderUsageSnapshot Parse(string responseText, string emailAddress, CliProviderKind providerKind = CliProviderKind.ClaudeCode)
     {
         using var jsonDocument = JsonDocument.Parse(responseText);
         var rootElement = jsonDocument.RootElement;
 
         return new ProviderUsageSnapshot
         {
-            ProviderKind = CliProviderKind.ClaudeCode,
+            ProviderKind = providerKind,
             PlanType = "",
             EmailAddress = emailAddress,
             RawResponseText = responseText,

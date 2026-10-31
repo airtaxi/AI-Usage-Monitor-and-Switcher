@@ -30,6 +30,7 @@ public sealed partial class MainWindow : WindowEx
     private const int OpenCodeGoProviderSelectedIndex = 3;
     private const int OllamaProviderSelectedIndex = 4;
     private const int NeuralwattProviderSelectedIndex = 5;
+    private const int ClaudeDesktopProviderSelectedIndex = 6;
 
     private delegate nint WindowSubclassProcedure(nint windowHandle, uint message, nint messageWordParameter, nint messageLongParameter, nuint subclassIdentifier, nuint referenceData);
 
@@ -268,9 +269,9 @@ public sealed partial class MainWindow : WindowEx
         finally { _isApplyingProviderSelection = false; }
     }
 
-    private static int GetProviderSelectedIndex(CliProviderKind selectedProviderKind) => selectedProviderKind switch { CliProviderKind.ClaudeCode => ClaudeCodeProviderSelectedIndex, CliProviderKind.Zai => ZaiProviderSelectedIndex, CliProviderKind.OpenCodeGo => OpenCodeGoProviderSelectedIndex, CliProviderKind.Ollama => OllamaProviderSelectedIndex, CliProviderKind.Neuralwatt => NeuralwattProviderSelectedIndex, _ => CodexProviderSelectedIndex  };
+    private static int GetProviderSelectedIndex(CliProviderKind selectedProviderKind) => selectedProviderKind switch { CliProviderKind.ClaudeCode => ClaudeCodeProviderSelectedIndex, CliProviderKind.Zai => ZaiProviderSelectedIndex, CliProviderKind.OpenCodeGo => OpenCodeGoProviderSelectedIndex, CliProviderKind.Ollama => OllamaProviderSelectedIndex, CliProviderKind.Neuralwatt => NeuralwattProviderSelectedIndex, CliProviderKind.ClaudeDesktop => ClaudeDesktopProviderSelectedIndex, _ => CodexProviderSelectedIndex };
 
-    private static CliProviderKind GetProviderKindFromSelectedIndex(int selectedIndex) => selectedIndex switch { ClaudeCodeProviderSelectedIndex => CliProviderKind.ClaudeCode, ZaiProviderSelectedIndex => CliProviderKind.Zai, OpenCodeGoProviderSelectedIndex => CliProviderKind.OpenCodeGo, OllamaProviderSelectedIndex => CliProviderKind.Ollama, NeuralwattProviderSelectedIndex => CliProviderKind.Neuralwatt, _ => CliProviderKind.Codex  };
+    private static CliProviderKind GetProviderKindFromSelectedIndex(int selectedIndex) => selectedIndex switch { ClaudeCodeProviderSelectedIndex => CliProviderKind.ClaudeCode, ZaiProviderSelectedIndex => CliProviderKind.Zai, OpenCodeGoProviderSelectedIndex => CliProviderKind.OpenCodeGo, OllamaProviderSelectedIndex => CliProviderKind.Ollama, NeuralwattProviderSelectedIndex => CliProviderKind.Neuralwatt, ClaudeDesktopProviderSelectedIndex => CliProviderKind.ClaudeDesktop, _ => CliProviderKind.Codex };
 
     private SelectorBarItem GetSelectorBarItem(MainPageNavigationSection mainPageNavigationSection) => mainPageNavigationSection switch
     {

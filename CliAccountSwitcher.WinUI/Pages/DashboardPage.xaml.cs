@@ -52,6 +52,14 @@ public sealed partial class DashboardPage : Page
             };
             await addNeuralwattAccountDialog.ShowAsync();
         }
+        else if (selectedProviderKind == CliProviderKind.ClaudeDesktop)
+        {
+            var addClaudeDesktopAccountDialog = new CliAccountSwitcher.WinUI.Dialogs.AddClaudeDesktopAccountDialog
+            {
+                XamlRoot = XamlRoot
+            };
+            await addClaudeDesktopAccountDialog.ShowAsync();
+        }
         else
         {
             var addAccountDialog = new CliAccountSwitcher.WinUI.Dialogs.AddAccountDialog

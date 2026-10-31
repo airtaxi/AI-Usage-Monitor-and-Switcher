@@ -181,6 +181,9 @@
   <data name="AccountsPage_ClaudeCodeTeamPlanFilterSelectorBarItem.Text" xml:space="preserve">
     <value>Team</value>
   </data>
+  <data name="AccountsPage_ClaudeDesktopBackupFileTypeChoice" xml:space="preserve">
+    <value>Claude Desktop Backup (.cdb)</value>
+  </data>
   <data name="AccountsPage_DeleteAccountDialogMessage" xml:space="preserve">
     <value>Delete this account?</value>
   </data>
@@ -255,6 +258,9 @@
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_ClaudeCode.Text" xml:space="preserve">
     <value>Use Add Account to sign in to Claude Code or load credentials.</value>
+  </data>
+  <data name="AccountsPage_NoAccountsDescriptionTextBlock_ClaudeDesktop.Text" xml:space="preserve">
+    <value>Use Add Account to import an account signed in to Claude Desktop.</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Codex.Text" xml:space="preserve">
     <value>Use Add Account to sign in to Codex or load an auth file.</value>
@@ -429,6 +435,36 @@
   </data>
   <data name="AddAccountDialog_OAuthSelectorBarItem.Text" xml:space="preserve">
     <value>OAuth</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog.CloseButtonText" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog.Title" xml:space="preserve">
+    <value>Add Claude Desktop Account</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_AccountsHeaderTextBlock.Text" xml:space="preserve">
+    <value>Accounts</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_CurrentAccountTextBlock.Text" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_DescriptionTextBlock.Text" xml:space="preserve">
+    <value>Import accounts that are signed in to Claude Desktop. Claude Desktop's sign-in and data are not changed.</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_EmptyStateTextBlock.Text" xml:space="preserve">
+    <value>No accounts signed in to Claude Desktop were found. Sign in to Claude Desktop and try again.</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ErrorInfoBar.Message" xml:space="preserve">
+    <value>Claude Desktop data could not be read. Make sure Claude Desktop is installed and signed in, then try again.</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
+    <value>Could Not Read Claude Desktop</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ImportButtonTextBlock.Text" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ReadOnlyNoticeTextBlock.Text" xml:space="preserve">
+    <value>Imported accounts are read-only. Switching changes which account this app monitors, not the account signed in to Claude Desktop.</value>
   </data>
   <data name="AddNeuralwattAccountDialog.CloseButtonText" xml:space="preserve">
     <value>Close</value>
@@ -1042,6 +1078,12 @@
   <data name="Provider_ClaudeCodeDisplayName" xml:space="preserve">
     <value>Claude Code</value>
   </data>
+  <data name="Provider_ClaudeDesktopComboBoxItem.Content" xml:space="preserve">
+    <value>Claude Desktop (Read-only)</value>
+  </data>
+  <data name="Provider_ClaudeDesktopDisplayName" xml:space="preserve">
+    <value>Claude Desktop</value>
+  </data>
   <data name="Provider_CodexComboBoxItem.Content" xml:space="preserve">
     <value>Codex</value>
   </data>
@@ -1451,6 +1493,12 @@ The installed app is already up to date.</value>
   </data>
   <data name="SkillsPage_CaskillsBackupFileTypeChoice" xml:space="preserve">
     <value>Codex Account Skills Backup (.caskills)</value>
+  </data>
+  <data name="SkillsPage_ClaudeDesktopUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Claude Desktop is a read-only provider that does not manage local skill files. Switch to Codex, Claude Code, or OpenCode Go to manage skills.</value>
+  </data>
+  <data name="SkillsPage_ClaudeDesktopUnsupportedTitleTextBlock.Text" xml:space="preserve">
+    <value>Skills are not supported</value>
   </data>
   <data name="SkillsPage_DeleteButtonText" xml:space="preserve">
     <value>Delete</value>

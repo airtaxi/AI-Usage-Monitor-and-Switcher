@@ -80,6 +80,17 @@ public sealed partial class AccountsPage : Page
             return;
         }
 
+        if (ViewModel.SelectedProviderKind == CliProviderKind.ClaudeDesktop)
+        {
+            var addClaudeDesktopAccountDialog = new CliAccountSwitcher.WinUI.Dialogs.AddClaudeDesktopAccountDialog
+            {
+                XamlRoot = XamlRoot
+            };
+            await addClaudeDesktopAccountDialog.ShowAsync();
+            ViewModel.ReloadAccounts();
+            return;
+        }
+
         var addAccountDialog = new CliAccountSwitcher.WinUI.Dialogs.AddAccountDialog
         {
             XamlRoot = XamlRoot

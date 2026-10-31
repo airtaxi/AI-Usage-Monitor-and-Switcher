@@ -6,7 +6,7 @@
 
 ![AI Usage Monitor & Switcher 스크린샷](.github/Assets/KO.jpg)
 
-AI Usage Monitor & Switcher는 AI 코딩 도구에서 활성화된 계정의 사용량과 초기화 주기별 사용 속도를 Windows 작업 표시줄에 표시하고 계정을 관리·전환하는 데스크톱 앱입니다. Codex, Claude Code, Z.ai, OpenCode Go, Ollama, Neuralwatt 계정을 지원합니다.
+AI Usage Monitor & Switcher는 AI 코딩 도구에서 활성화된 계정의 사용량과 초기화 주기별 사용 속도를 Windows 작업 표시줄에 표시하고 계정을 관리·전환하는 데스크톱 앱입니다. Codex, Claude Code, Claude Desktop, Z.ai, OpenCode Go, Ollama, Neuralwatt 계정을 지원합니다.
 
 앱은 저장된 계정 목록을 자체 로컬 앱 데이터 폴더에 보관하고 선택한 인증 문서를 해당 도구의 로컬 인증 파일에 기록해 활성 계정을 전환합니다.
 
@@ -17,7 +17,8 @@ AI Usage Monitor & Switcher는 AI 코딩 도구에서 활성화된 계정의 사
 
 ## 주요 기능
 
-- 지원되는 로그인 및 가져오기 방식으로 Codex, Claude Code, Z.ai, OpenCode Go, Ollama, Neuralwatt 계정을 추가합니다.
+- 지원되는 로그인 및 가져오기 방식으로 Codex, Claude Code, Claude Desktop, Z.ai, OpenCode Go, Ollama, Neuralwatt 계정을 추가합니다.
+- Claude Desktop 앱에 로그인된 계정을 읽기 전용으로 가져와 사용량을 확인합니다. 데스크톱 앱의 로그인 상태는 바뀌지 않습니다.
 - 계정 화면에서 지원되는 CLI의 활성 계정을 전환합니다.
 - 지원되는 계정의 플랜과 잔여 사용량 정보를 확인합니다.
 - Windows 작업 표시줄에서 활성 계정 사용량을 실시간으로 조회하고 새로 고칩니다.
@@ -58,7 +59,7 @@ AI Usage Monitor & Switcher는 AI 코딩 도구에서 활성화된 계정의 사
 | 프로젝트 | 설명 |
 | --- | --- |
 | `CliAccountSwitcher.WinUI` | 패키징된 WinUI 3 데스크톱 앱입니다. |
-| `CliAccountSwitcher.Api` | Codex, Claude Code, Z.ai, OpenCode Go, Ollama, Neuralwatt 인증, 사용량, 모델, API 클라이언트 도우미를 담당합니다. |
+| `CliAccountSwitcher.Api` | Codex, Claude Code, Claude Desktop, Z.ai, OpenCode Go, Ollama, Neuralwatt 인증, 사용량, 모델, API 클라이언트 도우미를 담당합니다. |
 | `CliAccountSwitcher.Api.Sample` | Codex와 Claude Code API 동작을 확인하기 위한 콘솔 샘플 프로젝트입니다. |
 
 WinUI 앱은 `net10.0-windows10.0.26100.0`을 대상으로 하며, NativeAOT 게시와 MSIX 도구를 사용하고 `x86`, `x64`, `ARM64` 패키지 번들을 지원합니다.

@@ -181,6 +181,9 @@
   <data name="AccountsPage_ClaudeCodeTeamPlanFilterSelectorBarItem.Text" xml:space="preserve">
     <value>Team</value>
   </data>
+  <data name="AccountsPage_ClaudeDesktopBackupFileTypeChoice" xml:space="preserve">
+    <value>Claude Desktop バックアップ (.cdb)</value>
+  </data>
   <data name="AccountsPage_DeleteAccountDialogMessage" xml:space="preserve">
     <value>このアカウントを削除しますか?</value>
   </data>
@@ -255,6 +258,9 @@
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_ClaudeCode.Text" xml:space="preserve">
     <value>アカウント追加ボタンから Claude Code にログインするか、認証情報を読み込んでください。</value>
+  </data>
+  <data name="AccountsPage_NoAccountsDescriptionTextBlock_ClaudeDesktop.Text" xml:space="preserve">
+    <value>アカウント追加から Claude Desktop にサインイン済みのアカウントをインポートしてください。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Codex.Text" xml:space="preserve">
     <value>アカウント追加ボタンから Codex にログインするか、認証ファイルを読み込んでください。</value>
@@ -429,6 +435,36 @@
   </data>
   <data name="AddAccountDialog_OAuthSelectorBarItem.Text" xml:space="preserve">
     <value>OAuth</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog.CloseButtonText" xml:space="preserve">
+    <value>閉じる</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog.Title" xml:space="preserve">
+    <value>Claude Desktop アカウントを追加</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_AccountsHeaderTextBlock.Text" xml:space="preserve">
+    <value>アカウント</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_CurrentAccountTextBlock.Text" xml:space="preserve">
+    <value>現在のアカウント</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_DescriptionTextBlock.Text" xml:space="preserve">
+    <value>Claude Desktop にサインイン済みのアカウントをインポートします。Claude Desktop のサインイン状態とデータは変更されません。</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_EmptyStateTextBlock.Text" xml:space="preserve">
+    <value>Claude Desktop にサインイン済みのアカウントが見つかりませんでした。Claude Desktop にサインインしてから再試行してください。</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ErrorInfoBar.Message" xml:space="preserve">
+    <value>Claude Desktop のデータを読み取れませんでした。Claude Desktop がインストールされ、サインインしていることを確認してから再試行してください。</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
+    <value>Claude Desktop を読み取れませんでした</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ImportButtonTextBlock.Text" xml:space="preserve">
+    <value>インポート</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ReadOnlyNoticeTextBlock.Text" xml:space="preserve">
+    <value>インポートしたアカウントは読み取り専用です。切り替えはこのアプリが監視するアカウントを変更するだけで、Claude Desktop にサインインしているアカウントは変更されません。</value>
   </data>
   <data name="AddNeuralwattAccountDialog.CloseButtonText" xml:space="preserve">
     <value>閉じる</value>
@@ -1042,6 +1078,12 @@
   <data name="Provider_ClaudeCodeDisplayName" xml:space="preserve">
     <value>Claude Code</value>
   </data>
+  <data name="Provider_ClaudeDesktopComboBoxItem.Content" xml:space="preserve">
+    <value>Claude Desktop (読み取り専用)</value>
+  </data>
+  <data name="Provider_ClaudeDesktopDisplayName" xml:space="preserve">
+    <value>Claude Desktop</value>
+  </data>
   <data name="Provider_CodexComboBoxItem.Content" xml:space="preserve">
     <value>Codex</value>
   </data>
@@ -1451,6 +1493,12 @@ Microsoft Store に {0} 件の更新があります。</value>
   </data>
   <data name="SkillsPage_CaskillsBackupFileTypeChoice" xml:space="preserve">
     <value>Codex Account Skills Backup (.caskills)</value>
+  </data>
+  <data name="SkillsPage_ClaudeDesktopUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Claude Desktop は読み取り専用プロバイダーであり、ローカルスキルファイルを管理しません。スキルを管理するには Codex、Claude Code、または OpenCode Go に切り替えてください。</value>
+  </data>
+  <data name="SkillsPage_ClaudeDesktopUnsupportedTitleTextBlock.Text" xml:space="preserve">
+    <value>スキルはサポートされていません</value>
   </data>
   <data name="SkillsPage_DeleteButtonText" xml:space="preserve">
     <value>削除</value>

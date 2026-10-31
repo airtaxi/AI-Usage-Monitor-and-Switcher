@@ -7,5 +7,6 @@ public enum CliProviderKind
     Zai = 3,
     OpenCodeGo = 4,
     Ollama = 5,
-    Neuralwatt = 6
+    Neuralwatt = 6,
+    ClaudeDesktop = 7
 }

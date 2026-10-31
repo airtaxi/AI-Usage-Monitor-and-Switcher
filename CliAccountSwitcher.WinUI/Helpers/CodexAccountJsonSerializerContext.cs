@@ -1,4 +1,5 @@
-﻿using CliAccountSwitcher.Api.Providers.Codex.Models.Authentication;
+﻿using CliAccountSwitcher.Api.Providers.Abstractions;
+using CliAccountSwitcher.Api.Providers.Codex.Models.Authentication;
 using CliAccountSwitcher.Api.Providers.Codex.Models.Usage;
 using CliAccountSwitcher.Api.Providers.Neuralwatt.Models.Usage;
 using CliAccountSwitcher.Api.Providers.Ollama.Models.Usage;
@@ -41,4 +42,9 @@ namespace CliAccountSwitcher.WinUI.Helpers;
 [JsonSerializable(typeof(NeuralwattAccount))]
 [JsonSerializable(typeof(NeuralwattUsageSnapshot))]
 [JsonSerializable(typeof(NeuralwattUsageWindow))]
+[JsonSerializable(typeof(ClaudeDesktopAccountStoreDocument))]
+[JsonSerializable(typeof(List<ClaudeDesktopAccount>))]
+[JsonSerializable(typeof(ClaudeDesktopAccount))]
+[JsonSerializable(typeof(ProviderUsageSnapshot))]
+[JsonSerializable(typeof(ProviderUsageWindow))]
 public sealed partial class CodexAccountJsonSerializerContext : JsonSerializerContext;

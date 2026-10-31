@@ -52,6 +52,7 @@ public sealed partial class AccountsPageViewModel : ObservableObject, IDisposabl
     [NotifyPropertyChangedFor(nameof(IsOpenCodeGoProviderSelected))]
     [NotifyPropertyChangedFor(nameof(IsOllamaProviderSelected))]
     [NotifyPropertyChangedFor(nameof(IsNeuralwattProviderSelected))]
+    [NotifyPropertyChangedFor(nameof(IsClaudeDesktopProviderSelected))]
     [NotifyPropertyChangedFor(nameof(DescriptionText))]
     [NotifyPropertyChangedFor(nameof(NoAccountsDescriptionText))]
     [NotifyPropertyChangedFor(nameof(PlanHeaderText))]
@@ -101,11 +102,13 @@ public sealed partial class AccountsPageViewModel : ObservableObject, IDisposabl
 
     public bool IsNeuralwattProviderSelected => SelectedProviderKind == CliProviderKind.Neuralwatt;
 
+    public bool IsClaudeDesktopProviderSelected => SelectedProviderKind == CliProviderKind.ClaudeDesktop;
+
     public int SearchBoxColumnSpan => IsOpenCodeGoProviderSelected || IsNeuralwattProviderSelected ? 2 : 1;
 
     // Localizations
     public string DescriptionText => _localizationService.GetFormattedString("AccountsPageViewModel_DescriptionFormat", GetProviderDisplayName(SelectedProviderKind));
-    public string NoAccountsDescriptionText => SelectedProviderKind switch { CliProviderKind.ClaudeCode => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_ClaudeCode.Text"), CliProviderKind.Zai => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_Zai.Text"), CliProviderKind.OpenCodeGo => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_OpenCodeGo.Text"), CliProviderKind.Ollama => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_Ollama.Text"), CliProviderKind.Neuralwatt => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_Neuralwatt.Text"), _ => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_Codex.Text") };
+    public string NoAccountsDescriptionText => SelectedProviderKind switch { CliProviderKind.ClaudeCode => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_ClaudeCode.Text"), CliProviderKind.Zai => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_Zai.Text"), CliProviderKind.OpenCodeGo => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_OpenCodeGo.Text"), CliProviderKind.Ollama => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_Ollama.Text"), CliProviderKind.Neuralwatt => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_Neuralwatt.Text"), CliProviderKind.ClaudeDesktop => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_ClaudeDesktop.Text"), _ => _localizationService.GetLocalizedString("AccountsPage_NoAccountsDescriptionTextBlock_Codex.Text") };
     public string PlanHeaderText => _localizationService.GetLocalizedString("AccountsPage_PlanHeaderTextBlock/Text");
     public string RefreshAllAccountsLoadingMessage => _localizationService.GetLocalizedString("AccountsPage_RefreshAllAccountsLoadingMessage");
     public string RefreshSelectedAccountsLoadingMessage => _localizationService.GetLocalizedString("AccountsPage_RefreshSelectedAccountsLoadingMessage");
@@ -462,11 +465,11 @@ public sealed partial class AccountsPageViewModel : ObservableObject, IDisposabl
 
     partial void OnSelectedPlanFilterChanged(string value) => ApplyFilter();
 
-    private string GetProviderDisplayName(CliProviderKind providerKind) => providerKind switch { CliProviderKind.ClaudeCode => _localizationService.GetLocalizedString("Provider_ClaudeCodeDisplayName"), CliProviderKind.Zai => _localizationService.GetLocalizedString("Provider_ZaiDisplayName"), CliProviderKind.OpenCodeGo => _localizationService.GetLocalizedString("Provider_OpenCodeGoDisplayName"), CliProviderKind.Ollama => _localizationService.GetLocalizedString("Provider_OllamaDisplayName"), CliProviderKind.Neuralwatt => _localizationService.GetLocalizedString("Provider_NeuralwattDisplayName"), _ => _localizationService.GetLocalizedString("Provider_CodexDisplayName") };
+    private string GetProviderDisplayName(CliProviderKind providerKind) => providerKind switch { CliProviderKind.ClaudeCode => _localizationService.GetLocalizedString("Provider_ClaudeCodeDisplayName"), CliProviderKind.Zai => _localizationService.GetLocalizedString("Provider_ZaiDisplayName"), CliProviderKind.OpenCodeGo => _localizationService.GetLocalizedString("Provider_OpenCodeGoDisplayName"), CliProviderKind.Ollama => _localizationService.GetLocalizedString("Provider_OllamaDisplayName"), CliProviderKind.Neuralwatt => _localizationService.GetLocalizedString("Provider_NeuralwattDisplayName"), CliProviderKind.ClaudeDesktop => _localizationService.GetLocalizedString("Provider_ClaudeDesktopDisplayName"), _ => _localizationService.GetLocalizedString("Provider_CodexDisplayName") };
 
-    public static string GetBackupFileExtension(CliProviderKind providerKind) => providerKind switch { CliProviderKind.ClaudeCode => ".ccb", CliProviderKind.Zai => ".zaib", CliProviderKind.OpenCodeGo => ".ocb", CliProviderKind.Ollama => ".ollamab", CliProviderKind.Neuralwatt => ".nwb", _ => ".zip" };
+    public static string GetBackupFileExtension(CliProviderKind providerKind) => providerKind switch { CliProviderKind.ClaudeCode => ".ccb", CliProviderKind.Zai => ".zaib", CliProviderKind.OpenCodeGo => ".ocb", CliProviderKind.Ollama => ".ollamab", CliProviderKind.Neuralwatt => ".nwb", CliProviderKind.ClaudeDesktop => ".cdb", _ => ".zip" };
 
-    private static string GetBackupFileTypeChoiceResourceName(CliProviderKind providerKind) => providerKind switch { CliProviderKind.ClaudeCode => "AccountsPage_ClaudeCodeBackupFileTypeChoice", CliProviderKind.Zai => "AccountsPage_ZaiBackupFileTypeChoice", CliProviderKind.OpenCodeGo => "AccountsPage_OpenCodeGoBackupFileTypeChoice", CliProviderKind.Ollama => "AccountsPage_OllamaBackupFileTypeChoice", CliProviderKind.Neuralwatt => "AccountsPage_NeuralwattBackupFileTypeChoice", _ => "AccountsPage_ZipBackupFileTypeChoice" };
+    private static string GetBackupFileTypeChoiceResourceName(CliProviderKind providerKind) => providerKind switch { CliProviderKind.ClaudeCode => "AccountsPage_ClaudeCodeBackupFileTypeChoice", CliProviderKind.Zai => "AccountsPage_ZaiBackupFileTypeChoice", CliProviderKind.OpenCodeGo => "AccountsPage_OpenCodeGoBackupFileTypeChoice", CliProviderKind.Ollama => "AccountsPage_OllamaBackupFileTypeChoice", CliProviderKind.Neuralwatt => "AccountsPage_NeuralwattBackupFileTypeChoice", CliProviderKind.ClaudeDesktop => "AccountsPage_ClaudeDesktopBackupFileTypeChoice", _ => "AccountsPage_ZipBackupFileTypeChoice" };
 
 
 }

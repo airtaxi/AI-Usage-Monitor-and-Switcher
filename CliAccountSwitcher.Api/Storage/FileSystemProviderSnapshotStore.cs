@@ -150,7 +150,7 @@ public sealed class FileSystemProviderSnapshotStore : IProviderSnapshotStore
 
     private string BuildPayloadFilePath(CliProviderKind providerKind, string storedAccountIdentifier) => Path.Combine(BuildProviderDirectoryPath(providerKind), $"{storedAccountIdentifier}.bin");
 
-    private static string GetProviderDirectoryName(CliProviderKind providerKind) => providerKind switch { CliProviderKind.Codex => "codex", CliProviderKind.ClaudeCode => "claude-code", _ => providerKind.ToString().ToLowerInvariant() };
+    private static string GetProviderDirectoryName(CliProviderKind providerKind) => providerKind switch { CliProviderKind.Codex => "codex", CliProviderKind.ClaudeCode => "claude-code", CliProviderKind.ClaudeDesktop => "claude-desktop", _ => providerKind.ToString().ToLowerInvariant() };
 
     private static StoredProviderAccount CloneStoredProviderAccount(StoredProviderAccount storedProviderAccount, bool isActive) => new()
     {

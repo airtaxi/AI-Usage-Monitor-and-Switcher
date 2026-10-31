@@ -129,7 +129,7 @@ public sealed class ClaudeCodeCredentialDocument
         return jsonArray;
     }
 
-    private static string CreatePlanType(string subscriptionType, string rateLimitTier)
+    internal static string CreatePlanType(string subscriptionType, string rateLimitTier)
     {
         var normalizedSubscriptionType = subscriptionType.Trim().ToLowerInvariant();
         var normalizedRateLimitTier = rateLimitTier.Trim().ToLowerInvariant();

@@ -182,7 +182,7 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
 
     public string SearchText => $"{DisplayName} {EmailAddress} {PlanText} {AccountIdentifier} {ProviderAccount.ProviderAccountIdentifier}";
 
-    public bool CanRename => ProviderKind is CliProviderKind.Codex or CliProviderKind.Zai or CliProviderKind.OpenCodeGo or CliProviderKind.Neuralwatt;
+    public bool CanRename => ProviderKind is CliProviderKind.Codex or CliProviderKind.Zai or CliProviderKind.OpenCodeGo or CliProviderKind.Neuralwatt or CliProviderKind.ClaudeDesktop;
 
     public void Update(ProviderAccount providerAccount)
     {

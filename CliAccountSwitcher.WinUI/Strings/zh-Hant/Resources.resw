@@ -181,6 +181,9 @@
   <data name="AccountsPage_ClaudeCodeTeamPlanFilterSelectorBarItem.Text" xml:space="preserve">
     <value>Team</value>
   </data>
+  <data name="AccountsPage_ClaudeDesktopBackupFileTypeChoice" xml:space="preserve">
+    <value>Claude Desktop 備份 (.cdb)</value>
+  </data>
   <data name="AccountsPage_DeleteAccountDialogMessage" xml:space="preserve">
     <value>要刪除此帳號吗？</value>
   </data>
@@ -255,6 +258,9 @@
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_ClaudeCode.Text" xml:space="preserve">
     <value>點擊「新增帳號」登入 Claude Code 或載入認證資訊。</value>
+  </data>
+  <data name="AccountsPage_NoAccountsDescriptionTextBlock_ClaudeDesktop.Text" xml:space="preserve">
+    <value>點擊「新增帳號」匯入已在 Claude Desktop 登入的帳號。</value>
   </data>
   <data name="AccountsPage_NoAccountsDescriptionTextBlock_Codex.Text" xml:space="preserve">
     <value>點擊「新增帳號」登入 Codex 或載入認證檔案。</value>
@@ -429,6 +435,36 @@
   </data>
   <data name="AddAccountDialog_OAuthSelectorBarItem.Text" xml:space="preserve">
     <value>OAuth</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog.CloseButtonText" xml:space="preserve">
+    <value>關閉</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog.Title" xml:space="preserve">
+    <value>新增 Claude Desktop 帳號</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_AccountsHeaderTextBlock.Text" xml:space="preserve">
+    <value>帳號</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_CurrentAccountTextBlock.Text" xml:space="preserve">
+    <value>目前帳號</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_DescriptionTextBlock.Text" xml:space="preserve">
+    <value>匯入已在 Claude Desktop 登入的帳號。Claude Desktop 的登入狀態和資料不會變更。</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_EmptyStateTextBlock.Text" xml:space="preserve">
+    <value>找不到已在 Claude Desktop 登入的帳號。請登入 Claude Desktop 後再試一次。</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ErrorInfoBar.Message" xml:space="preserve">
+    <value>無法讀取 Claude Desktop 資料。請確認 Claude Desktop 已安裝並已登入，然後再試一次。</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ErrorInfoBar.Title" xml:space="preserve">
+    <value>無法讀取 Claude Desktop</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ImportButtonTextBlock.Text" xml:space="preserve">
+    <value>匯入</value>
+  </data>
+  <data name="AddClaudeDesktopAccountDialog_ReadOnlyNoticeTextBlock.Text" xml:space="preserve">
+    <value>匯入的帳號為唯讀。切換只會變更此應用程式監視的帳號，不會變更 Claude Desktop 登入的帳號。</value>
   </data>
   <data name="AddNeuralwattAccountDialog.CloseButtonText" xml:space="preserve">
     <value>關閉</value>
@@ -1042,6 +1078,12 @@
   <data name="Provider_ClaudeCodeDisplayName" xml:space="preserve">
     <value>Claude Code</value>
   </data>
+  <data name="Provider_ClaudeDesktopComboBoxItem.Content" xml:space="preserve">
+    <value>Claude Desktop (唯讀)</value>
+  </data>
+  <data name="Provider_ClaudeDesktopDisplayName" xml:space="preserve">
+    <value>Claude Desktop</value>
+  </data>
   <data name="Provider_CodexComboBoxItem.Content" xml:space="preserve">
     <value>Codex</value>
   </data>
@@ -1451,6 +1493,12 @@ Microsoft Store 中有 {0} 個可用更新。</value>
   </data>
   <data name="SkillsPage_CaskillsBackupFileTypeChoice" xml:space="preserve">
     <value>Codex Account Skills Backup (.caskills)</value>
+  </data>
+  <data name="SkillsPage_ClaudeDesktopUnsupportedDescriptionTextBlock.Text" xml:space="preserve">
+    <value>Claude Desktop 是唯讀提供者，不管理本地技能檔案。請切換到 Codex、Claude Code 或 OpenCode Go 來管理技能。</value>
+  </data>
+  <data name="SkillsPage_ClaudeDesktopUnsupportedTitleTextBlock.Text" xml:space="preserve">
+    <value>不支援技能管理</value>
   </data>
   <data name="SkillsPage_DeleteButtonText" xml:space="preserve">
     <value>刪除</value>

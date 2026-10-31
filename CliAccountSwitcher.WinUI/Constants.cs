@@ -23,4 +23,5 @@ public static class Constants
     public static string OpenCodeGoAccountsFilePath => Path.Combine(UserDataDirectory, "opencode-accounts.json");
     public static string OllamaAccountsFilePath => Path.Combine(UserDataDirectory, "ollama-accounts.json");
     public static string NeuralwattAccountsFilePath => Path.Combine(UserDataDirectory, "neuralwatt-accounts.json");
+    public static string ClaudeDesktopAccountsFilePath => Path.Combine(UserDataDirectory, "claude-desktop-accounts.json");
 }
