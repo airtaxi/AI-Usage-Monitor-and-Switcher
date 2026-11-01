@@ -53,6 +53,7 @@ public sealed partial class AccountsPageViewModel : ObservableObject, IDisposabl
     [NotifyPropertyChangedFor(nameof(IsOllamaProviderSelected))]
     [NotifyPropertyChangedFor(nameof(IsNeuralwattProviderSelected))]
     [NotifyPropertyChangedFor(nameof(IsClaudeDesktopProviderSelected))]
+    [NotifyPropertyChangedFor(nameof(IsClaudePlanFilterVisible))]
     [NotifyPropertyChangedFor(nameof(DescriptionText))]
     [NotifyPropertyChangedFor(nameof(NoAccountsDescriptionText))]
     [NotifyPropertyChangedFor(nameof(PlanHeaderText))]
@@ -103,6 +104,8 @@ public sealed partial class AccountsPageViewModel : ObservableObject, IDisposabl
     public bool IsNeuralwattProviderSelected => SelectedProviderKind == CliProviderKind.Neuralwatt;
 
     public bool IsClaudeDesktopProviderSelected => SelectedProviderKind == CliProviderKind.ClaudeDesktop;
+
+    public bool IsClaudePlanFilterVisible => IsClaudeCodeProviderSelected || IsClaudeDesktopProviderSelected;
 
     public int SearchBoxColumnSpan => IsOpenCodeGoProviderSelected || IsNeuralwattProviderSelected ? 2 : 1;
 

@@ -135,7 +135,7 @@
                     x:Name="ClaudeCodePlanFilterSelectorBar"
                     SelectedItem="{x:Bind ClaudeCodeAllPlanFilterSelectorBarItem}"
                     SelectionChanged="OnPlanFilterSelectorBarSelectionChanged"
-                    Visibility="{x:Bind ViewModel.IsClaudeCodeProviderSelected, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
+                    Visibility="{x:Bind ViewModel.IsClaudePlanFilterVisible, Mode=OneWay, Converter={StaticResource BoolToVisibilityConverter}}">
                     <SelectorBarItem
                         x:Name="ClaudeCodeAllPlanFilterSelectorBarItem"
                         x:Uid="AccountsPage_ClaudeCodeAllPlanFilterSelectorBarItem"
