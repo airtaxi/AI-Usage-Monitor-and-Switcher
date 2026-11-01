@@ -170,10 +170,10 @@
     <value>Enterprise</value>
   </data>
   <data name="AccountsPage_ClaudeCodeMax20xPlanFilterSelectorBarItem.Text" xml:space="preserve">
-    <value>Max 20x</value>
+    <value>Ultra</value>
   </data>
   <data name="AccountsPage_ClaudeCodeMax5xPlanFilterSelectorBarItem.Text" xml:space="preserve">
-    <value>Max 5x</value>
+    <value>Max</value>
   </data>
   <data name="AccountsPage_ClaudeCodeProPlanFilterSelectorBarItem.Text" xml:space="preserve">
     <value>Pro</value>

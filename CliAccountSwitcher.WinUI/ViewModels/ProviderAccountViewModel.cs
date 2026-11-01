@@ -293,7 +293,7 @@ public sealed partial class ProviderAccountViewModel(ProviderAccount providerAcc
         OnPropertyChanged(nameof(MonthlyUsageResetText));
     }
 
-    private static string FormatClaudeCodePlanText(string planType) => string.IsNullOrWhiteSpace(planType) ? "Unknown" : planType;
+    private string FormatClaudeCodePlanText(string planType) => string.IsNullOrWhiteSpace(planType) ? "Unknown" : string.Equals(planType, "Max 5x", StringComparison.OrdinalIgnoreCase) ? _localizationService.GetLocalizedString("AccountsPage_ClaudeCodeMax5xPlanFilterSelectorBarItem/Text") : string.Equals(planType, "Max 20x", StringComparison.OrdinalIgnoreCase) ? _localizationService.GetLocalizedString("AccountsPage_ClaudeCodeMax20xPlanFilterSelectorBarItem/Text") : planType;
 
     private string FormatZaiPlanText(string planType) => string.IsNullOrWhiteSpace(planType) ? _localizationService.GetLocalizedString("ProviderAccountViewModel_UnknownPlan") : CultureInfo.CurrentCulture.TextInfo.ToTitleCase(planType.ToLowerInvariant());
 
